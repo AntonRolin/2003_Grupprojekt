@@ -4,29 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="structure.css">
+    <title>Structure</title>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
+<body style="background-color: lightgray;">
+    <nav class="navbar" style="background-color: white;">
+        <div class="container px-5">
             <div class="row">
-                <div class="col-sm-5">
-                    <img src="images/Logo.png" class="img-rounded" alt="Cinque Terre" width="100%" height="75">
+                <div class="col-sm-6">
+                    <img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%">
                 </div>
-                <div class="col-sm-3">Öppettider idag: 09:00-22:00 Telefon: 0732381231</div>
-                <div class="col-sm-4"><Button type="button" class="btn-lg btn-info">Logga in</Button></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-2"><p class="nav-info">Öppettider idag: 09:00-22:00</p><p>Telefon: 0732381231</p></div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 "><Button type="button" class="btn-lg btn-primary ms-2 mb-3">Logga in</Button></div>
+                        <div class="col-sm-12"><Button type="button" class="btn-lg btn-danger ms-2">Varukorg</Button></div>
+                    </div>
+                </div>
+                <div class="col-sm-10">
                     <br>
                     <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <div class="col-sm-4"><Button type="button" class="btn-lg btn-danger">Varukorg</Button></div>
-            </div>
+                </div>        
+            </div>  
         </div>
     </nav>
+    <!-- Rest of the body here -->
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container px-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Om oss</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Vår historia</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Medlemsvillkor</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Integritetspolicy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright:
+            <p class="text-dark">Java X Kvalit</p>
+        </div>
+    </footer>
+    <!-- Script here -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>
