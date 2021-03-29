@@ -1,21 +1,26 @@
 const loginBtn = document.getElementById('loginBtn');
-
-loginBtn.onclick = login();
+const invalidUserMsg = document.getElementById('invalidUserMsg');
 
 /**
  * Attempts to login the user whenever the login button is pressed
  */
 function login(){
+    invalidUserMsg.innerHTML = "";
+
     let username = document.getElementById('inputUsername');
     let password = document.getElementById('inputPassword');
 
-    checkFieldIsEmpty(username);
-    checkFieldIsEmpty(password);
+    let usernameBool = checkFieldIsEmpty(username);
+    let passwordBool = checkFieldIsEmpty(password);
 
-    if(username){
-        if(password){
+    if(usernameBool){
+        if(passwordBool){
             if(checkUserInfo(username, password)){
-
+                invalidUserMsg.innerHTML = "";
+                alert("success2");
+            }
+            else{
+                invalidUserMsg.innerHTML = "Kontot finns inte registrerat";
             }
         }
     }
@@ -24,11 +29,11 @@ function login(){
  * Checks if the user is in the database
  */
 function checkUserInfo(username, password){
-    return true;
+    return false;
 }
 
 function checkFieldIsEmpty(field){
-    if(field.length > 0){
+    if(field.value.length > 0){
         field.style.borderColor = "green";
         document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "";
         return true;
