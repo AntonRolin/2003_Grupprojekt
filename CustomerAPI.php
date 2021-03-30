@@ -1,5 +1,5 @@
 <?php
-$Firstname = [
+$firstname = [
     "Anna", 
     "Bengt", 
     "Cecile", 
@@ -11,7 +11,7 @@ $Firstname = [
     "Ivar",
     "Joel",
     "Hakim"]; //Admin
-$Lastname = [
+$lastname = [
     "Andersson", 
     "Bengtsson", 
     "Cederkvist", 
@@ -23,7 +23,7 @@ $Lastname = [
     "Ibsen",
     "Jonsson",
     ""];
-$Email = [
+$email = [
     "anna_andersson@exempel.se", 
     "bengt_bengtsson@exempel.se", 
     "cecile_cederkvist@exempel.se", 
@@ -35,7 +35,7 @@ $Email = [
     "ivar_ibsen@exempel.se",
     "joel_jonsson@exempel.se",
     "hakim@admin.se"];
-$Password =[
+$password =[
     "annaandersson", 
     "bengtbengtsson", 
     "cecilecederkvist", 
@@ -47,7 +47,7 @@ $Password =[
     "ivaribsen",
     "joeljonsson",
     "admin"];
-$Shipping = [
+$shipping = [
     "Upplandsgatan 1", 
     "Kommendörsgatan 32", 
     "Samaritgränd 4", 
@@ -59,7 +59,7 @@ $Shipping = [
     "",
     "bsatugatn 1",
     ""];
-$Zipcode = [
+$zipcode = [
     11123, 
     11448, 
     11853, 
@@ -71,7 +71,7 @@ $Zipcode = [
     12030, 
     11820,
     ""];
-$City =[
+$city =[
     "Stockholm", 
     "Stockholm", 
     "Stockholm", 
