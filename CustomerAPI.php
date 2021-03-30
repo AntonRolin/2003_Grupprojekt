@@ -22,7 +22,7 @@ $lastname = [
     "Hallax",
     "Ibsen",
     "Jonsson",
-    ""];
+    "Hakimsson"];//Admin
 $email = [
     "anna_andersson@exempel.se", 
     "bengt_bengtsson@exempel.se", 
@@ -34,7 +34,7 @@ $email = [
     "helena_hallax@exempel.se",
     "ivar_ibsen@exempel.se",
     "joel_jonsson@exempel.se",
-    "hakim@admin.se"];
+    "hakim@admin.se"];//Admin
 $password =[
     "annaandersson", 
     "bengtbengtsson", 
@@ -46,7 +46,7 @@ $password =[
     "helenahallax",
     "ivaribsen",
     "joeljonsson",
-    "admin"];
+    "admin"];//Admin
 $shipping = [
     "Upplandsgatan 1", 
     "Kommendörsgatan 32", 
@@ -58,7 +58,7 @@ $shipping = [
     "Kungsholmstorg 11",
     "",
     "bsatugatn 1",
-    ""];
+    ""];//Admin
 $zipcode = [
     11123, 
     11448, 
@@ -70,7 +70,7 @@ $zipcode = [
     "",
     12030, 
     11820,
-    ""];
+    ""];//Admin
 $city =[
     "Stockholm", 
     "Stockholm", 
@@ -82,7 +82,7 @@ $city =[
     "Stockholm",
     "Stockholm",
     "Stockholm",
-    ""];
+    ""];//Admin
 
 
     $customers = [];
