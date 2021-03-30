@@ -9,7 +9,8 @@ $Firstname = [
     "Gustav",
     "Helena",
     "Ivar",
-    "Joel"];
+    "Joel",
+    "Hakim"]; //Admin
 $Lastname = [
     "Andersson", 
     "Bengtsson", 
@@ -20,7 +21,8 @@ $Lastname = [
     "Gran",
     "Hallax",
     "Ibsen",
-    "Jonsson"];
+    "Jonsson",
+    ""];
 $Email = [
     "anna_andersson@exempel.se", 
     "bengt_bengtsson@exempel.se", 
@@ -31,7 +33,8 @@ $Email = [
     "gustav_gran@exempel.se",
     "helena_hallax@exempel.se",
     "ivar_ibsen@exempel.se",
-    "joel_jonsson@exempel.se"];
+    "joel_jonsson@exempel.se",
+    "hakim@admin.se"];
 $Password =[
     "annaandersson", 
     "bengtbengtsson", 
@@ -42,7 +45,8 @@ $Password =[
     "gustavgran",
     "helenahallax",
     "ivaribsen",
-    "joeljonsson"];
+    "joeljonsson",
+    "admin"];
 $Shipping = [
     "Upplandsgatan 1", 
     "Kommendörsgatan 32", 
@@ -53,7 +57,8 @@ $Shipping = [
     "Stöcksjö Södra byväg 9",
     "Kungsholmstorg 11",
     "",
-    "bsatugatn 1"];
+    "bsatugatn 1",
+    ""];
 $Zipcode = [
     11123, 
     11448, 
@@ -64,7 +69,8 @@ $Zipcode = [
     90580,
     "",
     12030, 
-    11820];
+    11820,
+    ""];
 $City =[
     "Stockholm", 
     "Stockholm", 
@@ -75,7 +81,8 @@ $City =[
     "Umeå",
     "Stockholm",
     "Stockholm",
-    "Stockholm"];
+    "Stockholm",
+    ""];
 
 
     $customers = [];
