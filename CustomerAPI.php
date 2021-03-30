@@ -86,9 +86,9 @@ $city =[
 
 
     $customers = [];
-    for($i=0; $i<count($Firstname); $i++){
-        $customer = ["Firstname"=>$Firstname[$i], "Lastname"=>$Lastname[$i], "Email"=>$Email[$i], "Password"=>$Password[$i],
-        "Shipping"=>$Shipping[$i], "Zipcode"=>$Zipcode[$i], "City"=>$City[$i]];
+    for($i=0; $i<count($firstname); $i++){
+        $customer = ["firstname"=>$firstname[$i], "lastname"=>$lastname[$i], "email"=>$email[$i], "password"=>$password[$i],
+        "shipping"=>$shipping[$i], "zipcode"=>$zipcode[$i], "city"=>$city[$i]];
         array_push($customers, $customer);
     }
     $json = json_encode($customers, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
