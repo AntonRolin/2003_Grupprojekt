@@ -1,0 +1,14 @@
+[
+    {
+        "percentage": 15,
+        "flatReduction": 0,
+        "description": "15% rabatt",
+        "expirationDate": "Ett datum"
+    },
+    {
+        "percentage": 0,
+        "flatReduction": 100,
+        "description": "100kr rabatt",
+        "expirationDate": "Ett datum"
+    }
+]
