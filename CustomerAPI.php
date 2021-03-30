@@ -22,7 +22,7 @@ $lastname = [
     "Hallax",
     "Ibsen",
     "Jonsson",
-    "Hakimsson"];//Admin
+    "Livs"];//Admin
 $email = [
     "anna_andersson@exempel.se", 
     "bengt_bengtsson@exempel.se", 
@@ -84,11 +84,13 @@ $city =[
     "Stockholm",
     ""];//Admin
 
+    $isadmin = [false,false,false,false,false,false,false,false,false,false,true];
+
 
     $customers = [];
     for($i=0; $i<count($firstname); $i++){
         $customer = ["firstname"=>$firstname[$i], "lastname"=>$lastname[$i], "email"=>$email[$i], "password"=>$password[$i],
-        "shipping"=>$shipping[$i], "zipcode"=>$zipcode[$i], "city"=>$city[$i]];
+        "shipping"=>$shipping[$i], "zipcode"=>$zipcode[$i], "city"=>$city[$i], "isadmin"=>$isadmin[$i]];
         array_push($customers, $customer);
     }
     $json = json_encode($customers, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
