@@ -43,76 +43,31 @@
         <!-- Rest of the body here -->   
        
 
-        <h1>Bli kund - det är enkelt!</h1>
-
-        <form id="form" class="form">
-            <div class="form-control">
-              <label for="username">Användarnamn</label>
-              <input placeholder="Ange användarnamn" type="text" id="username1" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
+        <h1>Logga in</h1>
+        <div class="row mt-4">
+            <p id="invalidUserMsg" class="text-center text-danger"></p>
+            <div class="col">
+              <form>
+                <div class="mb-4">
+                  <label for="inputUsername" class="form-label">E-mail</label>
+                  <input type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelp">
+                  <div id="usernameHelp" class="form-text"></div>
+                </div>
+                <div class="mb-4">
+                  <label for="inputPassword" class="form-label">Lösenord</label>
+                  <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp">
+                  <div id="passwordHelp" class="form-text"></div>
+                </div>
+                <div class="mb-4">
+                <a href="signup.html" class="text-decoration-none">Registrera dig</a> 
             </div>
-            <div class="form-control">
-              <label for="username">Förnamn</label>
-              <input placeholder="Ange förnamn" type="text" id="firstname" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
             </div>
-                <div class="form-control">
-              <label for="username">Efternamn</label>
-              <input placeholder="Ange efternamn" type="text" id="lastname" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-            <div class="form-control">
-              <label for="username">Email</label>
-              <input placeholder="Ange email" type="email" id="email" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-                <div class="form-control">
-              <label for="username">Telefonnummer</label>
-              <input placeholder="Ange telefonnummer" type="text" id="phonenr" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-                <div class="form-control">
-              <label for="username">Adress</label>
-              <input placeholder="Ange adress" type="text" id="address" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-                <div class="form-control">
-              <label for="username">Postnummer</label>
-              <input placeholder="Ange postnummer" type="text" id="zipcode" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-            <div class="form-control">
-              <label for="username">Välj lösenord (minst sex tecken)</label>
-              <input placeholder="Ange lösenord" type="password" id="password1" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-            <div class="form-control">
-              <label for="username">Bekräfta Lösenord</label>
-              <input placeholder="Bekräfta lösenord" type="password" id="password2" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-            <p>Härmed intygar jag att jag är minst 18 år och godkänner <b>HAKIM LIVS</b> <a href="#">medlemsvillkor</a>, samt bekräftar att jag tagit del av <b>HAKIM LIVS</b> <a href="#">Integritetspolicy</a>.</p>
-            <button class="registerbtn">Skapa konto</button>
-            <p>Redan medlem? <a href="./login.html">Logga in</a>.</p>
-          </form>
+            </form>
+                <div class="col ms-5 mt-4">
+                  <button class="btn btn-primary btn-lg mt-5" id="loginBtn" onclick="login()">Logga in</button>
+                </div>
+                </div>
+        
        </div>
     <!-- Footer -->
     <footer class="footer text-center" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -147,6 +102,8 @@
     <script src="settings.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>
+    <script src="helpfunctions.js"></script>
+    <script src="login.js"></script>
     
 
 </body>
