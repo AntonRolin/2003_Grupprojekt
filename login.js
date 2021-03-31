@@ -1,6 +1,6 @@
 const loginBtn = document.getElementById('loginBtn');
 const invalidUserMsg = document.getElementById('invalidUserMsg');
-const url = 'CustomerAPI.json';
+const url = './CustomerAPI.json';
 let customers;
 
 loadData();
