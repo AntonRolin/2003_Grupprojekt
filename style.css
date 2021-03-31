@@ -7,14 +7,13 @@
 
 }
 .next-container{
-width: 30%;
 max-width: 650px;
-display: flex;
-justify-content: flex-start;
+justify-content: space-around;
+width: 100%;
 margin: 0 auto;
-padding-top: 30px;
 
 }
+
 
 .product-header{
     width: 100%;
@@ -53,8 +52,6 @@ margin: 0 auto;
     width: 25%;
     display: flex;
     align-items: center;
-   /* border-bottom: 4px solid lightgreen;
-   */
 
 }
 .products img{
@@ -94,6 +91,3 @@ align-items: center;
 }
 
 
-.a{
-
-}
