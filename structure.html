@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="structure.css">
     <title>Structure</title>
 </head>
-<body class="bg-light">
+<body  class="d-flex flex-column min-vh-100 bg-light">
     <div class="bg-white">
         <nav class="navbar">
             <div class="container px-5">
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%">
+                        <a href="./index.html"><img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%"></a>
                     </div>
                     <div class="col-sm-2">
                         <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
-                            <div class="col-sm-12 "><Button type="button" class="btn-lg btn-primary ms-2 mb-3" id="loginButton" onclick="loginButtonEvent()">Logga in</Button></div>
+                            <div class="col-sm-12 "><Button type="button" class="btn-lg btn-primary ms-2 mb-3" id="loginButton" onclick="loginButtonEvent(), window.location.href='./login.html'">Logga in</Button></div>
                             <div class="col-sm-12"><Button type="button" class="btn-lg btn-danger ms-2" id="cartButton" onclick="cartButtonEvent()">Varukorg</Button></div>
                         </div>
                     </div>
