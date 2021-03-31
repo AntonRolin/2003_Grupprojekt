@@ -1,21 +1,30 @@
 const loginBtn = document.getElementById('loginBtn');
+const invalidUserMsg = document.getElementById('invalidUserMsg');
+const url = './CustomerAPI.json';
+let customers;
 
-loginBtn.onclick = login();
-
+loadData();
 /**
  * Attempts to login the user whenever the login button is pressed
  */
 function login(){
+    
+    invalidUserMsg.innerHTML = "";
+
     let username = document.getElementById('inputUsername');
     let password = document.getElementById('inputPassword');
 
-    checkFieldIsEmpty(username);
-    checkFieldIsEmpty(password);
+    let usernameBool = checkFieldIsEmpty(username);
+    let passwordBool = checkFieldIsEmpty(password);
 
-    if(username){
-        if(password){
-            if(checkUserInfo(username, password)){
-
+    if(usernameBool){
+        if(passwordBool){
+            if(checkUserInfo(username.value, password.value)){
+                invalidUserMsg.innerHTML = "";
+                alert("success");
+            }
+            else{
+                invalidUserMsg.innerHTML = "Kontot finns inte registrerat";
             }
         }
     }
@@ -24,11 +33,17 @@ function login(){
  * Checks if the user is in the database
  */
 function checkUserInfo(username, password){
-    return true;
+    let isInDatabase = false;
+    customers.forEach(customer => {
+        if(customer.email == username && customer.password == password){
+            isInDatabase = true;
+        }
+    });
+    return isInDatabase;
 }
 
 function checkFieldIsEmpty(field){
-    if(field.length > 0){
+    if(field.value.length > 0){
         field.style.borderColor = "green";
         document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "";
         return true;
@@ -40,3 +55,11 @@ function checkFieldIsEmpty(field){
     }
 }
 
+function loadData(){
+    fetch(url)
+    .then(resp => resp.json())
+    .then(function(data) {
+       customers = data;
+       return customers;
+    });
+}

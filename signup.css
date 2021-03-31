@@ -1,0 +1,137 @@
+* {
+box-sizing: border-box;
+}
+
+
+/* Add padding to containers */
+
+/* Overwrite default styles of hr */
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+
+.registerbtn:hover {
+opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+background-color: #f1f1f1;
+text-align: center;
+}
+
+.form {
+	padding: 30px 40px;	
+}
+
+.form-control {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.form-control label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.form-control input {
+	border: 2px solid #f0f0f0;
+	border-radius: 5px;
+	display: block;
+	font-family: inherit;
+	font-size: 13px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-control input:focus {
+	outline: 0;
+	border-color: rgb(117, 117, 117);
+}
+
+.form-control.success input {
+	border-color: #3be682;
+}
+
+.form-control.error input {
+	border-color: #dd3522;
+}
+
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+	color: #3be682;
+	visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	color: #dd3522;
+	visibility: visible;
+}
+
+.form-control small {
+	color: #dd3522;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.form-control.error small {
+	visibility: visible;
+}
+
+
+.about-container{
+  background: url("mahmoud-chouman-hbg-city-handel-webb.jpg") no-repeat left;
+  background-size: 55%;
+  background-color:#f1f1f1;
+  overflow: hidden;
+  padding: 100px;
+}
+
+.inner-container{
+  width: 55%;
+  float: right;
+  background-color: #f1f1f1;
+  padding: 150px;
+}
+
+.inner-container h1{
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900; 
+}
+
+.text{
+  font-size: 13px;
+  color: #777;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
