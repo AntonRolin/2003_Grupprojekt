@@ -43,7 +43,7 @@ function loadProducts(){
 }
 
 function loadUserInfo(){
-    if(user != undefined){
+    if(user.firstname != undefined){
         nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
         addressField.value = user.address;
     }
@@ -68,7 +68,7 @@ function order(){
         emptyCartMessage.innerHTML = 'Du kan inte beställa utan produkter';
         emptyCart = true;
     }
-    if(user == null){
+    if(user.firstname == undefined){
         userNotLoggedInMessage.innerHTML = 'Du måste vara inloggad för att beställa';
         console.log('user = null')
         userLoggedIn = false;
