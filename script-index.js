@@ -1,103 +1,119 @@
-let endpoint = "./produktAPI.json";
-const outputEl = document.getElementById("output");
-
-document.addEventListener("DOMContentLoaded", function () {
-  load(endpoint, renderProducts);
-});
-
-/**
- * General Ajax Load Function
- * @param {*} endpoint resource in JSON format
- * @param {*} render callback when response is ready
- */
-function load(endpoint, render) {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", endpoint);
-  xhr.send();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      let data = JSON.parse(xhr.responseText);
-      render(data);
-    }
-  };
-}
-
-/**
- * Render all products in an HTML table
- * @param {*} products
- */
-function renderProducts(products) {
-  let output = `
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Titel</th>
-      <th scope="col">Beskrivning</th>
-      <th scope="col">Pris</th>
-      <th scope="col">Bild</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-    </thead>`;
-  products.forEach((product) => {
-    output += `
-    <div class="shop-item">
-    <tr>
-    <td><span class="shop-item-title">${product.name}</span></td>
-    <td><span style="
-    width: 200px;
-    display: block;
-
-    ;">${product.descp}</span></td>
-    <div class="shop-item-details">
-    <td style="text-align:left"><span class="shop-item-price">${product.price.toFixed(2)}</span></td>
-    <td><img width="200" height="200" src="${product.image}" class="shop-item-image"></td>
-    <td><button type="button" onclick="cart1('${product.name}','${product.price.toFixed(2)}','${product.image}', '1' ), location.href='./cart.html'" class="btn btn-primary shop-item-button">Köp</button></td>
-    <td><button type="button" onclick="cart1('${product.name}','${product.price.toFixed(2)}','${product.image}', '1')" class="btn btn-primary shop-item-button">Lägg till</button></td>
-</div>
-    </tr>
-    
-    </div>
-    `;
+const tbody = document.getElementById('productTable');
+const customerCartList = document.getElementById('customerCart');
+const viewCartButton = document.getElementById('viewCartButton');
+document.getElementById('dropdownMenu').addEventListener('click', function (e) {
+    e.stopPropagation();
   });
-  output += `</table>`;
-  outputEl.innerHTML = output;
-}
+
+const url = './produktAPI.json';
+let allProducts; 
+let productsInCart = [];
+
+loadData();
 
 /**
- * Retrieves the products from localStorage
- * Adds products to localStorage
- * Updates quantity in localStorage *
- * Checks if product title exists and amount of quantity
+ * Fetches products from API and displays them in product table
  */
+function loadData(){
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data) {
+        allProducts = data;
+        return allProducts.map(function(product) {
+            let tr = createNode('tr');
+            let td1 = createNode('td');
+            let td2 = createNode('td');
+            let td3 = createNode('td');
+            let td4 = createNode('td');
+            let td5 = createNode('td');
+            
+            
+            td1.innerHTML = product.title;
+            td2.innerHTML = `<img src="${product.image}" alt="Produktbild" ">`;
+            td3.innerHTML = product.description;
+            td4.innerHTML = `<strong>${product.price}€</strong>`;
+            td5.innerHTML = `<button type="button" class="btn btn-outline-success" onclick="addToCart(${product.id})">Add to cart</button>`;
 
-function cart1(title, price, image, quantity){
-  var items = JSON.parse(localStorage.getItem('cart')) || [];
-  var item = items.find(item => item.title === title);
+            append(tr, td1);
+            append(tr, td2);
+            append(tr, td3);
+            append(tr, td4);
+            append(tr, td5);
+            append(tbody, tr);
+     })
+})
+.catch(function(error) {
+    console.log.error;
+});
+}
 
-  if (item) {
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].title == title && items[i].quantity == 0) {        
-          item.quantity = quantity;
-          
-      }
-      else if (items[i].title == title && items[i].quantity > 0) {
-        
-        alert('Denna artikel har redan lagts till i kundvagnen')
+function addToCart(id){
+    allProducts.forEach(element => {
+        if(element.id === id)
+            productsInCart.push(element);
+    });
+    updateCart();
+}
+
+function removeFromCart(id){
+    for(let i = 0; i < productsInCart.length; i++){
+
+        if(productsInCart[i].id === id){
+            productsInCart.splice(i, 1)
+            break;
+        }
     }
-  }
-    
-  } else {
-    alert('Du har nu lagt till en produkt i varukorgen')
-    items.push({
-      title,
-      price,
-      image,
-      quantity
-    })
-  }
-  
-  localStorage.setItem('cart', JSON.stringify(items));
-  console.log(items);
+    updateCart();
+}
+/**
+ * Updates cart whenever a product is added or removed
+ */
+function updateCart(){
+    customerCartList.innerHTML = "";
+    productSet = new Set(productsInCart);
+    productSet.forEach(element => {
+        let li = createNode('li');
+
+        li.innerHTML = `<p>${element.title}<br><strong>${element.price}€</strong><br>
+            <button type="button" class="btn btn-success" onclick="addToCart(${element.id})">+</button>
+            <span class="fw-bold px-3">${checkQuantity(element.id)}</span>
+            <button type="button" class="btn btn-danger" onclick="removeFromCart(${element.id})">-</button></p>`;
+        append(customerCartList, li);
+    });
+    viewCartButton.innerHTML = `View cart (${productsInCart.length})`;
+
+    //Local storage stores customer cart
+    localStorage.setItem('productsInCart', JSON.stringify(productsInCart));
+}
+
+
+
+function loadData(){
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data) {
+        allProducts = data;
+        return allProducts.map(function(product) {
+            let tr = createNode('tr');
+            let td1 = createNode('td');
+            let td2 = createNode('td');
+            let td3 = createNode('td');
+            let td4 = createNode('td');
+            let td5 = createNode('td');
+            
+            
+            td1.innerHTML = product.title;
+
+
+            append(tr, td1);
+            append(tr, td2);
+            append(tr, td3);
+            append(tr, td4);
+            append(tr, td5);
+            append(tbody, tr);
+     })
+})
+.catch(function(error) {
+    console.log.error;
+});
 }
