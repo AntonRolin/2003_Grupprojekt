@@ -23,7 +23,7 @@ function login(){
             if(checkUserInfo(username.value, password.value)){
                 invalidUserMsg.innerHTML = "";
                 alert("logged in");
-                localStorage.setItem('user', loggedInUser);
+                localStorage.setItem('user', JSON.stringify(loggedInUser));
             }
             else{
                 invalidUserMsg.innerHTML = "Kontot finns inte registrerat";
