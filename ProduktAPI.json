@@ -1,0 +1,490 @@
+[
+    {
+        "name": "mjölk",
+        "descp": "Härlig och kall",
+        "price": 10,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/0361\/front_sv.12.full.jpg",
+        "quantity": 97,
+        "category": "Mejeri"
+    },
+    {
+        "name": "ost",
+        "descp": "Med stora runda hål",
+        "price": 60,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2017\/09\/01\/14\/51\/cheese-2704448_1280.png",
+        "quantity": 46,
+        "category": "Mejeri"
+    },
+    {
+        "name": "filmjölk",
+        "descp": "Som mjölk, men fastare",
+        "price": 15,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/508\/8222\/front_sv.10.full.jpg",
+        "quantity": 5,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Yoghurt",
+        "descp": "Som filmjölk, men godare",
+        "price": 16,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/586\/6424\/front_en.3.full.jpg",
+        "quantity": 26,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Gräddfil",
+        "descp": "Krävs för att blanda dipp",
+        "price": 10,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/4703\/front_sv.6.full.jpg",
+        "quantity": 50,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Vispgrädde",
+        "descp": "Fantastiskt resultat vid vispning",
+        "price": 12,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/015\/658\/4151\/front_sv.9.full.jpg",
+        "quantity": 43,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Creame freiche",
+        "descp": "Går också att blanda dipp med",
+        "price": 15,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/3805\/front_sv.3.full.jpg",
+        "quantity": 14,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Smör",
+        "descp": "Till smörgåsen",
+        "price": 10,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/5250\/front_sv.10.full.jpg",
+        "quantity": 70,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Kaffegrädde",
+        "descp": "Till kaffet",
+        "price": 20,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/506\/6756\/front_sv.4.full.jpg",
+        "quantity": 23,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Kvarg",
+        "descp": "Till något",
+        "price": 50,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/401\/624\/104\/3047\/front_sv.33.full.jpg",
+        "quantity": 75,
+        "category": "Mejeri"
+    },
+    {
+        "name": "Oxfilé",
+        "descp": "Alltid en hit. Dränk gärna i vitlökssmör",
+        "price": 80,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/231\/310\/830\/1879\/front_sv.14.full.jpg",
+        "quantity": 88,
+        "category": "Kött"
+    },
+    {
+        "name": "Ryggbiff",
+        "descp": "Ett stycke ryggbiff",
+        "price": 60,
+        "image": "https:\/\/p2.piqsels.com\/preview\/813\/236\/937\/entrecote-meat-beef-benefit-from-thumbnail.jpg",
+        "quantity": 13,
+        "category": "Kött"
+    },
+    {
+        "name": "Entrecote",
+        "descp": "Ett stycke entrecote",
+        "price": 90,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2019\/06\/30\/18\/17\/ribeye-4308534_1280.jpg",
+        "quantity": 97,
+        "category": "Kött"
+    },
+    {
+        "name": "Fläskfilé",
+        "descp": "Ett stycke fläskfilé",
+        "price": 55,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d6\/Ica_Kvantum_Karlsson_Svedala_fl%C3%A4skfile_140522_0005_%2814061790878%29.jpg",
+        "quantity": 81,
+        "category": "Kött"
+    },
+    {
+        "name": "Kyckling",
+        "descp": "En hel kyckling",
+        "price": 60,
+        "image": "https:\/\/p2.piqsels.com\/preview\/975\/701\/306\/chicken-broiler-grilled-chicken-poultry.jpg",
+        "quantity": 26,
+        "category": "Kött"
+    },
+    {
+        "name": "Lövbiff",
+        "descp": "Flera stycken lövbiff",
+        "price": 90,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/0\/0e\/Rinderroulade-zutaten-02.JPG",
+        "quantity": 95,
+        "category": "Kött"
+    },
+    {
+        "name": "Revbensspjäll",
+        "descp": "Ett stycke revbensspjäll",
+        "price": 60,
+        "image": "https:\/\/live.staticflickr.com\/3010\/5693609543_b768b36487_b.jpg",
+        "quantity": 76,
+        "category": "Kött"
+    },
+    {
+        "name": "Kamben",
+        "descp": "Den svenska termen för ’babyback ribs’",
+        "price": 50,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2017\/05\/10\/21\/26\/kamben-2302020_1280.jpg",
+        "quantity": 30,
+        "category": "Kött"
+    },
+    {
+        "name": "Älghjärta",
+        "descp": "Skogens konung? Inte längre!",
+        "price": 60,
+        "image": "https:\/\/www.wallpaperuse.com\/wallp\/69-698886_m.jpg",
+        "quantity": 26,
+        "category": "Kött"
+    },
+    {
+        "name": "Blandfärs",
+        "descp": "800 g Blandfärs",
+        "price": 50,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/015\/658\/8791\/front_sv.4.full.jpg",
+        "quantity": 35,
+        "category": "Kött"
+    },
+    {
+        "name": "Tvål",
+        "descp": "En bit handtvål",
+        "price": 20,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2018\/11\/14\/03\/27\/handmade-soap-3814400_1280.jpg",
+        "quantity": 44,
+        "category": "Hygien"
+    },
+    {
+        "name": "Schampo",
+        "descp": "Flaska med schampo",
+        "price": 30,
+        "image": "https:\/\/p2.piqsels.com\/preview\/20\/239\/608\/shampoo-thai-shampoo-thai-herbal-shampoo-kaffir-lime-shampoo-thumbnail.jpg",
+        "quantity": 10,
+        "category": "Hygien"
+    },
+    {
+        "name": "Hudkräm",
+        "descp": "Kräm för huden",
+        "price": 50,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/b\/b6\/Penaten_Creme_2004_%28Alter_Fritz%29.JPG",
+        "quantity": 15,
+        "category": "Hygien"
+    },
+    {
+        "name": "Handsprit",
+        "descp": "Flaska med handsprit",
+        "price": 40,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/6\/6c\/Handsprit.jpg",
+        "quantity": 0,
+        "category": "Hygien"
+    },
+    {
+        "name": "Tandkräm",
+        "descp": "En tub med tandkräm",
+        "price": 15,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f0\/Vademecum_tandkr%C3%A4m.jpg",
+        "quantity": 33,
+        "category": "Hygien"
+    },
+    {
+        "name": "Flasktvål",
+        "descp": "Flaska med tvål",
+        "price": 20,
+        "image": "https:\/\/live.staticflickr.com\/14\/15236236_6e1d552e5d_b.jpg",
+        "quantity": 8,
+        "category": "Hygien"
+    },
+    {
+        "name": "Balsam",
+        "descp": "Flaska med hårbalsam",
+        "price": 40,
+        "image": "https:\/\/static.openproductsfacts.org\/images\/products\/590\/760\/861\/7478\/front_de.4.full.jpg",
+        "quantity": 34,
+        "category": "Hygien"
+    },
+    {
+        "name": "Munskölj",
+        "descp": "Flaska med munskölj",
+        "price": 50,
+        "image": "https:\/\/static.openproductsfacts.org\/images\/products\/590\/760\/861\/7478\/front_de.4.full.jpg",
+        "quantity": 44,
+        "category": "Hygien"
+    },
+    {
+        "name": "Tandtråd",
+        "descp": "Ask med tandtråd",
+        "price": 10,
+        "image": "https:\/\/i0.hippopx.com\/photos\/498\/738\/404\/floss-oral-dental-hygiene-preview.jpg",
+        "quantity": 51,
+        "category": "Hygien"
+    },
+    {
+        "name": "Fotkräm",
+        "descp": "Kräm för fot",
+        "price": 50,
+        "image": "https:\/\/p2.piqsels.com\/preview\/161\/189\/257\/medical-ointment-cloth-antique-thumbnail.jpg",
+        "quantity": 71,
+        "category": "Hygien"
+    },
+    {
+        "name": "Ekologiska bananer",
+        "descp": "Ekologiska och rättvisemärkta bananer från Ecuador",
+        "price": 23,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2018\/09\/24\/20\/12\/bananas-3700718_960_720.jpg",
+        "quantity": 20,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Svenska äpplen",
+        "descp": "Äpple med söt frisk smak och vitt fruktkött",
+        "price": 26,
+        "image": "https:\/\/www.wexthuset.com\/images\/products\/wexthuset\/apple-signe-tillisch.jpg",
+        "quantity": 96,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Gurka",
+        "descp": "Lokalt producerad svensk gurka",
+        "price": 20,
+        "image": "https:\/\/pixnio.com\/free-images\/2020\/01\/20\/2020-01-20-08-39-52-1200x800.jpg",
+        "quantity": 9,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Tomat",
+        "descp": "Spänstiga tomater med söt tomatsmak året om",
+        "price": 45,
+        "image": "https:\/\/allergitest.se\/wp-content\/uploads\/2021\/02\/Allergitest-Tomat.jpg.webp",
+        "quantity": 16,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Svenska morötter",
+        "descp": "Knapriga rötter med aningen söt smak som förstärks när de tillagas",
+        "price": 14,
+        "image": "https:\/\/p2.piqsels.com\/preview\/4\/203\/788\/carrot-turnip-vegetables-yellow-beets.jpg",
+        "quantity": 50,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Avokado",
+        "descp": "En mogen avokado har mjukt, krämigt fruktkött med mild och lite nötaktig smak",
+        "price": 16,
+        "image": "https:\/\/www.everfresh.se\/globalassets\/bilder-gronsaker\/ovr_gronsaker\/h2_avokado.png",
+        "quantity": 83,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Gul lök",
+        "descp": "Gul lök passar i både varm och kall matlagning. Lägg den skurna löken i kallt vatten innan användning, så blir den snällare",
+        "price": 10,
+        "image": "https:\/\/c.pxhere.com\/photos\/bc\/13\/Cooking_Dinner_farmers_market_Food_Garden_Harvest_Ingredients_Meal-1622247.jpg!d",
+        "quantity": 43,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Sötpotatis",
+        "descp": "Rotfrukt med rödaktigt kött som påminner om potatis i konsistensen",
+        "price": 33,
+        "image": "https:\/\/pixnio.com\/free-images\/2017\/03\/11\/2017-03-11-11-31-02-725x544.jpg",
+        "quantity": 64,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Vindruvor",
+        "descp": "Friskt söt och lite kryddig smak",
+        "price": 40,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2013\/07\/18\/09\/04\/grapes-163420_960_720.jpg",
+        "quantity": 65,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Citroner",
+        "descp": "Citron passar som smaksättare till bland annat fisk, i såser, dressingar, desserter, glass och bakverk eller lägg några skivor i måltidsvattnet",
+        "price": 7,
+        "image": "https:\/\/c.pxhere.com\/photos\/cc\/2c\/lemons_yellow_fruit_tart_refreshment_citrus_fruits_vitamins_fruity-1181836.jpg!d",
+        "quantity": 82,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Röd grapefrukt",
+        "descp": "Syrlig och fräsch röd grapefrukt",
+        "price": 13,
+        "image": "https:\/\/p2.piqsels.com\/preview\/533\/250\/509\/grapefruit-fruit-red-sweet.jpg",
+        "quantity": 95,
+        "category": "Frukt\/Grönt"
+    },
+    {
+        "name": "Gott och blandat supersur",
+        "descp": "Söta och sura gelegodisar",
+        "price": 19,
+        "image": "https:\/\/assets.partyking.org\/img\/products\/1300\/gott-blandat-supersur-1.jpg",
+        "quantity": 3,
+        "category": "Godis"
+    },
+    {
+        "name": "Maoam Maomix",
+        "descp": "Blandade fruktkolor",
+        "price": 22,
+        "image": "https:\/\/cdn.pixabay.com\/photo\/2016\/02\/11\/23\/06\/bag-1194960_960_720.jpg",
+        "quantity": 58,
+        "category": "Godis"
+    },
+    {
+        "name": "Ahlgrens bilar 160g",
+        "descp": "Ahlgrens bilar Original är en favorit bland godispåsar. De mjuka bilarna erbjuds här i de klassiska Ahlgrens bilar-färgerna rosa, vit och grön",
+        "price": 15,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/078\/000\/5212\/front_sv.16.200.jpg",
+        "quantity": 33,
+        "category": "Godis"
+    },
+    {
+        "name": "Jolt Cola",
+        "descp": "Den klassiska colan som ger dig den energi du behöver",
+        "price": 9,
+        "image": "https:\/\/live.staticflickr.com\/2412\/2128248625_8403a17be9_b.jpg",
+        "quantity": 89,
+        "category": "Godis"
+    },
+    {
+        "name": "Polly Milkchoco 200g",
+        "descp": "Polly är härligt sega skumtoppar dragerade med en ljuvlig chokladsmak",
+        "price": 26,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/004\/003\/4532\/front_sv.4.200.jpg",
+        "quantity": 81,
+        "category": "Godis"
+    },
+    {
+        "name": "Marabou Mjölkchoklad 100g",
+        "descp": "Marabou Mjölkchoklad är Sveriges allra mest älskade chokladkaka. Den har funnits i sortimentet sedan Marabou grundades och är fortfarande lika populär",
+        "price": 16,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/73550013\/front_sv.7.200.jpg",
+        "quantity": 39,
+        "category": "Godis"
+    },
+    {
+        "name": "Nestlé KitKat",
+        "descp": "Spröda kex med krämig mjölkchoklad",
+        "price": 15,
+        "image": "https:\/\/live.staticflickr.com\/5503\/9835700665_d24596c529_b.jpg",
+        "quantity": 94,
+        "category": "Godis"
+    },
+    {
+        "name": "OLW Sourcream and onion chips 200g",
+        "descp": "Riktigt goda chips gör fredagsmyset ännu bättre. På OLW använder vi oss av naturliga ingredienser och den allra finaste potatisen",
+        "price": 22,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/040\/038\/1703\/front_sv.3.full.jpg",
+        "quantity": 28,
+        "category": "Godis"
+    },
+    {
+        "name": "OLW Klassisk nötmix 200g",
+        "descp": "En perfekt blandning av dina favoritsnacks. Lättsaltade och rostade",
+        "price": 31,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/734\/000\/540\/3462\/front_sv.12.200.jpg",
+        "quantity": 13,
+        "category": "Godis"
+    },
+    {
+        "name": "Geisha 37g",
+        "descp": "Geisha är en omtyckt mjölkchoklad med en krämig fyllning gjord på hasselnötter",
+        "price": 8,
+        "image": "https:\/\/live.staticflickr.com\/7334\/13999798048_99b7b1f73a_b.jpg",
+        "quantity": 9,
+        "category": "Godis"
+    },
+    {
+        "name": "Barilla Farfalle",
+        "descp": "Pasta Farfalle från Barilla är en durumpasta gjord på finaste råvaror",
+        "price": 15,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/807\/680\/806\/0654\/front_fr.202.200.jpg",
+        "quantity": 19,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Barilla Snabbspaghetti",
+        "descp": "Pasta Spaghetti från Barilla är den mest klassiska pastasorten från Italien",
+        "price": 16,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/807\/680\/957\/2200\/front_fr.38.200.jpg",
+        "quantity": 6,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Uncle Ben’s basmatiris",
+        "descp": "Uncle Ben’s Basmatiris är 100 % hållbart och odlas i Indien, vid Himalayas fot, innan det lagras i sex månader för att förfina den naturligt aromatiska doften och smaken",
+        "price": 50,
+        "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/7\/7d\/Uncle_Ben%27s_basmati_rice.jpg\/546px-Uncle_Ben%27s_basmati_rice.jpg",
+        "quantity": 0,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Felix Potatismos",
+        "descp": "I Eslöv mitt i Skåne tillagas Felix klassiskt potatismos. Till 6 portioner används cirka 15 potatisar",
+        "price": 20,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/024\/006\/6128\/front_sv.18.full.jpg",
+        "quantity": 2,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Mutti Krossade tomater",
+        "descp": "Krossade tomater från Italien",
+        "price": 32,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/800\/511\/017\/0300\/front_it.38.200.jpg",
+        "quantity": 85,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Heinz vita bönor i tomatsås",
+        "descp": "Ursprungsland Storbritannien",
+        "price": 12,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/500\/015\/702\/4671\/front_sv.60.full.jpg",
+        "quantity": 51,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Samyang ramen Hot Chicken",
+        "descp": "Helt okej kinesisk kyckling",
+        "price": 6,
+        "image": "https:\/\/live.staticflickr.com\/4452\/37371024100_fb262e0087_b.jpg",
+        "quantity": 39,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Kungsörnens pepparkaksmix",
+        "descp": "Klassiskt pepparkaksrecept med minimalt arbete",
+        "price": 24,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/013\/015\/5512\/front_fr.4.200.jpg",
+        "quantity": 11,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Tomatpure på burk",
+        "descp": "Söta tomater perfekta till grytor",
+        "price": 25,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/70111019\/front_en.8.full.jpg",
+        "quantity": 94,
+        "category": "Skafferi"
+    },
+    {
+        "name": "Santa Maria Tortillabröd",
+        "descp": "Ursprungsland Sverige",
+        "price": 22,
+        "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/131\/031\/2879\/front_en.9.200.jpg",
+        "quantity": 2,
+        "category": "Skafferi"
+    }
+]
