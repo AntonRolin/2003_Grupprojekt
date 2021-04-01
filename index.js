@@ -19,16 +19,21 @@ function getProducts() {
         products = data;
 
         products.forEach(e => {
-            populateColumns(e.name, e.image, e.price);
-            pr.innerHTML = '<div class="col-sm-3"><div><img class="mw-100 h-100" src="'+e.image+'"alt=""></div><div><p>'+e.price+'$</p></div><div><p>'+e.name+'</p></div><div><button type="button" class="btn btn-secondary btn-block">Hola</button></div></div>';
+            populateColumns(e.image, e.price, e.name);
+
             console.log(e.name);
         });
     })
 }
 
 
-function populateColumns(name, image, price) {
-    pr.innerHTML = '<div class="col-sm-3"><div><img class="mw-100 h-100" src="'+image+'"alt=""></div><div><p>'+price+'$</p></div><div><p>'+name+'</p></div><div><button type="button" class="btn btn-secondary btn-block">Hola</button></div></div>';
+function populateColumns(id, image, price, name) {
+    var divElement = document.createElement("div");
+    divElement.className = "col-sm-3";
+
+    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+image+'"alt=""></div><div><p>'+price+'$</p></div><div><p>'+name+'</p></div><div><button type="button" id="'+id+'" class="btn btn-secondary btn-block" onclick="addToCart()">Hola</button></div>';
+
+    pr.appendChild(divElement);
 
 }
 
