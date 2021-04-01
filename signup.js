@@ -11,19 +11,14 @@ const password2 = document.getElementById('password2');
 const url = './customerAPI.json';
 let customers;
 let loggedInUser;
+loadData();
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	
-	checkInputs();
-	loadData();
+		checkInputs();
+	
 });
-
-/**
- * Trims to remove the whitespaces
- * Validating order form
- * Checks if everything is validated and gives a alert
- */
 
 function checkInputs() {
 	
@@ -68,6 +63,8 @@ function checkInputs() {
 	
 	if(emailValue === '') {
 		setErrorFor(email, 'E-post får inte vara blank');
+	} else if (checkUserInfo(emailValue)) {
+		setErrorFor(email, 'Konton finns redan');
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Inte en giltig E-post');
 	} else {
@@ -190,9 +187,10 @@ function checkUserInfo(email){
     customers.forEach(customer => {
         if(customer.email == email){
             isInDatabase = true;
+			loggedInUser = customer;
         }	
     });
-    
+    return isInDatabase;
 }
 
 function loadData(){
