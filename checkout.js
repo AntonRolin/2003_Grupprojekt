@@ -45,7 +45,7 @@ function loadProducts(){
 function loadUserInfo(){
     if(user.firstname != undefined){
         nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
-        addressField.value = user.address;
+        addressField.value = user.shipping;
     }
     else{
         console.log('not logged in');
