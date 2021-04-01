@@ -4,14 +4,19 @@ const lastname = document.getElementById('lastname');
 const email = document.getElementById('email');
 const address = document.getElementById('address');
 const zipcode = document.getElementById('zipcode');
+const city = document.getElementById('city');
 const phonenr = document.getElementById('phonenr');
 const password1 = document.getElementById('password1');
 const password2 = document.getElementById('password2');
+const url = './customerAPI.json';
+let customers;
+let loggedInUser;
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	
 	checkInputs();
+	loadData();
 });
 
 /**
@@ -28,6 +33,7 @@ function checkInputs() {
   const emailValue = email.value.trim();
   const addressValue = address.value.trim();
   const zipcodeValue = zipcode.value.trim();
+  const cityValue = zipcode.value.trim();
   const phonenrValue = phonenr.value.trim();
   const password1Value = password1.value.trim();
   const password2Value = password2.value.trim();
@@ -40,16 +46,21 @@ function checkInputs() {
     var phonenrTrue;
     var password1True;
     var password2True;
+	var cityTrue;
 
 	if(firstnameValue === '') {
 		setErrorFor(firstname, 'Förnamn får inte vara blank');
-	} else {
+	} else if (!isLetters(firstnameValue)) {
+		setErrorFor(firstname, 'Ogilltigt fortmat');
+	}else {
 		setSuccessFor(firstname);
         firstnameTrue = 1;
 	}
 
-    if(lastnameValue === '') {
+	if(lastnameValue === '') {
 		setErrorFor(lastname, 'Efternamn får inte vara blank');
+	}else if (!isLetters(lastnameValue)) {
+		setErrorFor(lastname, 'Ogilltigt fortmat');
 	} else {
 		setSuccessFor(lastname);
         lastnameTrue = 1;
@@ -72,12 +83,21 @@ function checkInputs() {
 	}
 
     if(zipcodeValue === '') {
-		setErrorFor(zipcode, 'E-post får inte vara blank');
+		setErrorFor(zipcode, 'Postnummer får inte vara blank');
 	} else if (!isZipcode(zipcodeValue)) {
 		setErrorFor(zipcode, 'Inte ett giltigt postnummer');
 	} else {
 		setSuccessFor(zipcode);
         zipcodeTrue = 1;
+	}
+
+	if(cityValue === '') {
+		setErrorFor(city, 'Postort får inte vara blank');
+	} else if (!isPhoneNr(cityValue)) {
+		setErrorFor(city, 'Inte ett giltigt telefonnummer');
+	} else {
+		setSuccessFor(city);
+        cityTrue = 1;
 	}
 
     if(phonenrValue === '') {
@@ -92,7 +112,7 @@ function checkInputs() {
   if(password1Value === '') {
 		setErrorFor(password1, 'Lösenordet får inte vara blank');
 	} else if (!isPassword(password1Value)){
-    setErrorFor(password1, '  Lösenordet måste bestå av minst 6 tecken och högst 16 tecken, minst en siffra: 1-9 och minst ett specialtecken: !,#,?');
+    setErrorFor(password1, 'Lösenordet måste bestå av minst 6 tecken och högst 16 tecken, minst en siffra: 1-9');
   } else {
 		setSuccessFor(password1);
     password1True = 1;
@@ -158,5 +178,28 @@ function isPhoneNr(phonenr) {
 }
 
 function isPassword(password1) {
-	return  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password1);
+	return  /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password1);
+}
+
+function isLetters(password1) {
+	return  /^[a-öA-Ö]+$/.test(password1);
+}
+
+function checkUserInfo(email){
+	let isInDatabase = false;
+    customers.forEach(customer => {
+        if(customer.email == email){
+            isInDatabase = true;
+        }	
+    });
+    
+}
+
+function loadData(){
+    fetch(url)
+    .then(resp => resp.json())
+    .then(function(data) {
+       customers = data;
+       return customers;
+    });
 }

@@ -2,6 +2,7 @@ const loginBtn = document.getElementById('loginBtn');
 const invalidUserMsg = document.getElementById('invalidUserMsg');
 const url = './CustomerAPI.json';
 let customers;
+let loggedInUser;
 
 loadData();
 /**
@@ -21,7 +22,8 @@ function login(){
         if(passwordBool){
             if(checkUserInfo(username.value, password.value)){
                 invalidUserMsg.innerHTML = "";
-                alert("success");
+                alert("logged in");
+                localStorage.setItem('user', JSON.stringify(loggedInUser));
             }
             else{
                 invalidUserMsg.innerHTML = "Kontot finns inte registrerat";
@@ -37,6 +39,7 @@ function checkUserInfo(username, password){
     customers.forEach(customer => {
         if(customer.email == username && customer.password == password){
             isInDatabase = true;
+            loggedInUser = customer;
         }
     });
     return isInDatabase;
