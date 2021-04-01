@@ -107,7 +107,6 @@ text-align: center;
 
 
 .about-container{
-  background: url("mahmoud-chouman-hbg-city-handel-webb.jpg") no-repeat left;
   background-size: 55%;
   background-color:#f1f1f1;
   overflow: hidden;
@@ -133,5 +132,10 @@ text-align: center;
   line-height: 30px;
   text-align: justify;
   margin-bottom: 40px;
+}
+
+p.aboutus-image {
+	
+
 }
 

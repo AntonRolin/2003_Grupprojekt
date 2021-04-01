@@ -1,5 +1,4 @@
 const form = document.getElementById('form');
-const username1 = document.getElementById('username1');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const email = document.getElementById('email');
@@ -23,17 +22,16 @@ form.addEventListener('submit', e => {
 
 function checkInputs() {
 	
-  const username1Value = username1.value.trim();
-	const firstnameValue = firstname.value.trim();
+
+  const firstnameValue = firstname.value.trim();
   const lastnameValue = lastname.value.trim();
-	const emailValue = email.value.trim();
+  const emailValue = email.value.trim();
   const addressValue = address.value.trim();
   const zipcodeValue = zipcode.value.trim();
   const phonenrValue = phonenr.value.trim();
   const password1Value = password1.value.trim();
   const password2Value = password2.value.trim();
 
-    var username1True;
     var firstnameTrue;
     var lastnameTrue;
     var emailTrue;
@@ -43,13 +41,6 @@ function checkInputs() {
     var password1True;
     var password2True;
 
-    if(username1Value === '') {
-      setErrorFor(username1, 'Användarnamnet får inte vara blank');
-    } else {
-      setSuccessFor(username1);
-        username1True = 1;
-    }
-	
 	if(firstnameValue === '') {
 		setErrorFor(firstname, 'Förnamn får inte vara blank');
 	} else {
