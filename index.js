@@ -13,7 +13,7 @@ function cartButtonEvent() {
 }
 
 function getProducts() {
-    fetch('ProductAPI.json')
+    fetch('productAPI.json')
     .then((response) => response.json())
     .then(function(data) {
         products = data;
@@ -27,11 +27,11 @@ function getProducts() {
 }
 
 
-function populateColumns(id, image, price, name) {
+function populateColumns(image, price, name) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-3";
 
-    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+image+'"alt=""></div><div><p>'+price+'$</p></div><div><p>'+name+'</p></div><div><button type="button" id="'+id+'" class="btn btn-secondary btn-block" onclick="addToCart()">Hola</button></div>';
+    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+image+'"alt=""></div><div><p>'+price+'$</p></div><div><p>'+name+'</p></div><div><button type="button" class="btn btn-secondary btn-block" onclick="addToCart()">Hola</button></div>';
 
     pr.appendChild(divElement);
 
