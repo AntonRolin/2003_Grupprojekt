@@ -1,6 +1,6 @@
 
 let productsInCart = [];
-let user = null;
+let user;
 
 const tbody = document.getElementById('checkoutTable');
 const totPriceLabel = document.getElementById('totalPrice');
@@ -43,7 +43,7 @@ function loadProducts(){
 }
 
 function loadUserInfo(){
-    if(user != null){
+    if(user != undefined){
         nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
         addressField.value = user.address;
     }
