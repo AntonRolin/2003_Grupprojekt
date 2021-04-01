@@ -10,7 +10,7 @@ const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
 setLocalStorage();
-setUser();
+getUser();
 
 loadUserInfo();
 
@@ -44,7 +44,7 @@ function loadProducts(){
 
 function loadUserInfo(){
     if(user != null){
-        nameLabel.innerHTML = `<strong>${user.firstName} ${user.lastName}</strong>`;
+        nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
         addressField.value = user.address;
     }
     else{
@@ -107,9 +107,11 @@ function setLocalStorage(){
         loadProducts();
     }
 }
-//TESTFUNKTION
-function setUser(){
-    let testUser = { firstName: "Hakim", lastName: "Livs", address: "Nackademin 100"}
-    localStorage.setItem('user', JSON.stringify(testUser));
+
+function getUser(){
+    //TESTKOD
+    //let testUser = { firstName: "Hakim", lastName: "Livs", address: "Nackademin 100"}
+    //localStorage.setItem('user', JSON.stringify(testUser));
+
     user = JSON.parse(localStorage.getItem('user'));
 }
