@@ -64,7 +64,7 @@ function checkInputs() {
 	if(emailValue === '') {
 		setErrorFor(email, 'E-post får inte vara blank');
 	} else if (checkUserInfo(emailValue)) {
-		setErrorFor(email, 'Konton finns redan');
+		setErrorFor(email, 'Kontot finns redan');
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Inte en giltig E-post');
 	} else {
