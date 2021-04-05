@@ -5,19 +5,45 @@ let cr = document.getElementById("categoryRow");
 let products;
 let pCategories = [];
 let uniqueCategories;
+let cartProducts = [];
+var prodID = "";
+var catID = "";
 
 getProducts();
+
+//Delete later
+cartProducts = [];
+localStorage.clear();
 
 function loginButtonEvent() {
     
 }
 
 function cartButtonEvent() {
-
+    //TODO: SAVE ARRAY TO LOCASTORAGE
 }
 
-function addToCart(id) {
-    console.log(id);
+function addToCart(productToCart) {
+    cartProducts.push(productToCart);
+    saveProdArrToLocal(productToCart);
+}
+
+function categoryButtonEvent() {
+    //create and save params to internal with key categoryPressed.
+    localStorage.setItem('category', catID);
+
+    //TODO-ADD CATEGORY LOCATION HERE
+    window.location.href = "";
+}
+
+function saveProdArrToLocal(value) {
+    if(!window.localStorage) alert("Problem, too old browser")
+    else {
+        var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+        localArray.push(value);
+        localStorage.setItem('cartProducts', JSON.stringify(localArray));
+        console.log('localArray' + localArray);
+    }
 }
 
 function getProducts() {
@@ -29,6 +55,7 @@ function getProducts() {
             populateProductColumns(e);
         });
         getCategories(products);
+        addEventToButtons(products);
     })
 }
 
@@ -46,26 +73,42 @@ function getCategories(products) {
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-3";
-
-    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" class="btn btn-secondary btn-block" onclick="addToCart("testClick")>Hola</button></div>';
+    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-secondary btn-block">Hola</button></div>';
 
     pr.appendChild(divElement);
+}
 
+function addEventToButtons(productsArray) {
+    Array.from(document.getElementsByClassName("buyButton")).forEach(function(element) {
+        element.addEventListener('click', function(obj) {
+            productsArray.forEach(product => {
+                if(product.name == obj.target.id) {
+                    prodID = obj.target.id;
+                    addToCart(product);
+                }
+            });
+            
+        })
+    })
+
+    Array.from(document.getElementsByClassName("catButton")).forEach(function(element) {
+        element.addEventListener('click', function(obj) {
+            catID = obj.target.id;
+            categoryButtonEvent();
+        })
+    })
 }
 
 function filterCategory(arrayToFilter) {
-    
     uniqueCategories = arrayToFilter.filter((v, i, a) => a.indexOf(v) === i);
 
     return uniqueCategories;
 }
 
 function populateCategoryColumns(category) {
-    
     var divElement = document.createElement("div");
-    divElement.className = "col-sm-2 border rounded bg-white text-center";
-
-    divElement.innerHTML = '<a href="" class="text-decoration-none text-dark">'+category+'</a>';
+    divElement.className = "col-sm-2 text-center";
+    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-secondary btn-box">'+category+'</button>';
 
     cr.appendChild(divElement);
 }
