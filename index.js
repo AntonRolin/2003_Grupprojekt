@@ -18,7 +18,7 @@ localStorage.removeItem('category');
 localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
-
+    
 }
 
 function cartButtonEvent() {
@@ -79,8 +79,8 @@ function getCategories(products) {
 
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
-    divElement.className = "col-sm-3";
-    divElement.innerHTML = '<div><img class="mw-100 h-100 productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-secondary btn-block">Köp</button></div>';
+    divElement.className = "col-md-3 pb-5";
+    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
 
     pr.appendChild(divElement);
 }
@@ -129,7 +129,8 @@ function filterCategory(arrayToFilter) {
 function populateCategoryColumns(category) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-2 text-center";
-    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-secondary btn-box">'+category+'</button>';
+    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-warning btn-box">'+category+'</button>';
 
     cr.appendChild(divElement);
 }
+
