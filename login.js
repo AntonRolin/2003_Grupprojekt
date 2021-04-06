@@ -26,7 +26,7 @@ function login(){
                 localStorage.setItem('user', JSON.stringify(loggedInUser));
             }
             else{
-                invalidUserMsg.innerHTML = "Något blev fel, försökt igen";
+                invalidUserMsg.innerHTML = "Något blev fel, försök igen";
             }
         }
     }
