@@ -18,7 +18,7 @@ localStorage.removeItem('category');
 localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
-    
+
 }
 
 function cartButtonEvent() {
@@ -133,4 +133,3 @@ function populateCategoryColumns(category) {
 
     cr.appendChild(divElement);
 }
-
