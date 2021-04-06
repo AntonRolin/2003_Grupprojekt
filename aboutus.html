@@ -1,29 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hakim livs</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="structure.css">
+    <title>Structure</title>
 </head>
-<body>
-
-    <div class="about-container">
-        <div class="inner-container">
-            <h1>Om oss</h1>
-            <p class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            
-
-        </div>
+<body  class="d-flex flex-column min-vh-100 bg-light">
+    <div class="bg-white">
+        <nav class="navbar">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="./index.html"><img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%"></a>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="nav-info text-center" id="openTimes"></p>
+                                <p class="nav-info text-center" id="contactNumber"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-12 "><Button type="button" class="btn-lg btn-primary ms-2 mb-3" id="loginButton" onclick="loginButtonEvent(), window.location.href='./login.html'">Logga in</Button></div>
+                            <div class="col-sm-12"><Button type="button" class="btn-lg btn-danger ms-2" id="cartButton" onclick="cartButtonEvent()">Varukorg</Button></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <br>
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>        
+                </div>  
+            </div>
+        </nav>
     </div>
-     
+    <div class="container bg-white py-5">
+        <!-- Rest of the body here -->   
 
-      
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <div class="bg-light">
+            <div class="container py-5">
+              <div class="row h-100 align-items-center py-5">
+                <div class="col-lg-6">
+                  <h1 class="display-4"><p id="aboutus"></p></h1>
+                  <p class="lead text-muted mb-0"><p id="aboutusDescription"></p></p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"><img alt="" id="imageBox" width="500" height="300"></div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+       </div>
+    <!-- Footer -->
+    <footer class="footer text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="container px-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase pt-3">Om oss</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Vår historia</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Medlemsvillkor</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Integritetspolicy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-1">
+            <hr>
+        © 2021 Copyright:
+            <p class="text-dark">Java X Kvalit</p>
+        </div>
+    </footer>
+    
+    <!-- Script here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"
+    ></script>
+    <script src="settings.js"></script>
+    <script src="index.js"></script>
+    
+
 </body>
 </html>
-

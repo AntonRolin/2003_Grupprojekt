@@ -47,43 +47,36 @@
 
         <form id="form" class="form">
             <div class="form-control">
-              <label for="username">Användarnamn</label>
-              <input placeholder="Ange användarnamn" type="text" id="username1" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
+                <label for="username">Email</label>
+                <input placeholder="Ange email" type="email" id="email" maxlength="50" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+              </div>
             <div class="form-control">
               <label for="username">Förnamn</label>
-              <input placeholder="Ange förnamn" type="text" id="firstname" />
+              <input placeholder="Ange förnamn" type="text" id="firstname" maxlength="50" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
             </div>
                 <div class="form-control">
               <label for="username">Efternamn</label>
-              <input placeholder="Ange efternamn" type="text" id="lastname" />
-              <i class="fas fa-check-circle"></i>
-              <i class="fas fa-exclamation-circle"></i>
-              <small>Error message</small>
-            </div>
-            <div class="form-control">
-              <label for="username">Email</label>
-              <input placeholder="Ange email" type="email" id="email" />
+              <input placeholder="Ange efternamn" type="text" id="lastname" maxlength="50" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
             </div>
                 <div class="form-control">
               <label for="username">Telefonnummer</label>
-              <input placeholder="Ange telefonnummer" type="text" id="phonenr" />
+              <input placeholder="Ange telefonnummer" type="text" id="phonenr" maxlength="15" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
             </div>
                 <div class="form-control">
               <label for="username">Adress</label>
-              <input placeholder="Ange adress" type="text" id="address" />
+              <input placeholder="Ange adress" type="text" id="address" maxlength="50"/>
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
@@ -96,8 +89,15 @@
               <small>Error message</small>
             </div>
             <div class="form-control">
-              <label for="username">Välj lösenord (minst sex tecken)</label>
-              <input placeholder="Ange lösenord" type="password" id="password1" />
+                <label for="username">Postort</label>
+                <input placeholder="Ange postort" type="text" id="city" maxlength="50"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+              </div>
+            <div class="form-control">
+              <label for="username">Välj Lösenord</label>
+              <input placeholder="Ange lösenord" type="password" id="password1"/>
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
@@ -146,7 +146,7 @@
     ></script>
     <script src="settings.js"></script>
     <script src="index.js"></script>
-    <script src="script.js"></script>
+    <script src="signup.js"></script>
     
 
 </body>
