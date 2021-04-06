@@ -5,7 +5,8 @@
         "price": 10,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/0361\/front_sv.12.full.jpg",
         "quantity": 97,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 1
     },
     {
         "name": "ost",
@@ -13,7 +14,8 @@
         "price": 60,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2017\/09\/01\/14\/51\/cheese-2704448_1280.png",
         "quantity": 46,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 2
     },
     {
         "name": "filmjölk",
@@ -21,7 +23,8 @@
         "price": 15,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/508\/8222\/front_sv.10.full.jpg",
         "quantity": 5,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 3
     },
     {
         "name": "Yoghurt",
@@ -29,7 +32,8 @@
         "price": 16,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/586\/6424\/front_en.3.full.jpg",
         "quantity": 26,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 4
     },
     {
         "name": "Gräddfil",
@@ -37,7 +41,8 @@
         "price": 10,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/4703\/front_sv.6.full.jpg",
         "quantity": 50,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 5
     },
     {
         "name": "Vispgrädde",
@@ -45,7 +50,8 @@
         "price": 12,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/015\/658\/4151\/front_sv.9.full.jpg",
         "quantity": 43,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 6
     },
     {
         "name": "Creame freiche",
@@ -53,7 +59,8 @@
         "price": 15,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/3805\/front_sv.3.full.jpg",
         "quantity": 14,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 7
     },
     {
         "name": "Smör",
@@ -61,7 +68,8 @@
         "price": 10,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/500\/5250\/front_sv.10.full.jpg",
         "quantity": 70,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 8
     },
     {
         "name": "Kaffegrädde",
@@ -69,7 +77,8 @@
         "price": 20,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/086\/506\/6756\/front_sv.4.full.jpg",
         "quantity": 23,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 9
     },
     {
         "name": "Kvarg",
@@ -77,7 +86,8 @@
         "price": 50,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/401\/624\/104\/3047\/front_sv.33.full.jpg",
         "quantity": 75,
-        "category": "Mejeri"
+        "category": "Mejeri",
+        "id": 10
     },
     {
         "name": "Oxfilé",
@@ -85,7 +95,8 @@
         "price": 80,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/231\/310\/830\/1879\/front_sv.14.full.jpg",
         "quantity": 88,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 11
     },
     {
         "name": "Ryggbiff",
@@ -93,7 +104,8 @@
         "price": 60,
         "image": "https:\/\/p2.piqsels.com\/preview\/813\/236\/937\/entrecote-meat-beef-benefit-from-thumbnail.jpg",
         "quantity": 13,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 12
     },
     {
         "name": "Entrecote",
@@ -101,7 +113,8 @@
         "price": 90,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2019\/06\/30\/18\/17\/ribeye-4308534_1280.jpg",
         "quantity": 97,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 13
     },
     {
         "name": "Fläskfilé",
@@ -109,7 +122,8 @@
         "price": 55,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d6\/Ica_Kvantum_Karlsson_Svedala_fl%C3%A4skfile_140522_0005_%2814061790878%29.jpg",
         "quantity": 81,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 14
     },
     {
         "name": "Kyckling",
@@ -117,7 +131,8 @@
         "price": 60,
         "image": "https:\/\/p2.piqsels.com\/preview\/975\/701\/306\/chicken-broiler-grilled-chicken-poultry.jpg",
         "quantity": 26,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 15
     },
     {
         "name": "Lövbiff",
@@ -125,7 +140,8 @@
         "price": 90,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/0\/0e\/Rinderroulade-zutaten-02.JPG",
         "quantity": 95,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 16
     },
     {
         "name": "Revbensspjäll",
@@ -133,7 +149,8 @@
         "price": 60,
         "image": "https:\/\/live.staticflickr.com\/3010\/5693609543_b768b36487_b.jpg",
         "quantity": 76,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 17
     },
     {
         "name": "Kamben",
@@ -141,7 +158,8 @@
         "price": 50,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2017\/05\/10\/21\/26\/kamben-2302020_1280.jpg",
         "quantity": 30,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 18
     },
     {
         "name": "Älghjärta",
@@ -149,7 +167,8 @@
         "price": 60,
         "image": "https:\/\/www.wallpaperuse.com\/wallp\/69-698886_m.jpg",
         "quantity": 26,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 19
     },
     {
         "name": "Blandfärs",
@@ -157,7 +176,8 @@
         "price": 50,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/015\/658\/8791\/front_sv.4.full.jpg",
         "quantity": 35,
-        "category": "Kött"
+        "category": "Kött",
+        "id": 20
     },
     {
         "name": "Tvål",
@@ -165,7 +185,8 @@
         "price": 20,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2018\/11\/14\/03\/27\/handmade-soap-3814400_1280.jpg",
         "quantity": 44,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 21
     },
     {
         "name": "Schampo",
@@ -173,7 +194,8 @@
         "price": 30,
         "image": "https:\/\/p2.piqsels.com\/preview\/20\/239\/608\/shampoo-thai-shampoo-thai-herbal-shampoo-kaffir-lime-shampoo-thumbnail.jpg",
         "quantity": 10,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 22
     },
     {
         "name": "Hudkräm",
@@ -181,7 +203,8 @@
         "price": 50,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/b\/b6\/Penaten_Creme_2004_%28Alter_Fritz%29.JPG",
         "quantity": 15,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 23
     },
     {
         "name": "Handsprit",
@@ -189,7 +212,8 @@
         "price": 40,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/6\/6c\/Handsprit.jpg",
         "quantity": 0,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 24
     },
     {
         "name": "Tandkräm",
@@ -197,7 +221,8 @@
         "price": 15,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f0\/Vademecum_tandkr%C3%A4m.jpg",
         "quantity": 33,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 25
     },
     {
         "name": "Flasktvål",
@@ -205,7 +230,8 @@
         "price": 20,
         "image": "https:\/\/live.staticflickr.com\/14\/15236236_6e1d552e5d_b.jpg",
         "quantity": 8,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 26
     },
     {
         "name": "Balsam",
@@ -213,7 +239,8 @@
         "price": 40,
         "image": "https:\/\/static.openproductsfacts.org\/images\/products\/590\/760\/861\/7478\/front_de.4.full.jpg",
         "quantity": 34,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 27
     },
     {
         "name": "Munskölj",
@@ -221,7 +248,8 @@
         "price": 50,
         "image": "https:\/\/static.openproductsfacts.org\/images\/products\/590\/760\/861\/7478\/front_de.4.full.jpg",
         "quantity": 44,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 28
     },
     {
         "name": "Tandtråd",
@@ -229,7 +257,8 @@
         "price": 10,
         "image": "https:\/\/i0.hippopx.com\/photos\/498\/738\/404\/floss-oral-dental-hygiene-preview.jpg",
         "quantity": 51,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 29
     },
     {
         "name": "Fotkräm",
@@ -237,7 +266,8 @@
         "price": 50,
         "image": "https:\/\/p2.piqsels.com\/preview\/161\/189\/257\/medical-ointment-cloth-antique-thumbnail.jpg",
         "quantity": 71,
-        "category": "Hygien"
+        "category": "Hygien",
+        "id": 30
     },
     {
         "name": "Ekologiska bananer",
@@ -245,7 +275,8 @@
         "price": 23,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2018\/09\/24\/20\/12\/bananas-3700718_960_720.jpg",
         "quantity": 20,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 31
     },
     {
         "name": "Svenska äpplen",
@@ -253,7 +284,8 @@
         "price": 26,
         "image": "https:\/\/www.wexthuset.com\/images\/products\/wexthuset\/apple-signe-tillisch.jpg",
         "quantity": 96,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 32
     },
     {
         "name": "Gurka",
@@ -261,7 +293,8 @@
         "price": 20,
         "image": "https:\/\/pixnio.com\/free-images\/2020\/01\/20\/2020-01-20-08-39-52-1200x800.jpg",
         "quantity": 9,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 33
     },
     {
         "name": "Tomat",
@@ -269,7 +302,8 @@
         "price": 45,
         "image": "https:\/\/allergitest.se\/wp-content\/uploads\/2021\/02\/Allergitest-Tomat.jpg.webp",
         "quantity": 16,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 34
     },
     {
         "name": "Svenska morötter",
@@ -277,7 +311,8 @@
         "price": 14,
         "image": "https:\/\/p2.piqsels.com\/preview\/4\/203\/788\/carrot-turnip-vegetables-yellow-beets.jpg",
         "quantity": 50,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 35
     },
     {
         "name": "Avokado",
@@ -285,7 +320,8 @@
         "price": 16,
         "image": "https:\/\/www.everfresh.se\/globalassets\/bilder-gronsaker\/ovr_gronsaker\/h2_avokado.png",
         "quantity": 83,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 36
     },
     {
         "name": "Gul lök",
@@ -293,7 +329,8 @@
         "price": 10,
         "image": "https:\/\/c.pxhere.com\/photos\/bc\/13\/Cooking_Dinner_farmers_market_Food_Garden_Harvest_Ingredients_Meal-1622247.jpg!d",
         "quantity": 43,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 37
     },
     {
         "name": "Sötpotatis",
@@ -301,7 +338,8 @@
         "price": 33,
         "image": "https:\/\/pixnio.com\/free-images\/2017\/03\/11\/2017-03-11-11-31-02-725x544.jpg",
         "quantity": 64,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 38
     },
     {
         "name": "Vindruvor",
@@ -309,7 +347,8 @@
         "price": 40,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2013\/07\/18\/09\/04\/grapes-163420_960_720.jpg",
         "quantity": 65,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 39
     },
     {
         "name": "Citroner",
@@ -317,7 +356,8 @@
         "price": 7,
         "image": "https:\/\/c.pxhere.com\/photos\/cc\/2c\/lemons_yellow_fruit_tart_refreshment_citrus_fruits_vitamins_fruity-1181836.jpg!d",
         "quantity": 82,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 40
     },
     {
         "name": "Röd grapefrukt",
@@ -325,7 +365,8 @@
         "price": 13,
         "image": "https:\/\/p2.piqsels.com\/preview\/533\/250\/509\/grapefruit-fruit-red-sweet.jpg",
         "quantity": 95,
-        "category": "Frukt\/Grönt"
+        "category": "Frukt\/Grönt",
+        "id": 41
     },
     {
         "name": "Gott och blandat supersur",
@@ -333,7 +374,8 @@
         "price": 19,
         "image": "https:\/\/assets.partyking.org\/img\/products\/1300\/gott-blandat-supersur-1.jpg",
         "quantity": 3,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 42
     },
     {
         "name": "Maoam Maomix",
@@ -341,7 +383,8 @@
         "price": 22,
         "image": "https:\/\/cdn.pixabay.com\/photo\/2016\/02\/11\/23\/06\/bag-1194960_960_720.jpg",
         "quantity": 58,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 43
     },
     {
         "name": "Ahlgrens bilar 160g",
@@ -349,7 +392,8 @@
         "price": 15,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/078\/000\/5212\/front_sv.16.200.jpg",
         "quantity": 33,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 44
     },
     {
         "name": "Jolt Cola",
@@ -357,7 +401,8 @@
         "price": 9,
         "image": "https:\/\/live.staticflickr.com\/2412\/2128248625_8403a17be9_b.jpg",
         "quantity": 89,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 45
     },
     {
         "name": "Polly Milkchoco 200g",
@@ -365,7 +410,8 @@
         "price": 26,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/004\/003\/4532\/front_sv.4.200.jpg",
         "quantity": 81,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 46
     },
     {
         "name": "Marabou Mjölkchoklad 100g",
@@ -373,7 +419,8 @@
         "price": 16,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/73550013\/front_sv.7.200.jpg",
         "quantity": 39,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 47
     },
     {
         "name": "Nestlé KitKat",
@@ -381,7 +428,8 @@
         "price": 15,
         "image": "https:\/\/live.staticflickr.com\/5503\/9835700665_d24596c529_b.jpg",
         "quantity": 94,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 48
     },
     {
         "name": "OLW Sourcream and onion chips 200g",
@@ -389,7 +437,8 @@
         "price": 22,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/730\/040\/038\/1703\/front_sv.3.full.jpg",
         "quantity": 28,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 49
     },
     {
         "name": "OLW Klassisk nötmix 200g",
@@ -397,7 +446,8 @@
         "price": 31,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/734\/000\/540\/3462\/front_sv.12.200.jpg",
         "quantity": 13,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 50
     },
     {
         "name": "Geisha 37g",
@@ -405,7 +455,8 @@
         "price": 8,
         "image": "https:\/\/live.staticflickr.com\/7334\/13999798048_99b7b1f73a_b.jpg",
         "quantity": 9,
-        "category": "Godis"
+        "category": "Godis",
+        "id": 51
     },
     {
         "name": "Barilla Farfalle",
@@ -413,7 +464,8 @@
         "price": 15,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/807\/680\/806\/0654\/front_fr.202.200.jpg",
         "quantity": 19,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 52
     },
     {
         "name": "Barilla Snabbspaghetti",
@@ -421,7 +473,8 @@
         "price": 16,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/807\/680\/957\/2200\/front_fr.38.200.jpg",
         "quantity": 6,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 53
     },
     {
         "name": "Uncle Ben’s basmatiris",
@@ -429,7 +482,8 @@
         "price": 50,
         "image": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/7\/7d\/Uncle_Ben%27s_basmati_rice.jpg\/546px-Uncle_Ben%27s_basmati_rice.jpg",
         "quantity": 0,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 54
     },
     {
         "name": "Felix Potatismos",
@@ -437,7 +491,8 @@
         "price": 20,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/024\/006\/6128\/front_sv.18.full.jpg",
         "quantity": 2,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 55
     },
     {
         "name": "Mutti Krossade tomater",
@@ -445,7 +500,8 @@
         "price": 32,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/800\/511\/017\/0300\/front_it.38.200.jpg",
         "quantity": 85,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 56
     },
     {
         "name": "Heinz vita bönor i tomatsås",
@@ -453,7 +509,8 @@
         "price": 12,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/500\/015\/702\/4671\/front_sv.60.full.jpg",
         "quantity": 51,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 57
     },
     {
         "name": "Samyang ramen Hot Chicken",
@@ -461,7 +518,8 @@
         "price": 6,
         "image": "https:\/\/live.staticflickr.com\/4452\/37371024100_fb262e0087_b.jpg",
         "quantity": 39,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 58
     },
     {
         "name": "Kungsörnens pepparkaksmix",
@@ -469,7 +527,8 @@
         "price": 24,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/013\/015\/5512\/front_fr.4.200.jpg",
         "quantity": 11,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 59
     },
     {
         "name": "Tomatpure på burk",
@@ -477,7 +536,8 @@
         "price": 25,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/70111019\/front_en.8.full.jpg",
         "quantity": 94,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 60
     },
     {
         "name": "Santa Maria Tortillabröd",
@@ -485,6 +545,7 @@
         "price": 22,
         "image": "https:\/\/static.openfoodfacts.org\/images\/products\/731\/131\/031\/2879\/front_en.9.200.jpg",
         "quantity": 2,
-        "category": "Skafferi"
+        "category": "Skafferi",
+        "id": 61
     }
 ]
