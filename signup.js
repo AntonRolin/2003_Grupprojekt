@@ -28,7 +28,7 @@ function checkInputs() {
   const emailValue = email.value.trim();
   const addressValue = address.value.trim();
   const zipcodeValue = zipcode.value.trim();
-  const cityValue = zipcode.value.trim();
+  const cityValue = city.value.trim();
   const phonenrValue = phonenr.value.trim();
   const password1Value = password1.value.trim();
   const password2Value = password2.value.trim();
@@ -90,8 +90,8 @@ function checkInputs() {
 
 	if(cityValue === '') {
 		setErrorFor(city, 'Postort får inte vara blank');
-	} else if (!isPhoneNr(cityValue)) {
-		setErrorFor(city, 'Inte ett giltigt telefonnummer');
+	} else if (!isLetters(cityValue)) {
+		setErrorFor(city, 'Inte en giltig postort');
 	} else {
 		setSuccessFor(city);
         cityTrue = 1;
@@ -125,7 +125,7 @@ function checkInputs() {
     password2True = 1;
 	}
 
-    if (firstnameTrue === 1 && emailTrue === 1 && adressTrue === 1 && zipcodeTrue === 1 && phonenrTrue === 1 && password1True === 1 && password2True === 1){
+    if (firstnameTrue === 1 && emailTrue === 1 && adressTrue === 1 && zipcodeTrue === 1 && phonenrTrue === 1 && password1True === 1 && password2True === 1 && cityTrue === 1){
         alert("Välkommen " + firstnameValue);
     } 
 
@@ -164,22 +164,22 @@ function isEmail(email) {
  * Validates zipcode with regex
  */
 function isZipcode(zipcode) {
-	return  /^\d{3}\d{2}$/.test(zipcode);
+	return /^\d{3}\d{2}$/.test(zipcode);
 }
 
 /**
  * Validates phonenr with regex
  */
 function isPhoneNr(phonenr) {
-	return  /^(([+]46)\s*(7)|07)[02369]\s*(\d{4})\s*(\d{3})$/.test(phonenr);
+	return /^(([+]46)\s*(7)|07)[02369]\s*(\d{4})\s*(\d{3})$/.test(phonenr);
 }
 
 function isPassword(password1) {
-	return  /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password1);
+	return /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password1);
 }
 
-function isLetters(password1) {
-	return  /^[a-öA-Ö]+$/.test(password1);
+function isLetters(city) {
+	return /^[a-öA-Ö]+$/.test(city);
 }
 
 function checkUserInfo(email){
