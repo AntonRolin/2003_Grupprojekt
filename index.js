@@ -5,16 +5,16 @@ let cr = document.getElementById("categoryRow");
 let products;
 let pCategories = [];
 let uniqueCategories;
-//let cartProducts = [];
 var prodID = "";
 var categoryPressed = "";
 
 getProducts();
 
-//Delete later
 //cartProducts = [];
 localStorage.removeItem('productPressed');
 localStorage.removeItem('category');
+
+//Delete later
 localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
@@ -26,20 +26,14 @@ function cartButtonEvent() {
 }
 
 function addToCart(productToCart) {
-    /* cartProducts.push(productToCart);
-    console.log(cartProducts); */
     saveProductsToCartInLocalstorage(productToCart);
 }
 
 function categoryButtonEvent() {
-    //create and save params to internal with key categoryPressed.
     localStorage.setItem('category', categoryPressed);
-    console.log(categoryPressed);
-    //TODO-ADD CATEGORY LOCATION HERE
     window.location.href = "category.html";
 }
 
-// Event when image is pressed
 function productImageEvent() {
     console.log(prodID);
     localStorage.setItem('productPressed', prodID);
