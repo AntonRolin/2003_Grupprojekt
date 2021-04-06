@@ -20,7 +20,7 @@ function loginButtonEvent() {
 }
 
 function cartButtonEvent() {
-    //TODO: SAVE ARRAY TO LOCASTORAGE
+    
 }
 
 function addToCart(productToCart) {
@@ -33,6 +33,12 @@ function categoryButtonEvent() {
     localStorage.setItem('category', catID);
 
     //TODO-ADD CATEGORY LOCATION HERE
+    window.location.href = "";
+}
+
+function productImageEvent(element) {
+    localStorage.setItem('productPressed', element.id);
+
     window.location.href = "";
 }
 
@@ -73,7 +79,7 @@ function getCategories(products) {
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-3";
-    divElement.innerHTML = '<div><img class="mw-100 h-100" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-secondary btn-block">Hola</button></div>';
+    divElement.innerHTML = '<div><img class="mw-100 h-100 productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-secondary btn-block">Köp</button></div>';
 
     pr.appendChild(divElement);
 }
@@ -95,6 +101,16 @@ function addEventToButtons(productsArray) {
         element.addEventListener('click', function(obj) {
             catID = obj.target.id;
             categoryButtonEvent();
+        })
+    })
+
+    Array.from(document.getElementsByClassName("productImage")).forEach(function(element) {
+        element.addEventListener('click', function(obj) {
+            productsArray.forEach(product => {
+                if(product.image == obj.target.src) {
+                    productImageEvent(product);
+                }
+            })
         })
     })
 }
