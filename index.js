@@ -5,15 +5,17 @@ let cr = document.getElementById("categoryRow");
 let products;
 let pCategories = [];
 let uniqueCategories;
-let cartProducts = [];
+//let cartProducts = [];
 var prodID = "";
-var catID = "";
+var categoryPressed = "";
 
 getProducts();
 
 //Delete later
-cartProducts = [];
-localStorage.clear();
+//cartProducts = [];
+localStorage.removeItem('productPressed');
+localStorage.removeItem('category');
+localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
     
@@ -24,25 +26,28 @@ function cartButtonEvent() {
 }
 
 function addToCart(productToCart) {
-    cartProducts.push(productToCart);
-    saveProdArrToLocal(productToCart);
+    /* cartProducts.push(productToCart);
+    console.log(cartProducts); */
+    saveProductsToCartInLocalstorage(productToCart);
 }
 
 function categoryButtonEvent() {
     //create and save params to internal with key categoryPressed.
-    localStorage.setItem('category', catID);
-
+    localStorage.setItem('category', categoryPressed);
+    console.log(categoryPressed);
     //TODO-ADD CATEGORY LOCATION HERE
-    window.location.href = "";
+    window.location.href = "category.html";
 }
 
-function productImageEvent(element) {
-    localStorage.setItem('productPressed', element.id);
+// Event when image is pressed
+function productImageEvent() {
+    console.log(prodID);
+    localStorage.setItem('productPressed', prodID);
 
-    window.location.href = "";
+    window.location.href = "product.html";
 }
 
-function saveProdArrToLocal(value) {
+function saveProductsToCartInLocalstorage(value) {
     if(!window.localStorage) alert("Problem, too old browser")
     else {
         var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
@@ -52,6 +57,7 @@ function saveProdArrToLocal(value) {
     }
 }
 
+//Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
     fetch('productAPI.json')
     .then((response) => response.json())
@@ -65,6 +71,7 @@ function getProducts() {
     })
 }
 
+//Get all categories and filter then by unique
 function getCategories(products) {
     products.forEach(e => {
         pCategories.push(e.category);
@@ -84,12 +91,13 @@ function populateProductColumns(product) {
     pr.appendChild(divElement);
 }
 
+
 function addEventToButtons(productsArray) {
+    //Buy button
     Array.from(document.getElementsByClassName("buyButton")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
                 if(product.name == obj.target.id) {
-                    prodID = obj.target.id;
                     addToCart(product);
                 }
             });
@@ -97,18 +105,21 @@ function addEventToButtons(productsArray) {
         })
     })
 
+    //Category
     Array.from(document.getElementsByClassName("catButton")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
-            catID = obj.target.id;
+            categoryPressed = obj.target.id;
             categoryButtonEvent();
         })
     })
 
+    //Product image
     Array.from(document.getElementsByClassName("productImage")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
                 if(product.image == obj.target.src) {
-                    productImageEvent(product);
+                    prodID = product.id;
+                    productImageEvent();
                 }
             })
         })
