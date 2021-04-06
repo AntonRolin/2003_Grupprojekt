@@ -20,9 +20,9 @@ function loadProducts(){
         td2.innerHTML = `<img src="${product.image}" alt="Produktbild">`;
         td3.innerHTML = `<strong>${product.price}kr</strong>`;
         td4.innerHTML = product.quantity;
-        td5.innerHTML = `<button class="btn btn-outline-danger" onclick="removeFromCart(${product})"><strong>–</strong></button>
+        td5.innerHTML = `<button class="btn btn-outline-danger" onclick="removeFromCart()"><strong>–</strong></button>
                          <button class="btn btn-outline-success ms-3" onclick="addToCart(${product})"><strong>+</strong></button>`
-
+                         
         append(tr, td1);
         append(tr, td2);
         append(tr, td3);
@@ -35,17 +35,16 @@ function loadProducts(){
 function addToCart(product){
     alert("added");
     
-    updateLocalCart();
 }
 
 function removeFromCart(product){
     alert("removed");
-    console.log("hej");
 }
 
 function emptyCart(){
-    localStorage.removeItem('productsInCart');
-    updateLocalCart();
+      alert("empty cart");
+  //  localStorage.removeItem('productsInCart');
+  //  updateLocalCart();
 }
 
 /**
