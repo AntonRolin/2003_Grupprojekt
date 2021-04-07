@@ -1,11 +1,11 @@
-img{
-    
-    
-}
+
 
 .background{
     background-image: url('images/background.jpg');
-    opacity: 0.8;
-    
 
+}
+
+.pb-5{
+    padding-bottom: 0 !important;
+    
 }
