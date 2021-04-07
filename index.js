@@ -11,7 +11,7 @@ var categoryPressed = "";
 getProducts();
 
 //cartProducts = [];
-localStorage.removeItem('productPressed');
+//localStorage.removeItem('productPressed');
 localStorage.removeItem('category');
 
 //Delete later
@@ -36,9 +36,9 @@ function categoryButtonEvent() {
 
 function productImageEvent() {
     console.log(prodID);
-    localStorage.setItem('productPressed', prodID);
+    /* localStorage.setItem('productPressed', prodID); */
 
-    window.location.href = "product.html";
+    window.location.href = "product.html?"+prodID+"=";
 }
 
 function saveProductsToCartInLocalstorage(value) {
