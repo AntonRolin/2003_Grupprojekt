@@ -80,7 +80,7 @@ function getCategories(products) {
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
     divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
+    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+' kr</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
 
     pr.appendChild(divElement);
 }
