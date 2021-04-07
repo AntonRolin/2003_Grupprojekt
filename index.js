@@ -22,7 +22,7 @@ function loginButtonEvent() {
 }
 
 function cartButtonEvent() {
-    
+    window.location.href = 'cart.html';
 }
 
 function addToCart(productToCart) {
