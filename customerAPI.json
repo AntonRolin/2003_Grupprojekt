@@ -1,0 +1,112 @@
+[
+    {
+        "firstname": "Anna",
+        "lastname": "Andersson",
+        "email": "anna_andersson@exempel.se",
+        "password": "annaandersson",
+        "shipping": "Upplandsgatan 1",
+        "zipcode": 11123,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Bengt",
+        "lastname": "Bengtsson",
+        "email": "bengt_bengtsson@exempel.se",
+        "password": "bengtbengtsson",
+        "shipping": "Kommendörsgatan 32",
+        "zipcode": 11448,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Cecile",
+        "lastname": "Cederkvist",
+        "email": "cecile_cederkvist@exempel.se",
+        "password": "cecilecederkvist",
+        "shipping": "Samaritgränd 4",
+        "zipcode": 11853,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Denise",
+        "lastname": "Dengler",
+        "email": "denise_dengler@exempel.se",
+        "password": "denisedengler",
+        "shipping": "Svaluddsvägen 1",
+        "zipcode": 76015,
+        "city": "Gräddö",
+        "isadmin": false
+    },
+    {
+        "firstname": "Erik",
+        "lastname": "Eriksson",
+        "email": "erik_eriksson@exempel.se",
+        "password": "erikeriksson",
+        "shipping": "Vasavägen 1",
+        "zipcode": 16951,
+        "city": "Solna",
+        "isadmin": false
+    },
+    {
+        "firstname": "Frida",
+        "lastname": "Fryck",
+        "email": "frida_fryck@exempel.se",
+        "password": "fridafryck",
+        "shipping": "Smala gränd 1",
+        "zipcode": 11139,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Gustav",
+        "lastname": "Gran",
+        "email": "gustav_gran@exempel.se",
+        "password": "gustavgran",
+        "shipping": "Stöcksjö Södra byväg 9",
+        "zipcode": 90580,
+        "city": "Umeå",
+        "isadmin": false
+    },
+    {
+        "firstname": "Helena",
+        "lastname": "Hallax",
+        "email": "helena_hallax@exempel.se",
+        "password": "helenahallax",
+        "shipping": "Kungsholmstorg 11",
+        "zipcode": "",
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Ivar",
+        "lastname": "Ibsen",
+        "email": "ivar_ibsen@exempel.se",
+        "password": "ivaribsen",
+        "shipping": "",
+        "zipcode": 12030,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Joel",
+        "lastname": "Jonsson",
+        "email": "joel_jonsson@exempel.se",
+        "password": "joeljonsson",
+        "shipping": "bsatugatn 1",
+        "zipcode": 11820,
+        "city": "Stockholm",
+        "isadmin": false
+    },
+    {
+        "firstname": "Hakim",
+        "lastname": "Livs",
+        "email": "hakim@admin.se",
+        "password": "admin",
+        "shipping": "",
+        "zipcode": "",
+        "city": "",
+        "isadmin": true
+    }
+] 
