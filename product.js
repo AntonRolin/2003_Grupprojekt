@@ -17,6 +17,12 @@ function displayProduct({name, descp}) {
   title.innerHTML = name.toString();
   let description = document.getElementById("description");
   description.innerHTML = descp.toString();
+  let price = document.getElementById("price");
+  price.innerHTML = price.toString();
+  let category = document.getElementById("category");
+  category.innerHTML = category.toString();
+  let image = document.getElementById("image");
+  image.innerHTML = image.toString();
 }
 
 getProductFromApi();
