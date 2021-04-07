@@ -12,7 +12,7 @@ function getProduct(apiJsonData) {
   const product = list.find((ap) => ap.id == id);
   displayProduct(product);
 }
-function displayProduct({name, descp}) {
+function displayProduct({name, descp, price, category, image}) {
   let title = document.getElementById("title");
   title.innerHTML = name.toString();
   let description = document.getElementById("description");
@@ -22,7 +22,7 @@ function displayProduct({name, descp}) {
   let category = document.getElementById("category");
   category.innerHTML = category.toString();
   let image = document.getElementById("image");
-  image.innerHTML = image.toString();
+  image.src = image.toString();
 }
 
 getProductFromApi();
