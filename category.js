@@ -11,14 +11,6 @@ let category;
 
 getProducts();
 
-//cartProducts = [];
-//localStorage.removeItem('productPressed');
-//localStorage.removeItem('category');
-
-//Delete later
-
-localStorage.removeItem('cartProducts');
-
 function addToCart(productToCart) {
     saveProductsToCartInLocalstorage(productToCart);
 }
