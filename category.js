@@ -7,23 +7,9 @@ let pCategories = [];
 let uniqueCategories;
 var prodID = "";
 var categoryPressed = "";
+let category;
 
 getProducts();
-
-//cartProducts = [];
-//localStorage.removeItem('productPressed');
-localStorage.removeItem('category');
-
-//Delete later
-localStorage.removeItem('cartProducts');
-
-function loginButtonEvent() {
-    
-}
-
-function cartButtonEvent() {
-    window.location.href = 'cart.html';
-}
 
 function addToCart(productToCart) {
     saveProductsToCartInLocalstorage(productToCart);
@@ -36,9 +22,9 @@ function categoryButtonEvent() {
 
 function productImageEvent() {
     console.log(prodID);
-    /* localStorage.setItem('productPressed', prodID); */
+    localStorage.setItem('productPressed', prodID);
 
-    window.location.href = "product.html?"+prodID+"=";
+    window.location.href = "product.html";
 }
 
 function saveProductsToCartInLocalstorage(value) {
@@ -57,34 +43,24 @@ function getProducts() {
     .then((response) => response.json())
     .then(function(data) {
         products = data;
-        products.forEach(e => {
-            populateProductColumns(e);
+        products.filter(e => {
+            if(e.category === localStorage.getItem('category')){
+                populateProductColumns(e);
+            }   
         });
-        getCategories(products);
+
         addEventToButtons(products);
     })
-}
-
-//Get all categories and filter then by unique
-function getCategories(products) {
-    products.forEach(e => {
-        pCategories.push(e.category);
-    });
-    uniqueCategories = filterCategory(pCategories);
-
-    uniqueCategories.forEach(element => {
-        populateCategoryColumns(element);
-    });
 }
 
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
     divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+' kr</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
+    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+'$</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
 
     pr.appendChild(divElement);
-}
 
+}
 
 function addEventToButtons(productsArray) {
     //Buy button
@@ -98,15 +74,7 @@ function addEventToButtons(productsArray) {
             
         })
     })
-
-    //Category
-    Array.from(document.getElementsByClassName("catButton")).forEach(function(element) {
-        element.addEventListener('click', function(obj) {
-            categoryPressed = obj.target.id;
-            categoryButtonEvent();
-        })
-    })
-
+  
     //Product image
     Array.from(document.getElementsByClassName("productImage")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
@@ -120,17 +88,13 @@ function addEventToButtons(productsArray) {
     })
 }
 
-function filterCategory(arrayToFilter) {
-    uniqueCategories = arrayToFilter.filter((v, i, a) => a.indexOf(v) === i);
+populateCategoryColumns();
 
-    return uniqueCategories;
-}
-
-function populateCategoryColumns(category) {
+function populateCategoryColumns() {   
+   let categoryLocal = localStorage.getItem('category');
     var divElement = document.createElement("div");
-    divElement.className = "col-sm-2 text-center";
-    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-warning btn-box">'+category+'</button>';
-
+    divElement.className = "col-sm-12 text-center";
+    divElement.innerHTML = '<h1 style = "color:#0B3C49; background: white; padding: 25px; font-size: 45px; font-weight: bold;">'+categoryLocal+'</h1>';
+    
     cr.appendChild(divElement);
 }
-
