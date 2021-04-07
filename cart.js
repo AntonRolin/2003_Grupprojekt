@@ -9,7 +9,6 @@ loadJSON();
 
 function loadProducts(){
     tbody.innerHTML = "";
-    console.log(productsInCart.length)
     productsInCart.forEach(product => {
         let tr = createNode('tr');
         let td1 = createNode('td');
@@ -76,7 +75,12 @@ function getTotalPrice(){
     return Math.round(sum);
 }
 
+function getLocalCart(){
+    productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
+    loadProducts();
+}
 
+//TEST
 function loadJSON(){
     fetch(url)
     .then((resp) => resp.json())
