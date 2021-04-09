@@ -1,4 +1,4 @@
-let productsInCart = [];
+let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
 let user;
 
 const tbody = document.getElementById('checkoutTable');
@@ -8,10 +8,10 @@ const addressField = document.getElementById('inputAddress');
 const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
-getLocalStorage();
-getUser();
+//getLocalStorage();
+//getUser();
 
-loadUserInfo();
+//loadUserInfo();
 loadProducts();
 
 function loadProducts(){
@@ -90,10 +90,6 @@ function checkInputEmptyField(field){
         document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Field is empty.";
         return false;
     }
-}
-
-function getLocalStorage(){
-        productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
 }
 
 function getUser(){

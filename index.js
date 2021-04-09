@@ -15,7 +15,7 @@ getProducts();
 localStorage.removeItem('category');
 
 //Delete later
-localStorage.removeItem('cartProducts');
+//localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
     
