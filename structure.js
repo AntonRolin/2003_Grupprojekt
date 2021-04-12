@@ -1,5 +1,5 @@
 var prod;
-var prodId;
+var prodID;
 var prodName;
 var prodImage;
 
@@ -91,8 +91,8 @@ function searchDB(searchBar) {
 function insertValue(elem) {
 	setProductID(elem.innerHTML);
 	window.search.classList.remove("dropdown");
-	console.log(prodId);
-	window.location.href = "product.html?=" + prodId;
+	console.log(prodID);
+	window.location.href = "product.html?id="+prodID;
 }
 
 function getIdFromSearchbarItem(productName) {
@@ -114,7 +114,7 @@ function getProducts() {
 function setProductID(productName) {
 	prod.forEach(element => {
 		if(element.name == productName) {
-			prodId = element.id;
+			prodID = element.id;
 		}
 	});
 }
