@@ -20,8 +20,8 @@ function searchDB(searchBar) {
 		if (selector == null) {
 			selector = document.createElement("div");
 			selector.id = "selector";
+			selector.className = "row p-0 m-0 bg-light";
 			searchBar.parentNode.appendChild(selector);
-			// Position it below the input element
 			selector.style.left = searchBar.getBoundingClientRect().left + "px";
 			selector.style.top = searchBar.getBoundingClientRect().bottom + "px";
 			selector.style.width = searchBar.getBoundingClientRect().width + "px";
@@ -38,33 +38,38 @@ function searchDB(searchBar) {
 			}
 			prodName = productPressed[Object.keys(productPressed)[0]];
 
-			if (prodName.toLowerCase().indexOf(searchBar.value.toLowerCase()) !== -1) {
-			
+			if (prodName.toLowerCase().indexOf(searchBar.value.toLowerCase()) !== -1) {	
 				let opt = document.createElement("button");
-				opt.id = "optID";
 				let image = document.createElement("img");
-
-				prodImage = productPressed[Object.keys(productPressed)[1]]
-				prodId = productPressed[Object.keys(productPressed)[2]]
+				let col1 = document.createElement("div");
+				let col2 = document.createElement("div");
+				col1.className = "col-sm-6 p-0 m-0 d-flex align-items-start flex-column";
+				col2.className = "col-sm-6 p-0 m-0 d-flex flex-row-reverse";
+				prodImage = productPressed[Object.keys(productPressed)[1]];
 				image.className = "image";
 				image.src = prodImage;
 				image.style.width = "40px";
 				image.style.height = "50px";
-				opt.setAttribute("onclick","insertValue();")
+				opt.setAttribute("onclick","insertValue(this)");
 				opt.innerHTML = prodName;
-				selector.appendChild(opt);
-				opt.appendChild(image);
+				col1.appendChild(opt);
+				col2.appendChild(image);
+				selector.appendChild(col1);
+				selector.appendChild(col2);
 				empty = false;
 			}
 		});
 
 		if (empty == true) {
+			let col = document.createElement("div");
+			col.className = "col-sm-12 p-0 m-0"
 			let opt = document.createElement("button");
-			opt.id = "optID";
 			opt.disabled = true;
 			opt.innerHTML = "No results";
-			selector.appendChild(opt);
+			col.appendChild(opt);
+			selector.appendChild(col);
 		}
+
 	} else {
 		if (selector !== null) {
 			selector.parentNode.removeChild(selector);
@@ -76,17 +81,17 @@ function searchDB(searchBar) {
 		if(e.target != selector && e.target != searchBar ) {
 			if(selector.parentNode != null) {
 				selector.parentNode.removeChild(selector);
-				searchBar.value = ""
+				searchBar.value = "";
 			}
-			
 		}
 	});
 }
 
 // Event for button if the dropdown when clicked.
-function insertValue() {
+function insertValue(elem) {
+	setProductID(elem.innerHTML);
 	window.search.classList.remove("dropdown");
-	//elem.parentNode.parentNode.removeChild(elem.parentNode);
+	console.log(prodId);
 	window.location.href = "product.html?=" + prodId;
 }
 
@@ -103,10 +108,14 @@ function getProducts() {
     .then((response) => response.json())
     .then(function(data) {
         prod = data;
-        prod.forEach(e => {
-            populateProductColumns(e);
-        });
-
     })
+}
+
+function setProductID(productName) {
+	prod.forEach(element => {
+		if(element.name == productName) {
+			prodId = element.id;
+		}
+	});
 }
 
