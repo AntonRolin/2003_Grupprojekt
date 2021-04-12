@@ -19,7 +19,7 @@ border-width: 0;
 outline: none;
 padding: 10px 20px;
 text-align: left;
-box-shadow: 0 0 0 2px #000000;
+box-shadow: 0 0 0 1px #000000;
 border-radius: 5px;
 
 }
@@ -31,7 +31,7 @@ border-bottom-right-radius: 0;
 
 #selector {
 position: fixed;
-box-shadow: 0 0 0 2px #000000;
+box-shadow: 0 0 0 1px #000000;
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
 margin-top: 2px;
@@ -49,10 +49,9 @@ overflow: auto;
     cursor: pointer;
     border: none;
     display: block;
-    background-color: #ffffff;
     margin: 0;
     border-radius: 5px;
-    background-color: white;
+    background-color: transparent;
     border-width: 0;
     width: 100%;
     text-align: left;
