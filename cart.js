@@ -2,9 +2,10 @@ const totalPriceLabel = document.getElementById('totalPrice');
 const tbody = document.getElementById('productCartTable');
 
 const url = 'ProductAPI.json';
-let productsInCart = [];
-loadJSON();
-
+  
+let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
+updateLocalCart();
+//product.quantity = 1;
 
 
 function loadProducts(){
@@ -62,8 +63,8 @@ function emptyCart(){
  * Updates whenever one or more products are added or removed
  */
 function updateLocalCart(){
-    localStorage.setItem('productsInCart', JSON.stringify(productsInCart));
-    productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
+    localStorage.setItem('cartProducts', JSON.stringify(productsInCart));
+    productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
     loadProducts();
 }
 
@@ -86,6 +87,6 @@ function loadJSON(){
     .then((resp) => resp.json())
     .then(function(data) {
        productsInCart = data;
-       updateLocalCart();
+       
 })
 }
