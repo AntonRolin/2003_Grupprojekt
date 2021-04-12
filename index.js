@@ -38,7 +38,7 @@ function productImageEvent() {
     console.log(prodID);
     /* localStorage.setItem('productPressed', prodID); */
 
-    window.location.href = "product.html?"+prodID+"=";
+    window.location.href = "product.html?id="+prodID;
 }
 
 function saveProductsToCartInLocalstorage(value) {
