@@ -18,6 +18,7 @@ localStorage.removeItem('category');
 //localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
+
     
 }
 
@@ -109,7 +110,6 @@ function addEventToButtons(productsArray) {
                 productsArray.forEach(product => {
                 
                     if(product.name == obj.target.id) {
-                        if(item)
                         product.quantity = 1;
                         addToCart(product);
                         alert('Du har nu lagt till en produkt i varukorgen');

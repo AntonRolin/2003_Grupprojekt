@@ -5,6 +5,7 @@ function getProductFromApi() {
       getProduct(apiJsonData);
     });
 }
+
 function getProduct(apiJsonData) {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
@@ -14,6 +15,7 @@ function getProduct(apiJsonData) {
   productClicked = product;
 
 }
+
 function displayProduct({name, descp, price, category, image}) {
   let titleDisplay = document.getElementById("title");
   titleDisplay.innerHTML = name.toString();
@@ -24,42 +26,41 @@ function displayProduct({name, descp, price, category, image}) {
   let imageDisplay = document.getElementById("image");
   imageDisplay.src = image.toString();
 }
+
 function buttonAddToCart() {
   var button = document.getElementById("addToCart");
-
-  
-    button.onclick = function (event, x) {
-
-      var items = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-var item = items.find(item => item.name === productClicked.name);
+  button.onclick = function (event, x) {
+  var items = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+  var item = items.find(item => item.name === productClicked.name);
 
 if (item) {
-
     for (var i = 0; i < items.length; i++){
         if (items[i].name == productClicked.name && items[i].quantity > 0){
             alert('Denna artikel har redan lagts till i kundvagnen')
         }
     }
   } else {
-
-
-
       var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+      productClicked.quantity = 1;
           localArray.push(productClicked);
           localStorage.setItem('cartProducts', JSON.stringify(localArray));
           alert('Du har nu lagt till en produkt i varukorgen');
 
         }
-  
   }
-
-
-  
-
-
-
-
 }
+
+
+function cartButtonEvent() {
+  window.location.href = 'cart.html';
+}
+
+function loginButtonEvent() {
+
+    
+}
+
+
 var productClicked = "";
 buttonAddToCart();
 getProductFromApi();
