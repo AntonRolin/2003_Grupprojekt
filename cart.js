@@ -5,7 +5,7 @@ const url = 'ProductAPI.json';
   
 let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
 updateLocalCart();
-
+//product.quantity = 1;
 
 
 function loadProducts(){
