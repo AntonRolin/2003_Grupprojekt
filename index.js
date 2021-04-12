@@ -92,7 +92,9 @@ function addEventToButtons(productsArray) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
                 if(product.name == obj.target.id) {
+                    product.quantity = 1;
                     addToCart(product);
+                    alert('Du har nu lagt till en produkt i varukorgen');
                 }
             });
             

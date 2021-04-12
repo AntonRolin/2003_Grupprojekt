@@ -27,6 +27,10 @@ function productImageEvent() {
     window.location.href = "product.html";
 }
 
+function cartButtonEvent() {
+    window.location.href = 'cart.html';
+}
+
 function saveProductsToCartInLocalstorage(value) {
     if(!window.localStorage) alert("Problem, too old browser")
     else {
