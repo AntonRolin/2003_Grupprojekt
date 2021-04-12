@@ -6,6 +6,8 @@ const city = document.getElementById('cityCell');
 const zipcode = document.getElementById('zipcodeCell');
 
 const passwordForm = document.getElementById('passwordForm');
+const profileButtons = document.getElementById('profileButtons');
+const saveProfile = document.getElementById('saveProfile');
 
 let user;
 
@@ -28,8 +30,17 @@ function getUserInfo(){
     zipcode.innerHTML = `${user.zipcode}`;
 }
 
-function changeUserInfo(){
+function changeUserInfo(){ 
+    profileButtons.style.display = 'none';
 
+    firstName.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.firstname}">`;
+    lastName.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.lastname}">`;
+    email.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.email}">`;
+    shipping.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.shipping}">`;
+    city.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.city}">`;
+    zipcode.innerHTML = `<input type="text" class="form-control form-control-sm" placeholder="${user.zipcode}">`;
+
+    saveProfile.innerHTML = `<button type="submit" class="btn btn-outline-success mt-3 float-end" onclick="saveUserInfo()">Spara ändringar</button>`
 }
 
 function logOut(){
@@ -38,6 +49,8 @@ function logOut(){
 }
 
 function changePassword(){
+    profileButtons.style.display = 'none';
+
     passwordForm.innerHTML = `<form>
     <div class="mb-3">
       <label for="currentPassword" class="form-label">Nuvarande lösenord</label>
@@ -60,5 +73,13 @@ function savePassword(){
     let newPassword = document.getElementById('newPassword');
     let newPassword2 = document.getElementById('newPassword2');
 
-    
+    if(newPassword.value == newPassword2.value){
+        console.log("samma");
+    }
+}
+
+function saveUserInfo(){
+    profileButtons.style.display = 'block';
+    getUserInfo();
+    saveProfile.innerHTML = "";
 }

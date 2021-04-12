@@ -52,38 +52,43 @@
                 <tbody class="">
                     <tr class="">
                         <td class="lead fw-bold">Förnamn</td>
-                        <td class="lead" id="firstNameCell">Hakim</td>
+                        <td class="lead" id="firstNameCell"></td>
                     </tr>
                     <tr class="">
                         <td class="lead fw-bold">Efternamn</td>
-                        <td class="lead" id="lastNameCell">Livs</td>
+                        <td class="lead" id="lastNameCell"></td>
                     </tr>
                     <tr class="">
                         <td class="lead fw-bold">E-mail</td>
-                        <td class="lead" id="emailCell">Livs</td>
+                        <td class="lead" id="emailCell"></td>
                     </tr>
                     <tr class="">
                         <td class="lead fw-bold">Leveransadress</td>
-                        <td class="lead" id="shippingCell">Livs</td>
+                        <td class="lead" id="shippingCell"></td>
                     </tr>
                     <tr class="">
                         <td class="lead fw-bold">Stad</td>
-                        <td class="lead" id="cityCell">Livs</td>
+                        <td class="lead" id="cityCell"></td>
                     </tr>
                     <tr class="">
                         <td class="lead fw-bold">Postnummer</td>
-                        <td class="lead" id="zipcodeCell">Livs</td>
+                        <td class="lead" id="zipcodeCell"></td>
                     </tr>
                 </tbody>
             </table>
+            <div id="saveProfile">
+                
+            </div>
         </div>
             <div class="col-4" id="passwordForm">
                 
             </div>
         </div>
-        <button class="btn btn-outline-primary mt-3" onclick="changeUserInfo()">Redigera uppgifter</button>
-        <button class="btn btn-outline-secondary mt-3" onclick="changePassword()">Ändra lösenord</button>
-        <button class="btn btn-outline-danger mt-3" onclick="logOut()">Logga ut</button>
+        <div id="profileButtons">
+        <button class="btn btn-outline-primary mt-3 me-2" onclick="changeUserInfo()">Redigera uppgifter</button>
+        <button class="btn btn-outline-secondary mt-3 me-2" onclick="changePassword()">Ändra lösenord</button>
+        <button class="btn btn-outline-danger mt-3 me-2" onclick="logOut()">Logga ut</button>
+    </div>
     </div>
 
     <!-- Footer -->
