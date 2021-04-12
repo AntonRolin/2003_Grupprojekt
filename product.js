@@ -26,13 +26,43 @@ function displayProduct({name, descp, price, category, image}) {
 }
 function buttonAddToCart() {
   var button = document.getElementById("addToCart");
-  button.onclick = function (event, x) {
-    var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-        localArray.push(productClicked);
-        localStorage.setItem('cartProducts', JSON.stringify(localArray));
 
-}
+  
+    button.onclick = function (event, x) {
+
+      var items = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+var item = items.find(item => item.name === productClicked.name);
+
+if (item) {
+
+    for (var i = 0; i < items.length; i++){
+        if (items[i].name == productClicked.name && items[i].quantity > 0){
+            alert('Denna artikel har redan lagts till i kundvagnen')
+        }
+    }
+  } else {
+
+
+
+      var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+          localArray.push(productClicked);
+          localStorage.setItem('cartProducts', JSON.stringify(localArray));
+          alert('Du har nu lagt till en produkt i varukorgen');
+
+        }
+  
+  }
+
+
+  
+
+
+
+
 }
 var productClicked = "";
 buttonAddToCart();
 getProductFromApi();
+
+
+
