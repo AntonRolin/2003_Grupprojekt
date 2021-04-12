@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="structure.css">
-    <link rel="stylesheet" href="product.css">
+    <style>
+        .image {
+              width: 10rem;
+              height: 10rem;
+        }
+        .title {
+            font-size: 100px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .price {
+            color: red;
+        }
+    </style>
     <title>Product</title>
 </head>
 <body  class="d-flex flex-column min-vh-100 bg-light">
@@ -42,10 +55,14 @@
     <div class="container bg-white py-5">
         <!-- Rest of the body here -->   
         <div class="product-container">
-            <h1 id="title">Produkt</h1>
-            <h2 id="description">Description</h2>
+            <h1 class="title" id="title">Product</h1>
+            <h2 class="description" id="description">Description</h2>
+            <img class="image" id="image" ></img>
+            <h3 class="price" id="price">Price</h3>
+            
             <div id="product">
             </div>
+            <button id="addToCart" class="btn-lg btn-success ms-2">Köp</button>
         </div>
     </div>
     <!-- Footer -->
@@ -78,10 +95,6 @@
     <!-- Script here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"
     ></script>
-    <script src="settings.js"></script>
-    <script src="index.js"></script>
-    <script src="script.js"></script>
-    <script src="helpfunctions.js"></script>
     <script src="product.js"></script>
     
 

@@ -15,14 +15,14 @@ getProducts();
 localStorage.removeItem('category');
 
 //Delete later
-localStorage.removeItem('cartProducts');
+//localStorage.removeItem('cartProducts');
 
 function loginButtonEvent() {
     
 }
 
 function cartButtonEvent() {
-    
+    window.location.href = 'cart.html';
 }
 
 function addToCart(productToCart) {
@@ -38,7 +38,7 @@ function productImageEvent() {
     console.log(prodID);
     /* localStorage.setItem('productPressed', prodID); */
 
-    window.location.href = "product.html?"+prodID+"=";
+    window.location.href = "product.html?id="+prodID;
 }
 
 function saveProductsToCartInLocalstorage(value) {
@@ -92,7 +92,9 @@ function addEventToButtons(productsArray) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
                 if(product.name == obj.target.id) {
+                    product.quantity = 1;
                     addToCart(product);
+                    alert('Du har nu lagt till en produkt i varukorgen');
                 }
             });
             

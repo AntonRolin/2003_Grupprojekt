@@ -1,4 +1,4 @@
-let productsInCart = [];
+let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
 let user;
 
 const tbody = document.getElementById('checkoutTable');
@@ -8,10 +8,11 @@ const addressField = document.getElementById('inputAddress');
 const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
-setLocalStorage();
-getUser();
+//getLocalStorage();
+//getUser();
 
-loadUserInfo();
+//loadUserInfo();
+loadProducts();
 
 function loadProducts(){
 
@@ -88,22 +89,6 @@ function checkInputEmptyField(field){
         field.style.borderColor = "red";
         document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Field is empty.";
         return false;
-    }
-}
-
-//TESTFUNKTION
-function setLocalStorage(){
-    //Test
-    let url = 'ProduktAPI.json';
-    let request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function(){
-        let allProducts = request.response;
-        localStorage.setItem('productsInCart', JSON.stringify(allProducts));
-        productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
-        loadProducts();
     }
 }
 
