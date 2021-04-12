@@ -8,10 +8,11 @@ const addressField = document.getElementById('inputAddress');
 const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
-setLocalStorage();
+getLocalStorage();
 getUser();
 
 loadUserInfo();
+loadProducts();
 
 function loadProducts(){
 
@@ -91,20 +92,8 @@ function checkInputEmptyField(field){
     }
 }
 
-//TESTFUNKTION
-function setLocalStorage(){
-    //Test
-    let url = 'ProduktAPI.json';
-    let request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function(){
-        let allProducts = request.response;
-        localStorage.setItem('productsInCart', JSON.stringify(allProducts));
+function getLocalStorage(){
         productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
-        loadProducts();
-    }
 }
 
 function getUser(){
