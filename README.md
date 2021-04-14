@@ -2,7 +2,7 @@
 
 ![Logo](images/LogoV3.png)
 
-gh-pages branchen ska endast ha HTML/CSS & JavaScript filer
+Livsmedelsbutik av Java & Kvalit 2021.
 
 Hemsidan publiceras på https://hakim-livs.netlify.app/
 
