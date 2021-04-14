@@ -7,6 +7,11 @@ nav{
     background-color: white ;
 }
 
+.navbar-nav a.nav-link{
+ width: 6rem;
+
+}
+
 
 .search-form{
     width: 50%;
