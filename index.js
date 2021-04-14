@@ -1,5 +1,3 @@
-let loginButton = document.getElementById("loginButton");
-let cartButton = document.getElementById("cartButton");
 let pr = document.getElementById("productRow");
 let cr = document.getElementById("categoryRow");
 let products;
@@ -9,6 +7,7 @@ var prodID = "";
 var categoryPressed = "";
 
 getProducts();
+initaliseLayout();
 
 //cartProducts = [];
 //localStorage.removeItem('productPressed');
@@ -16,14 +15,6 @@ localStorage.removeItem('category');
 
 //Delete later
 localStorage.removeItem('cartProducts');
-
-function loginButtonEvent() {
-    
-}
-
-function cartButtonEvent() {
-    window.location.href = 'cart.html';
-}
 
 function addToCart(productToCart) {
     saveProductsToCartInLocalstorage(productToCart);

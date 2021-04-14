@@ -1,5 +1,3 @@
-let loginButton = document.getElementById("loginButton");
-let cartButton = document.getElementById("cartButton");
 let pr = document.getElementById("productRow");
 let cr = document.getElementById("categoryRow");
 let products;
