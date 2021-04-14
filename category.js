@@ -22,7 +22,11 @@ function productImageEvent() {
     console.log(prodID);
     localStorage.setItem('productPressed', prodID);
 
-    window.location.href = "product.html";
+    window.location.href = "product.html?id="+prodID;
+}
+
+function cartButtonEvent() {
+    window.location.href = 'cart.html';
 }
 
 function saveProductsToCartInLocalstorage(value) {
@@ -64,12 +68,31 @@ function addEventToButtons(productsArray) {
     //Buy button
     Array.from(document.getElementsByClassName("buyButton")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
-            productsArray.forEach(product => {
-                if(product.name == obj.target.id) {
-                    addToCart(product);
+
+
+            var items = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+            var item = items.find(item => item.name === obj.target.id);
+
+            if (item) {
+
+                for (var i = 0; i < items.length; i++){
+                    if (items[i].name == obj.target.id && items[i].quantity > 0){
+                        alert('Denna artikel har redan lagts till i kundvagnen')
+                    }
                 }
-            });
-            
+              }
+
+              else {
+                productsArray.forEach(product => {
+                
+                    if(product.name == obj.target.id) {
+                        if(item)
+                        product.quantity = 1;
+                        addToCart(product);
+                        alert('Du har nu lagt till en produkt i varukorgen');
+                    }
+                });
+              }
         })
     })
   
