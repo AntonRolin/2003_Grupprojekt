@@ -20,11 +20,11 @@ setStoreimg();
 
 
 function setOpenTimes() {
-    openTimesMessage.innerHTML = `Öppettider: ${openingHours}`;
+    openTimesMessage.innerHTML = `<p class="lead fw-bold">Öppettider</p><p class="lead">${openingHours}</p><hr>`;
 }
 
 function setContactNumber() {
-    contactnumberMessage.innerHTML = `Kontakt: ${phonenumber}`;
+    //contactnumberMessage.innerHTML = `<p class="lead fw-bold">Kontakta butiken</p><p class="lead">${phonenumber}</p>`;
 }
 
 function setAboutus(){

@@ -1,8 +1,15 @@
 
 
-.background{
+#background::before{
+  position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background-image: url('images/background.jpg');
-
+    opacity: 0.9;
+    content: "";
+    z-index: -1;
 }
 
 .pb-5{

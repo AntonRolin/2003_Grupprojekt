@@ -9,16 +9,7 @@ var categoryPressed = "";
 getProducts();
 initaliseLayout();
 
-//cartProducts = [];
-//localStorage.removeItem('productPressed');
 localStorage.removeItem('category');
-
-//Delete later
-//localStorage.removeItem('cartProducts');
-
-function addToCart(productToCart) {
-    saveProductsToCartInLocalstorage(productToCart);
-}
 
 function categoryButtonEvent() {
     localStorage.setItem('category', categoryPressed);
@@ -32,14 +23,26 @@ function productImageEvent() {
     window.location.href = "product.html?id="+prodID;
 }
 
-function saveProductsToCartInLocalstorage(value) {
-    if(!window.localStorage) alert("Problem, too old browser")
-    else {
-        var localArray = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-        localArray.push(value);
-        localStorage.setItem('cartProducts', JSON.stringify(localArray));
-        console.log('localArray' + localArray);
-    }
+function addToCart(id) {
+        let cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+        let newProduct = true;
+        cartProducts.forEach(product => {
+            if(product.id == id){
+                newProduct = false;
+                alert('Produkten ligger redan i varukorgen');
+            }
+        });
+        if(newProduct){
+            products.forEach(product => {
+                if(product.id == id){
+                    product.quantity = 1;
+                    cartProducts.push(product);
+                }
+            });
+        }
+
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        cartButton.innerHTML = `<i class="bi bi-cart"></i> Varukorg (${cartProducts.length})`;
 }
 
 //Fetching all products from api, saves them, and call all functions to populate info.
@@ -71,48 +74,12 @@ function getCategories(products) {
 function populateProductColumns(product) {
     var divElement = document.createElement("div");
     divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = '<div><img class="productImage" src="'+product.image+'"alt=""></div><div><p>'+product.price+' kr</p></div><div><p>'+product.name+'</p></div><div><button type="button" id="'+product.name+'" class="buyButton btn btn-success btn-block">Köp</button></div>';
-
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.image}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
     pr.appendChild(divElement);
 }
 
 
 function addEventToButtons(productsArray) {
-
- //Buy button
-    Array.from(document.getElementsByClassName("buyButton")).forEach(function(element) {
-        element.addEventListener('click', function(obj) {
-
-
-            var items = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-            var item = items.find(item => item.name === obj.target.id);
-
-            if (item) {
-
-                for (var i = 0; i < items.length; i++){
-                    if (items[i].name == obj.target.id && items[i].quantity > 0){
-                        alert('Denna artikel har redan lagts till i kundvagnen')
-                    }
-                }
-              }
-
-              else {
-                productsArray.forEach(product => {
-                
-                    if(product.name == obj.target.id) {
-                        product.quantity = 1;
-                        addToCart(product);
-                        alert('Du har nu lagt till en produkt i varukorgen');
-                    }
-                });
-              }
-        })
-    })
-
-
-  
-   
-
 
     //Category
     Array.from(document.getElementsByClassName("catButton")).forEach(function(element) {
@@ -143,8 +110,8 @@ function filterCategory(arrayToFilter) {
 
 function populateCategoryColumns(category) {
     var divElement = document.createElement("div");
-    divElement.className = "col-sm-2 text-center";
-    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-warning btn-box">'+category+'</button>';
+    divElement.className = "col-sm-2 text-center my-3";
+    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-outline-dark">'+category+'</button>';
 
     cr.appendChild(divElement);
 }
