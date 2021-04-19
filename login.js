@@ -1,5 +1,5 @@
 const loginBtn = document.getElementById('loginBtn');
-const invalidUserMsg = document.getElementById('invalidUserMsg');
+const responseMsg = document.getElementById('responseMessage');
 const url = './CustomerAPI.json';
 let customers;
 let loggedInUser;
@@ -9,8 +9,7 @@ loadData();
  * Attempts to login the user whenever the login button is pressed
  */
 function login(){
-
-    invalidUserMsg.innerHTML = "";
+    responseMsg.innerHTML = "";
 
     let username = document.getElementById('inputUsername');
     let password = document.getElementById('inputPassword');
@@ -21,12 +20,13 @@ function login(){
     if(usernameBool){
         if(passwordBool){
             if(checkUserInfo(username.value, password.value)){
-                invalidUserMsg.innerHTML = "";
-                alert("logged in");
                 localStorage.setItem('user', JSON.stringify(loggedInUser));
+                responseMsg.className = "text-center text-success";
+                responseMsg.innerHTML = `Du är nu inloggad som ${loggedInUser.firstname} ${loggedInUser.lastname}`;
             }
             else{
-                invalidUserMsg.innerHTML = "Något blev fel, försök igen";
+                responseMsg.className = "text-center text-danger";
+                responseMsg.innerHTML = "Något blev fel, försök igen";
             }
         }
     }
@@ -53,7 +53,7 @@ function checkFieldIsEmpty(field){
     }
     else{
         field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Field is empty.";
+        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Fältet är tomt";
         return false
     }
 }
