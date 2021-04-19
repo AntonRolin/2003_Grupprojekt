@@ -9,9 +9,9 @@ const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
 //getLocalStorage();
-//getUser();
+getUser();
 
-//loadUserInfo();
+loadUserInfo();
 loadProducts();
 
 function loadProducts(){

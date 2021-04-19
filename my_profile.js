@@ -111,6 +111,10 @@ function savePassword(){
   }
     profileButtons.style.display = 'block';
     passwordForm.innerHTML = "";
+
+    // Saves user password in localStorage
+    localStorage.setItem('user', JSON.stringify(user));
+
     getUserInfo();
 }
 /**
@@ -141,6 +145,10 @@ function saveUserInfo(){
     successText.innerHTML = "Dina uppgifter har sparats";
 
     profileButtons.style.display = 'block';
+
+     // Saves user data in localStorage
+     localStorage.setItem('user', JSON.stringify(user));
+
     getUserInfo();
     saveProfile.innerHTML = "";
 }
