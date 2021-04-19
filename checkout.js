@@ -9,10 +9,11 @@ const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
 
 //getLocalStorage();
-getUser();
-
-loadUserInfo();
 loadProducts();
+
+getUser();
+loadUserInfo();
+
 
 function loadProducts(){
 
@@ -87,7 +88,7 @@ function checkInputEmptyField(field){
     }
     else{
         field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Field is empty.";
+        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Fältet är tomt";
         return false;
     }
 }
