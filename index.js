@@ -1,6 +1,7 @@
 let pr = document.getElementById("productRow");
 let cr = document.getElementById("categoryRow");
 let products;
+let category1;
 let pCategories = [];
 let uniqueCategories;
 var prodID = "";
@@ -8,12 +9,18 @@ var categoryPressed = "";
 
 getProducts();
 initaliseLayout();
+getAll();
 
 localStorage.removeItem('category');
 
 function categoryButtonEvent() {
     localStorage.setItem('category', categoryPressed);
     window.location.href = "category.html";
+}
+
+
+function getAll(){
+
 }
 
 function productImageEvent() {
@@ -54,22 +61,36 @@ function getProducts() {
         products.forEach(e => {
             populateProductColumns(e);
         });
-        getCategories(products);
+        getCategory();
         addEventToButtons(products);
     })
 }
 
+function getCategory() {
+    fetch('http://localhost:8080/category/all')
+    .then((response) => response.json())
+    .then(function(data) {
+        category1 = data;
+        category1.forEach(e => {
+            populateCategoryColumns(e);
+        });
+    })
+} 
+
 //Get all categories and filter then by unique
-function getCategories(products) {
-    products.forEach(e => {
+/*
+function getCategories(category1) {
+    category1.forEach(e => {
         pCategories.push(e.category);
     });
     uniqueCategories = filterCategory(pCategories);
 
-    uniqueCategories.forEach(element => {
+    pCategories.forEach(element => {
         populateCategoryColumns(element);
     });
 }
+*/
+
 
 function populateProductColumns(product) {
     let divElement = document.createElement("div");
@@ -108,10 +129,10 @@ function filterCategory(arrayToFilter) {
     return uniqueCategories;
 }
 
-function populateCategoryColumns(category) {
+function populateCategoryColumns(category1) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-2 text-center my-3";
-    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-outline-dark">'+category+'</button>';
+    divElement.innerHTML = '<button type="button" id="'+category1.categoryname+'" class="catButton btn btn-outline-dark">'+category1.categoryname+'</button>';
 
     cr.appendChild(divElement);
 }
