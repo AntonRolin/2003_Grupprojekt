@@ -76,6 +76,7 @@ function order(){
     }
 
     if(addressHasValue && userLoggedIn && !emptyCart){
+        localStorage.setItem('cartProducts', JSON.stringify([]));
         window.location.href = 'success.html';
     }
 }
