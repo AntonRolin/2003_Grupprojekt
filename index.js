@@ -1,13 +1,12 @@
 let pr = document.getElementById("productRow");
 let cr = document.getElementById("categoryRow");
-let products;
+let products = [];
 let pCategories = [];
 let uniqueCategories;
 var prodID = "";
 var categoryPressed = "";
 
 getProducts();
-initaliseLayout();
 
 localStorage.removeItem('category');
 
@@ -24,6 +23,9 @@ function productImageEvent() {
 }
 
 function addToCart(id) {
+        if(localStorage.getItem('cartProducts') == null)
+            localStorage.setItem('cartProducts', JSON.stringify([]));
+
         let cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
         let newProduct = true;
         cartProducts.forEach(product => {
@@ -57,6 +59,9 @@ function getProducts() {
         getCategories(products);
         addEventToButtons(products);
     })
+    if(localStorage.getItem('cartProducts') == undefined){
+
+    }
 }
 
 //Get all categories and filter then by unique
