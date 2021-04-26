@@ -7,7 +7,6 @@ var prodID = "";
 var categoryPressed = "";
 
 getProducts();
-initaliseLayout();
 
 localStorage.removeItem('category');
 
