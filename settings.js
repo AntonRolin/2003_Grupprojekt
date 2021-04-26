@@ -27,13 +27,13 @@ function setContactNumber() {
     //contactnumberMessage.innerHTML = `<p class="lead fw-bold">Kontakta butiken</p><p class="lead">${phonenumber}</p>`;
 }
 
-function setAboutus(){
-    aboutusMessage.innerHTML = `${aboutustitle}`;
-}
-
 function setStoreimg(){
     document.getElementById('imageBox').src = storeimage;
 } 
+
+function setAboutus(){
+    aboutusMessage.innerHTML = `${aboutustitle}`;
+}
 
 function setAboutustext(){
     aboutustextMessage.innerHTML = `${aboutustext}`;
