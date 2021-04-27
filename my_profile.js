@@ -101,8 +101,8 @@ function savePassword(){
             errorText.innerHTML = "Ditt nya lösenord stämmer inte överrens. Försök igen";
         }
         else{
-          if(newPassword.value.length == 0)
-              errorText.innerHTML = "Ditt nya lösenord måste vara längre än 0 tecken";
+          if(!passwordRegex(newPassword.value))
+              errorText.innerHTML = "Ditt nya lösenord måste vara minst 8 tecken, minst en bokstav, minst en siffra";
           else{
           successText.innerHTML = "Ditt lösenord har ändrats";
           user.password = newPassword.value;
@@ -122,6 +122,7 @@ function savePassword(){
  */
 function saveUserInfo(){
 
+    let legalExpression = true;
     let firstname = document.getElementById('userInfoFirstname');
     let lastname = document.getElementById('userInfoLastname');
     let email = document.getElementById('userInfoEmail');
@@ -129,18 +130,17 @@ function saveUserInfo(){
     let city = document.getElementById('userInfoCity');
     let zipcode = document.getElementById('userInfoZipcode');
 
-    if(firstname.value != "")
-      user.firstname = firstname.value;
-    if(lastname.value != "")
-      user.lastname = lastname.value;
-    if(email.value != "")
-      user.email = email.value;
-    if(shipping.value != "")
-      user.shipping = shipping.value;
-    if(city.value != "")
-      user.city = city.value;
-    if(zipcode.value != "")
-      user.zipcode = zipcode.value;
+    nameRegex(firstname.value) ? user.firstname = firstname.value : legalExpression = false;
+
+    nameRegex(lastname.value) ? user.lastname = lastname.value : legalExpression = false;
+
+    emailRegex(email.value) ? user.email = email.value : legalExpression = false;
+
+    addressRegex(shipping.value) ? user.shipping = shipping.value :  legalExpression = false;
+
+    cityRegex(city.value) ? user.city = city.value : legalExpression = false;
+
+    zipCodeRegex(zipcode.value) ? user.zipcode = zipcode.value : legalExpression = false;
 
     successText.innerHTML = "Dina uppgifter har sparats";
 
@@ -152,3 +152,4 @@ function saveUserInfo(){
     getUserInfo();
     saveProfile.innerHTML = "";
 }
+

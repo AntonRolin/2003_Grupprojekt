@@ -82,14 +82,14 @@ function order(){
 }
 
 function checkInputEmptyField(field){
-    if(field.value.length > 0){
+    if(addressRegex(field.value)){
         field.style.borderColor = "green";
         document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "";
         return true;
     }
     else{
         field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Fältet är tomt";
+        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Ogiltigt format på adress";
         return false;
     }
 }

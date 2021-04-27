@@ -44,72 +44,74 @@ function checkInputs() {
 	var cityTrue;
 
 	if(firstnameValue === '') {
-		setErrorFor(firstname, 'Förnamn får inte vara blank');
-	} else if (!isLetters(firstnameValue)) {
-		setErrorFor(firstname, 'Ogilltigt fortmat');
+		setErrorFor(firstname, 'Förnamn får inte vara blankt');
+	} else if (!nameRegex(firstnameValue)) {
+		setErrorFor(firstname, 'Ogiltigt format');
 	}else {
 		setSuccessFor(firstname);
         firstnameTrue = 1;
 	}
 
 	if(lastnameValue === '') {
-		setErrorFor(lastname, 'Efternamn får inte vara blank');
-	}else if (!isLetters(lastnameValue)) {
-		setErrorFor(lastname, 'Ogilltigt fortmat');
+		setErrorFor(lastname, 'Efternamn får inte vara blankt');
+	}else if (!nameRegex(lastnameValue)) {
+		setErrorFor(lastname, 'Ogiltigt format');
 	} else {
 		setSuccessFor(lastname);
         lastnameTrue = 1;
 	}
 	
 	if(emailValue === '') {
-		setErrorFor(email, 'E-post får inte vara blank');
+		setErrorFor(email, 'E-post får inte vara blankt');
 	} else if (checkUserInfo(emailValue)) {
 		setErrorFor(email, 'Kontot finns redan');
-	} else if (!isEmail(emailValue)) {
-		setErrorFor(email, 'Inte en giltig E-post');
+	} else if (!emailRegex(emailValue)) {
+		setErrorFor(email, 'Ogiltigt format');
 	} else {
 		setSuccessFor(email);
         emailTrue = 1;
 	}
 
     if(addressValue === '') {
-		setErrorFor(address, 'Adressen får inte vara blank');
+		setErrorFor(address, 'Adress får inte vara blankt');
+	} else if (!addressRegex(addressValue)){
+		setErrorFor(address, 'Ogiltigt format');
 	} else {
 		setSuccessFor(address);
         adressTrue = 1;
 	}
 
     if(zipcodeValue === '') {
-		setErrorFor(zipcode, 'Postnummer får inte vara blank');
-	} else if (!isZipcode(zipcodeValue)) {
-		setErrorFor(zipcode, 'Inte ett giltigt postnummer');
+		setErrorFor(zipcode, 'Postnummer får inte vara blankt');
+	} else if (!zipCodeRegex(zipcodeValue)) {
+		setErrorFor(zipcode, 'Ogiltigt format');
 	} else {
 		setSuccessFor(zipcode);
         zipcodeTrue = 1;
 	}
 
 	if(cityValue === '') {
-		setErrorFor(city, 'Postort får inte vara blank');
-	} else if (!isLetters(cityValue)) {
-		setErrorFor(city, 'Inte en giltig postort');
+		setErrorFor(city, 'Postort får inte vara blankt');
+	} else if (!cityRegex(cityValue)) {
+		setErrorFor(city, 'Ogiltigt format');
 	} else {
 		setSuccessFor(city);
         cityTrue = 1;
 	}
 
     if(phonenrValue === '') {
-		setErrorFor(phonenr, 'Telefonnummret får inte vara blank');
-	} else if (!isPhoneNr(phonenrValue)) {
-		setErrorFor(phonenr, 'Inte ett giltigt telefonnummer');
+		setErrorFor(phonenr, 'Telefonnummer får inte vara blankt');
+	} else if (!phoneRegex(phonenrValue)) {
+		setErrorFor(phonenr, 'Ogiltigt format');
 	} else {
 		setSuccessFor(phonenr);
         phonenrTrue = 1;
 	}
 
   if(password1Value === '') {
-		setErrorFor(password1, 'Lösenordet får inte vara blank');
-	} else if (!isPassword(password1Value)){
-    setErrorFor(password1, 'Lösenordet måste bestå av minst 6 tecken och högst 16 tecken, minst en siffra: 1-9');
+		setErrorFor(password1, 'Lösenord får inte vara blankt');
+	} else if (!passwordRegex(password1Value)){
+    	setErrorFor(password1, 'Ditt lösenord måste vara minst 8 tecken, minst en bokstav, minst en siffra');
   } else {
 		setSuccessFor(password1);
     password1True = 1;
@@ -117,7 +119,7 @@ function checkInputs() {
 
 	
 	if(password2Value === '') {
-		setErrorFor(password2, 'Lösenordet får inte vara blank');
+		setErrorFor(password2, 'Lösenord får inte vara blankt');
 	} else if(password1Value !== password2Value) {
 		setErrorFor(password2, 'Lösenordet matchar inte');
 	} else{
@@ -151,35 +153,6 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
 	const formControl = input.parentElement;
 	formControl.className = 'form-control success';
-}
-	
-/**
- * Validates email with regex
- */
-function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-
-/**
- * Validates zipcode with regex
- */
-function isZipcode(zipcode) {
-	return /^\d{3}\d{2}$/.test(zipcode);
-}
-
-/**
- * Validates phonenr with regex
- */
-function isPhoneNr(phonenr) {
-	return /^(([+]46)\s*(7)|07)[02369]\s*(\d{4})\s*(\d{3})$/.test(phonenr);
-}
-
-function isPassword(password1) {
-	return /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password1);
-}
-
-function isLetters(city) {
-	return /^[a-öA-Ö]+$/.test(city);
 }
 
 function checkUserInfo(email){
