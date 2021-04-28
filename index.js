@@ -115,7 +115,7 @@ function filterCategory(arrayToFilter) {
 
 function populateCategoryColumns(category) {
     var divElement = document.createElement("div");
-    divElement.className = "col-sm-2 text-center my-3";
+    divElement.className = "col-sm-2 text-center my-3 ms-4";
     divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-outline-dark">'+category+'</button>';
 
     cr.appendChild(divElement);
