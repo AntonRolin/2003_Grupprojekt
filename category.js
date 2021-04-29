@@ -49,7 +49,7 @@ function addToCart(id) {
 
 //Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
-    fetch('productAPI.json')
+    fetch('http://localhost:8080/products/all')
     .then((response) => response.json())
     .then(function(data) {
         products = data;

@@ -49,7 +49,7 @@ function addToCart(id) {
 
 //Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
-    fetch('productAPI.json')
+    fetch('http://localhost:8080/product/all')
     .then((response) => response.json())
     .then(function(data) {
         products = data;
@@ -79,7 +79,7 @@ function getCategories(products) {
 function populateProductColumns(product) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.image}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.imageURL}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
     pr.appendChild(divElement);
 }
 

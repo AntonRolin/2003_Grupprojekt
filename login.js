@@ -1,8 +1,10 @@
 const loginBtn = document.getElementById('loginBtn');
 const responseMsg = document.getElementById('responseMessage');
-const url = './CustomerAPI.json';
+const url = 'http://localhost:8080/customer/all';
 let customers;
 let loggedInUser;
+
+
 
 loadData();
 /**
