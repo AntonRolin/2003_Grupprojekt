@@ -128,7 +128,19 @@ function checkInputs() {
 	}
 
     if (firstnameTrue === 1 && emailTrue === 1 && adressTrue === 1 && zipcodeTrue === 1 && phonenrTrue === 1 && password1True === 1 && password2True === 1 && cityTrue === 1){
-        alert("Välkommen " + firstnameValue);
+        alert("Välkommen " + firstnameValue + ". Du kan nu logga in!");
+
+		let url = 'http://localhost:8080/customer/add/' + firstnameValue + '/' + lastnameValue + '/' + emailValue + '/' + password1Value + '/' + addressValue + '/' + zipcodeValue + '/' + cityValue;
+
+        axios.get(url)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+		window.location.href = 'login.html';
     } 
 
 }
