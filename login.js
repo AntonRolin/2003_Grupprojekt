@@ -1,6 +1,6 @@
 const loginBtn = document.getElementById('loginBtn');
 const responseMsg = document.getElementById('responseMessage');
-const url = 'https://hakimlivsdb.herokuapp.com/customer/all';
+const url = 'http://localhost:8080/customer/all';
 let customers;
 let loggedInUser;
 

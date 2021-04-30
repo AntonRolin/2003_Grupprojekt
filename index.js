@@ -52,7 +52,7 @@ function addToCart(id) {
 
 //Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
-    fetch('https://hakimlivsdb.herokuapp.com/product/all')
+    fetch('http://localhost:8080/product/all')
     .then((response) => response.json())
     .then(function(data) {
         products = data;
@@ -67,7 +67,7 @@ function getProducts() {
 }
 
 function getCategory() {
-    fetch('https://hakimlivsdb.herokuapp.com/category/all')
+    fetch('http://localhost:8080/category/all')
     .then((response) => response.json())
     .then(function(data) {
         category = data;
@@ -105,7 +105,7 @@ function addEventToButtons(productsArray) {
     Array.from(document.getElementsByClassName("productImage")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
-                if(product.image == obj.target.src) {
+                if(product.imageURL == obj.target.src) {
                     prodID = product.id;
                     productImageEvent();
                 }
