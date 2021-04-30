@@ -1,8 +1,10 @@
 const loginBtn = document.getElementById('loginBtn');
 const responseMsg = document.getElementById('responseMessage');
-const url = './CustomerAPI.json';
+const url = 'https://hakimlivsdb.herokuapp.com/customer/all';
 let customers;
 let loggedInUser;
+
+
 
 loadData();
 /**

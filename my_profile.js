@@ -32,7 +32,7 @@ function getUserInfo(){
     firstName.innerHTML = `${user.firstname}`;
     lastName.innerHTML = `${user.lastname}`;
     email.innerHTML = `${user.email}`;
-    shipping.innerHTML = `${user.shipping}`;
+    shipping.innerHTML = `${user.address}`;
     city.innerHTML = `${user.city}`;
     zipcode.innerHTML = `${user.zipcode}`;
 }
@@ -47,7 +47,7 @@ function changeUserInfo(){
     firstName.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoFirstname" placeholder="${user.firstname}">`;
     lastName.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoLastname" placeholder="${user.lastname}">`;
     email.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoEmail" placeholder="${user.email}">`;
-    shipping.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoShipping" placeholder="${user.shipping}">`;
+    shipping.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoShipping" placeholder="${user.address}">`;
     city.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoCity" placeholder="${user.city}">`;
     zipcode.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoZipcode" placeholder="${user.zipcode}">`;
 
@@ -115,6 +115,16 @@ function savePassword(){
     // Saves user password in localStorage
     localStorage.setItem('user', JSON.stringify(user));
 
+    let url = 'http://localhost:8080/customer/update/' + user.id + '/' + user.password;
+
+    axios.patch(url)
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
     getUserInfo();
 }
 /**
@@ -136,7 +146,7 @@ function saveUserInfo(){
 
     emailRegex(email.value) ? user.email = email.value : legalExpression = false;
 
-    addressRegex(shipping.value) ? user.shipping = shipping.value :  legalExpression = false;
+    addressRegex(shipping.value) ? user.address = shipping.value :  legalExpression = false;
 
     cityRegex(city.value) ? user.city = city.value : legalExpression = false;
 
@@ -148,6 +158,17 @@ function saveUserInfo(){
 
      // Saves user data in localStorage
      localStorage.setItem('user', JSON.stringify(user));
+
+
+     let url = 'http://localhost:8080/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
+
+        axios.patch(url)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
     getUserInfo();
     saveProfile.innerHTML = "";
