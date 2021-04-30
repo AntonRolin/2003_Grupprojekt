@@ -1,7 +1,7 @@
 const totalPriceLabel = document.getElementById('totalPrice');
 const tbody = document.getElementById('productCartTable');
 
-const url = 'ProductAPI.json';
+const url = 'https://hakimlivsdb.herokuapp.com/product/all';
 let cartProducts; 
 
 getLocalCart();
@@ -19,7 +19,7 @@ function loadProducts(){
         let td5 = createNode('td');
         
         td1.innerHTML = product.name;
-        td2.innerHTML = `<img src="${product.image}" alt="Produktbild">`;
+        td2.innerHTML = `<img src="${product.imageURL}" alt="Produktbild">`;
         td3.innerHTML = `<strong>${product.price}kr</strong>`;
         td4.innerHTML = product.quantity;
         td5.innerHTML = `<button class="btn btn-outline-danger" onclick="removeFromCart(${product.id})"><strong>–</strong></button>
