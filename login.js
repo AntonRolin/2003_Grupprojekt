@@ -28,7 +28,7 @@ function login(){
             }
             else{
                 responseMsg.className = "text-center text-danger";
-                responseMsg.innerHTML = "Något blev fel, försök igen";
+                responseMsg.innerHTML = "Kontot finns inte registrerat, försök igen";
             }
         }
     }
