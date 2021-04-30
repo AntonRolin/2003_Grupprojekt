@@ -1,6 +1,8 @@
 # 2003_Grupprojekt
 
-gh-pages branchen ska endast ha HTML/CSS & JavaScript filer
+![Logo](images/LogoV3.png)
+
+Livsmedelsbutik av Java & Kvalit 2021.
 
 Hemsidan publiceras på https://hakim-livs.netlify.app/
 
