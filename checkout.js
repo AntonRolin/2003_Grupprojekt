@@ -1,5 +1,9 @@
 let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
+let userInCart = JSON.parse(localStorage.getItem('user'));
 let user;
+
+
+
 
 const tbody = document.getElementById('checkoutTable');
 const totPriceLabel = document.getElementById('totalPrice');
@@ -15,6 +19,8 @@ getUser();
 loadUserInfo();
 
 
+
+
 function loadProducts(){
 
     productsInCart.forEach(product => {
@@ -27,7 +33,7 @@ function loadProducts(){
           //innerHTML
             td1.innerHTML = product.name;
             td1.setAttribute("class", "d-flex justify-content-center pt-5");
-            td2.innerHTML = `<img src="${product.image}" alt="Produktbild" ">`;
+            td2.innerHTML = `<img src="${product.imageURL}" alt="Produktbild" ">`;
             td2.setAttribute("class", "justify-content-center");
             td3.innerHTML = `<strong>${product.price}kr</strong>`;
             td3.setAttribute("class", "justify-content-center pt-5");
@@ -46,7 +52,7 @@ function loadProducts(){
 function loadUserInfo(){
     if(user.firstname != undefined){
         nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
-        addressField.value = user.shipping;
+        addressField.value = user.address;
     }
     else{
         console.log('not logged in');
@@ -76,9 +82,60 @@ function order(){
     }
 
     if(addressHasValue && userLoggedIn && !emptyCart){
-        localStorage.setItem('cartProducts', JSON.stringify([]));
-        window.location.href = 'success.html';
+        addNewOrdertoDB();
+        getOrderIdData();
+        
     }
+}
+
+
+function getOrderIdData(){
+
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/OrderID/' + user.id
+    
+    setTimeout(() => {
+        axios.get(url5)
+        .then(response => {
+            this.data = response.data;
+            this.data.forEach((item) => {
+              console.log("found: ", item)
+              console.log("found id: ", item.id)
+              this.addCartProductToDB(item.id);
+              
+            })
+          });
+     }, 100)
+}
+
+function addNewOrdertoDB(){
+
+        let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id;
+
+        axios.get(url2)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function addCartProductToDB(order12){
+    productsInCart.forEach(product => {
+        let url2 = 'https://hakimlivsdb.herokuapp.com/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
+
+        axios.get(url2)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+       
+
+    });
+            localStorage.setItem('cartProducts', JSON.stringify([]));
+            window.location.href = 'success.html';
 }
 
 function checkInputEmptyField(field){
