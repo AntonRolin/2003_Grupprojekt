@@ -1,5 +1,5 @@
 function getProductFromApi() {
-  fetch("ProductAPI.json")
+  fetch("http://localhost:8080/product/all")
     .then((res) => res.json())
     .then((apiJsonData) => {
       getProduct(apiJsonData);
@@ -16,15 +16,15 @@ function getProduct(apiJsonData) {
 
 }
 
-function displayProduct({name, descp, price, category, image}) {
+function displayProduct({name, description, price, category, imageURL}) {
   let titleDisplay = document.getElementById("title");
   titleDisplay.innerHTML = name.toString();
   let descriptionDisplay = document.getElementById("description");
-  descriptionDisplay.innerHTML = descp.toString();
+  descriptionDisplay.innerHTML = description.toString();
   let priceDisplay = document.getElementById("price");
   priceDisplay.innerHTML = price.toString() + " kr";
   let imageDisplay = document.getElementById("image");
-  imageDisplay.src = image.toString();
+  imageDisplay.src = imageURL.toString();
 }
 
 function buttonAddToCart() {
