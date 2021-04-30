@@ -11,11 +11,16 @@ const saveProfile = document.getElementById('saveProfile');
 const errorText = document.getElementById('errorText');
 const successText = document.getElementById('successText');
 
+let pr = document.getElementById("productRow");
+let products = [];
+
 let user;
 user = JSON.parse(localStorage.getItem('user'));
 
 checkIfLoggedIn();
 getUserInfo();
+getOrders();
+
 
 /**
  * Checks if user is logged in, if not the site redirects to index
@@ -85,6 +90,7 @@ function changePassword(){
     <button type="button" class="btn btn-outline-success float-end" onclick="savePassword()">Spara ändringar</button>
   </form>`;
 }
+
 /**
  * When you press the save password change button
  */
@@ -172,5 +178,30 @@ function saveUserInfo(){
 
     getUserInfo();
     saveProfile.innerHTML = "";
+
+
+}
+
+
+
+
+function getOrders() {
+    let url5 = 'https://hakimlivsdb.herokuapp.com/product/get/allcustomerorders/' + user.id
+    fetch(url5)
+    .then((response) => response.json())
+    .then(function(data) {
+        products = data;
+        products.forEach(e => {
+            populateProductColumns(e);
+        });
+    })
+}
+
+
+function populateProductColumns(item) {
+    let divElement = document.createElement("div");
+    divElement.className = "col-md-3 pb-5";
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold">${item.price}kr</p> <p class="fw-bold">${item.name}</p><hr></div>`;
+    pr.appendChild(divElement);
 }
 
