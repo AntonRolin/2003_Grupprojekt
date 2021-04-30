@@ -55,12 +55,6 @@ function cartButtonEvent() {
   window.location.href = 'cart.html';
 }
 
-function loginButtonEvent() {
-
-    
-}
-
-
 var productClicked = "";
 buttonAddToCart();
 getProductFromApi();

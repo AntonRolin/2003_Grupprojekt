@@ -11,16 +11,16 @@
     <title>Registrera dig</title>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
-    <div class="bg-white">
-        <nav class="navbar">
-            <div class="container px-5">
+    <div>
+        <nav class="navbar border-bottom border-dark">
+            <div class="container px-5 mb-5">
                 <div class="row">
                     <div class="col-sm-6">
-                      <a href="./index.html"><img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%"></a>
+                        <a href="./index.html"><img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%"></a>
                     </div>
                     <div class="col-sm-2">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 bg-white">
                                 <p class="nav-info text-center" id="openTimes"></p>
                                 <p class="nav-info text-center" id="contactNumber"></p>
                             </div>
@@ -34,7 +34,6 @@
                     </div>
                     <div class="col-sm-10">
                         <br>
-                        <input type="text" class="form-control" placeholder="Search">
                     </div>        
                 </div>  
             </div>
@@ -123,7 +122,7 @@
                     <h5 class="text-uppercase pt-3">Om oss</h5>
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" class="text-dark">Vår historia</a>
+                            <a href="aboutus.html" class="text-dark">Vår historia</a>
                         </li>
                         <li>
                             <a href="#!" class="text-dark">Medlemsvillkor</a>
@@ -143,8 +142,10 @@
     </footer>
     
     <!-- Script here -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"
     ></script>
+    <script src="regex.js"></script>
     <script src="settings.js"></script>
     <script src="template.js"></script>
     <script src="signup.js"></script>

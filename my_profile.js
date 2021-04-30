@@ -32,7 +32,7 @@ function getUserInfo(){
     firstName.innerHTML = `${user.firstname}`;
     lastName.innerHTML = `${user.lastname}`;
     email.innerHTML = `${user.email}`;
-    shipping.innerHTML = `${user.shipping}`;
+    shipping.innerHTML = `${user.address}`;
     city.innerHTML = `${user.city}`;
     zipcode.innerHTML = `${user.zipcode}`;
 }
@@ -47,7 +47,7 @@ function changeUserInfo(){
     firstName.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoFirstname" placeholder="${user.firstname}">`;
     lastName.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoLastname" placeholder="${user.lastname}">`;
     email.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoEmail" placeholder="${user.email}">`;
-    shipping.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoShipping" placeholder="${user.shipping}">`;
+    shipping.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoShipping" placeholder="${user.address}">`;
     city.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoCity" placeholder="${user.city}">`;
     zipcode.innerHTML = `<input type="text" class="form-control form-control-sm" id="userInfoZipcode" placeholder="${user.zipcode}">`;
 
@@ -101,8 +101,8 @@ function savePassword(){
             errorText.innerHTML = "Ditt nya lösenord stämmer inte överrens. Försök igen";
         }
         else{
-          if(newPassword.value.length == 0)
-              errorText.innerHTML = "Ditt nya lösenord måste vara längre än 0 tecken";
+          if(!passwordRegex(newPassword.value))
+              errorText.innerHTML = "Ditt nya lösenord måste vara minst 8 tecken, minst en bokstav, minst en siffra";
           else{
           successText.innerHTML = "Ditt lösenord har ändrats";
           user.password = newPassword.value;
@@ -115,6 +115,16 @@ function savePassword(){
     // Saves user password in localStorage
     localStorage.setItem('user', JSON.stringify(user));
 
+    let url = 'http://localhost:8080/customer/update/' + user.id + '/' + user.password;
+
+    axios.patch(url)
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
     getUserInfo();
 }
 /**
@@ -122,6 +132,7 @@ function savePassword(){
  */
 function saveUserInfo(){
 
+    let legalExpression = true;
     let firstname = document.getElementById('userInfoFirstname');
     let lastname = document.getElementById('userInfoLastname');
     let email = document.getElementById('userInfoEmail');
@@ -129,18 +140,17 @@ function saveUserInfo(){
     let city = document.getElementById('userInfoCity');
     let zipcode = document.getElementById('userInfoZipcode');
 
-    if(firstname.value != "")
-      user.firstname = firstname.value;
-    if(lastname.value != "")
-      user.lastname = lastname.value;
-    if(email.value != "")
-      user.email = email.value;
-    if(shipping.value != "")
-      user.shipping = shipping.value;
-    if(city.value != "")
-      user.city = city.value;
-    if(zipcode.value != "")
-      user.zipcode = zipcode.value;
+    nameRegex(firstname.value) ? user.firstname = firstname.value : legalExpression = false;
+
+    nameRegex(lastname.value) ? user.lastname = lastname.value : legalExpression = false;
+
+    emailRegex(email.value) ? user.email = email.value : legalExpression = false;
+
+    addressRegex(shipping.value) ? user.address = shipping.value :  legalExpression = false;
+
+    cityRegex(city.value) ? user.city = city.value : legalExpression = false;
+
+    zipCodeRegex(zipcode.value) ? user.zipcode = zipcode.value : legalExpression = false;
 
     successText.innerHTML = "Dina uppgifter har sparats";
 
@@ -149,6 +159,18 @@ function saveUserInfo(){
      // Saves user data in localStorage
      localStorage.setItem('user', JSON.stringify(user));
 
+
+     let url = 'http://localhost:8080/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
+
+        axios.patch(url)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     getUserInfo();
     saveProfile.innerHTML = "";
 }
+

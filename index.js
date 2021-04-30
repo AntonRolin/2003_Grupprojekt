@@ -1,13 +1,15 @@
 let pr = document.getElementById("productRow");
 let cr = document.getElementById("categoryRow");
-let products;
+let products = [];
 let pCategories = [];
 let uniqueCategories;
 var prodID = "";
-var categoryPressed = "";
+var categoryPressed;
+var categoryPressed2;
+let category;
 
 getProducts();
-initaliseLayout();
+getCategory();
 
 localStorage.removeItem('category');
 
@@ -24,6 +26,9 @@ function productImageEvent() {
 }
 
 function addToCart(id) {
+        if(localStorage.getItem('cartProducts') == null)
+            localStorage.setItem('cartProducts', JSON.stringify([]));
+
         let cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
         let newProduct = true;
         cartProducts.forEach(product => {
@@ -47,34 +52,40 @@ function addToCart(id) {
 
 //Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
-    fetch('productAPI.json')
+    fetch('https://hakimlivsdb.herokuapp.com/product/all')
     .then((response) => response.json())
     .then(function(data) {
         products = data;
         products.forEach(e => {
             populateProductColumns(e);
         });
-        getCategories(products);
         addEventToButtons(products);
+    })
+    if(localStorage.getItem('cartProducts') == undefined){
+
+    }
+}
+
+function getCategory() {
+    fetch('https://hakimlivsdb.herokuapp.com/category/all')
+    .then((response) => response.json())
+    .then(function(data) {
+        category = data;
+        category.forEach(e => {
+            
+            populateCategoryColumns(e);
+            
+        });
+
     })
 }
 
 //Get all categories and filter then by unique
-function getCategories(products) {
-    products.forEach(e => {
-        pCategories.push(e.category);
-    });
-    uniqueCategories = filterCategory(pCategories);
-
-    uniqueCategories.forEach(element => {
-        populateCategoryColumns(element);
-    });
-}
 
 function populateProductColumns(product) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.image}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.imageURL}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
     pr.appendChild(divElement);
 }
 
@@ -85,6 +96,7 @@ function addEventToButtons(productsArray) {
     Array.from(document.getElementsByClassName("catButton")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
             categoryPressed = obj.target.id;
+            categoryPressed2 = obj.target.name;
             categoryButtonEvent();
         })
     })
@@ -111,7 +123,7 @@ function filterCategory(arrayToFilter) {
 function populateCategoryColumns(category) {
     var divElement = document.createElement("div");
     divElement.className = "col-sm-2 text-center my-3";
-    divElement.innerHTML = '<button type="button" id="'+category+'" class="catButton btn btn-outline-dark">'+category+'</button>';
+    divElement.innerHTML = '<button type="button" id="'+category.id+'-'+category.name+'" class="catButton btn btn-outline-dark">'+category.name+'</button>';
 
     cr.appendChild(divElement);
 }
