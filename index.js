@@ -105,7 +105,7 @@ function addEventToButtons(productsArray) {
     Array.from(document.getElementsByClassName("productImage")).forEach(function(element) {
         element.addEventListener('click', function(obj) {
             productsArray.forEach(product => {
-                if(product.image == obj.target.src) {
+                if(product.imageURL == obj.target.src) {
                     prodID = product.id;
                     productImageEvent();
                 }
