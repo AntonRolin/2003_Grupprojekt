@@ -115,7 +115,7 @@ function savePassword(){
     // Saves user password in localStorage
     localStorage.setItem('user', JSON.stringify(user));
 
-    let url = https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.password;
+    let url = 'https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.password;
 
     axios.patch(url)
     .then(function (response) {
