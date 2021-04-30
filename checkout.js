@@ -91,7 +91,7 @@ function order(){
 
 function getOrderIdData(){
 
-    let url5 = 'http://localhost:8080/orders/get/OrderID/' + user.id
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/OrderID/' + user.id
     
     setTimeout(() => {
         axios.get(url5)
@@ -109,7 +109,7 @@ function getOrderIdData(){
 
 function addNewOrdertoDB(){
 
-        let url2 = 'http://localhost:8080/orders/add/' + user.address + '/' + user.id;
+        let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id;
 
         axios.get(url2)
         .then(function (response) {
@@ -122,7 +122,7 @@ function addNewOrdertoDB(){
 
 function addCartProductToDB(order12){
     productsInCart.forEach(product => {
-        let url2 = 'http://localhost:8080/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
+        let url2 = 'https://hakimlivsdb.herokuapp.com/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
 
         axios.get(url2)
         .then(function (response) {
