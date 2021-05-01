@@ -88,7 +88,7 @@ function order(){
         setTimeout(function(){
             window.location.href = 'success.html';
 
-        }, 3500); 
+        }, 4500); 
         
     }
 }
@@ -136,10 +136,10 @@ function addCartProductToDB(order12){
         .catch(function (error) {
             console.log(error);
         });
-       
-
+    
     });
             localStorage.setItem('cartProducts', JSON.stringify([]));
+            
 
             
 }
