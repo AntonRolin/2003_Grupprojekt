@@ -41,11 +41,11 @@ function checkIfLoggedIn(){
  */
 function getUserInfo(){
 
-    firstName.innerHTML = `${user.firstname}`;
-    lastName.innerHTML = `${user.lastname}`;
-    email.innerHTML = `${user.email}`;
-    shipping.innerHTML = `${user.address}`;
-    city.innerHTML = `${user.city}`;
+    firstName.innerHTML = `${product.name}`;
+    lastName.innerHTML = `${product.description}`;
+    email.innerHTML = `${product.imageurl}`;
+    shipping.innerHTML = `${product.price}`;
+    city.innerHTML = `${product.quantity}`;
     zipcode.innerHTML = `${user.zipcode}`;
 }
 /**
@@ -190,67 +190,8 @@ function saveUserInfo(){
 }
 
 
-
-
-function getOrders() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/all'
-    fetch(url5)
-    .then((response) => response.json())
-    .then(function(data) {
-        orders = data;
-        orders.forEach(e => {
-            populateOrdersColumns(e);
-        });
-    })
-}
-
-
-
-
-function populateOrdersColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
-    or.appendChild(divElement);
-}
-
-function sendOrderDetails(id) {
-
-    localStorage.setItem('orderID', JSON.stringify(id));
-    window.location.href = "orderdetails.html";
-
-}
-
-function sendProductDetails(id) {
-
-    localStorage.setItem('productID', JSON.stringify(id));
-    window.location.href = "adminproduct.html";
-
-}
-
-
-function getCustomers() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/customer/all'
-    fetch(url5)
-    .then((response) => response.json())
-    .then(function(data) {
-        customer = data;
-        customer.forEach(e => {
-            populateCustomerColumns(e);
-        });
-    })
-}
-
-function populateCustomerColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id} ${item.firstname} ${item.lastname} </button></p><hr></div>`;
-    cu.appendChild(divElement);
-}
-
-
 function getProducts() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/product/all'
+    let url5 = 'https://hakimlivsdb.herokuapp.com/product/' + produktID
     fetch(url5)
     .then((response) => response.json())
     .then(function(data) {
@@ -262,12 +203,6 @@ function getProducts() {
 }
 
 
-function populateProductColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendProductDetails(${item.id})">${item.id} ${item.name}</button></p><hr></div>`;
-    pr.appendChild(divElement);
-}
 
 
 
