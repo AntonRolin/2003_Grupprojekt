@@ -26,7 +26,7 @@ function getOrderProducts(id) {
 
 function populateProductColumns(product) {
     let divElement = document.createElement("div");
-    divElement.className = "col-md-6 sm-3";
+    divElement.className = "col-md-6 sm-20";
     divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.imageURL}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><hr><p class="fw-bold">${product.quantity} st</p><hr></div>`;
     pr.appendChild(divElement);
 }

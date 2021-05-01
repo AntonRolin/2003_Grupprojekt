@@ -84,6 +84,11 @@ function order(){
     if(addressHasValue && userLoggedIn && !emptyCart){
         addNewOrdertoDB();
         getOrderIdData();
+
+        setTimeout(function(){
+            window.location.href = 'success.html';
+
+        }, 3500); 
         
     }
 }
@@ -135,7 +140,8 @@ function addCartProductToDB(order12){
 
     });
             localStorage.setItem('cartProducts', JSON.stringify([]));
-            window.location.href = 'success.html';
+
+            
 }
 
 function checkInputEmptyField(field){
