@@ -1,7 +1,7 @@
 const totalPriceLabel = document.getElementById('totalPrice');
 const tbody = document.getElementById('productCartTable');
 
-const url = 'https://hakimlivsdb.herokuapp.com/product/all';
+const url = 'http://localhost:8080/product/all';
 let cartProducts; 
 
 getLocalCart();

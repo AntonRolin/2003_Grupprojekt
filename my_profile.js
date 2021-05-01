@@ -6,6 +6,7 @@ const city = document.getElementById('cityCell');
 const zipcode = document.getElementById('zipcodeCell');
 
 const passwordForm = document.getElementById('passwordForm');
+const ordersForm = document.getElementById('ordersForm');
 const profileButtons = document.getElementById('profileButtons');
 const saveProfile = document.getElementById('saveProfile');
 const errorText = document.getElementById('errorText');
@@ -121,7 +122,7 @@ function savePassword(){
     // Saves user password in localStorage
     localStorage.setItem('user', JSON.stringify(user));
 
-    let url = 'https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.password;
+    let url = 'https:/http://localhost:8080/customer/update/' + user.id + '/' + user.password;
 
     axios.patch(url)
     .then(function (response) {
@@ -166,7 +167,7 @@ function saveUserInfo(){
      localStorage.setItem('user', JSON.stringify(user));
 
 
-     let url = 'https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
+     let url = 'https://http://localhost:8080/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
 
         axios.patch(url)
         .then(function (response) {
@@ -186,22 +187,35 @@ function saveUserInfo(){
 
 
 function getOrders() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/product/get/allcustomerorders/' + user.id
+    let url5 = 'http://localhost:8080/orders/get/customerOrders/' + user.id
     fetch(url5)
     .then((response) => response.json())
     .then(function(data) {
         products = data;
         products.forEach(e => {
-            populateProductColumns(e);
+            populateOrdersColumns(e);
         });
     })
 }
 
 
-function populateProductColumns(item) {
+
+
+function populateOrdersColumns(item) {
     let divElement = document.createElement("div");
-    divElement.className = "col-md-3 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold">${item.price}kr</p> <p class="fw-bold">${item.name}</p><hr></div>`;
+    divElement.className = "col-md-4 pb-5";
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
     pr.appendChild(divElement);
 }
+
+function sendOrderDetails(id) {
+
+    localStorage.setItem('orderID', JSON.stringify(id));
+    window.location.href = "orderdetails.html";
+
+}
+
+
+
+
 
