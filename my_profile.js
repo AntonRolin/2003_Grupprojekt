@@ -167,7 +167,7 @@ function saveUserInfo(){
      localStorage.setItem('user', JSON.stringify(user));
 
 
-     let url = 'https://http://localhost:8080/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
+     let url = 'https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.firstname + '/' + user.lastname + '/' + user.email + '/' + user.address + '/' + user.zipcode + '/' + user.city;
 
         axios.patch(url)
         .then(function (response) {
@@ -187,7 +187,7 @@ function saveUserInfo(){
 
 
 function getOrders() {
-    let url5 = 'http://localhost:8080/orders/get/customerOrders/' + user.id
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/customerOrders/' + user.id
     fetch(url5)
     .then((response) => response.json())
     .then(function(data) {

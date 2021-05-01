@@ -11,7 +11,7 @@ populateCategoryColumns();
 
 
 function getOrderProducts(id) {
-    let url5 = 'http://localhost:8080/product/get/allcustomerorders/' +id
+    let url5 = 'https://hakimlivsdb.herokuapp.com/product/get/allcustomerorders/' +id
     fetch(url5)
     .then((response) => response.json())
     .then(function(data) {
@@ -49,7 +49,7 @@ function populateCategoryColumns() {
 
 function getOrderSum(ordersID){
 
-    let url5 = 'http://localhost:8080/orders/get/orderssum/' + ordersID
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/orderssum/' + ordersID
     
 
         axios.get(url5)
