@@ -52,7 +52,7 @@ function addToCart(id) {
 
 //Fetching all products from api, saves them, and call all functions to populate info.
 function getProducts() {
-    fetch('http://localhost:8080/product/all')
+    fetch('https://hakimlivsdb.herokuapp.com/product/all')
     .then((response) => response.json())
     .then(function(data) {
         products = data;
@@ -67,7 +67,7 @@ function getProducts() {
 }
 
 function getCategory() {
-    fetch('http://localhost:8080/category/all')
+    fetch('https://hakimlivsdb.herokuapp.com/category/all')
     .then((response) => response.json())
     .then(function(data) {
         category = data;
