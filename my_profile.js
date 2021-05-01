@@ -6,16 +6,22 @@ const city = document.getElementById('cityCell');
 const zipcode = document.getElementById('zipcodeCell');
 
 const passwordForm = document.getElementById('passwordForm');
+const ordersForm = document.getElementById('ordersForm');
 const profileButtons = document.getElementById('profileButtons');
 const saveProfile = document.getElementById('saveProfile');
 const errorText = document.getElementById('errorText');
 const successText = document.getElementById('successText');
+
+let pr = document.getElementById("productRow");
+let products = [];
 
 let user;
 user = JSON.parse(localStorage.getItem('user'));
 
 checkIfLoggedIn();
 getUserInfo();
+getOrders();
+
 
 /**
  * Checks if user is logged in, if not the site redirects to index
@@ -85,6 +91,7 @@ function changePassword(){
     <button type="button" class="btn btn-outline-success float-end" onclick="savePassword()">Spara ändringar</button>
   </form>`;
 }
+
 /**
  * When you press the save password change button
  */
@@ -115,7 +122,7 @@ function savePassword(){
     // Saves user password in localStorage
     localStorage.setItem('user', JSON.stringify(user));
 
-    let url = 'https://hakimlivsdb.herokuapp.com/customer/update/' + user.id + '/' + user.password;
+    let url = 'https:/http://localhost:8080/customer/update/' + user.id + '/' + user.password;
 
     axios.patch(url)
     .then(function (response) {
@@ -172,5 +179,43 @@ function saveUserInfo(){
 
     getUserInfo();
     saveProfile.innerHTML = "";
+
+
 }
+
+
+
+
+function getOrders() {
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/customerOrders/' + user.id
+    fetch(url5)
+    .then((response) => response.json())
+    .then(function(data) {
+        products = data;
+        products.forEach(e => {
+            populateOrdersColumns(e);
+        });
+    })
+}
+
+
+
+
+function populateOrdersColumns(item) {
+    let divElement = document.createElement("div");
+    divElement.className = "col-md-4 pb-5";
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
+    pr.appendChild(divElement);
+}
+
+function sendOrderDetails(id) {
+
+    localStorage.setItem('orderID', JSON.stringify(id));
+    window.location.href = "orderdetails.html";
+
+}
+
+
+
+
 
