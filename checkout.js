@@ -109,7 +109,7 @@ function getOrderIdData(){
 
 function addNewOrdertoDB(){
 
-        let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id;
+        let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id  + '/' + getTotalPrice();
 
         axios.get(url2)
         .then(function (response) {
