@@ -39,23 +39,25 @@ function searchDB(searchBar) {
 			prodName = productPressed[Object.keys(productPressed)[0]];
 
 			if (prodName.toLowerCase().indexOf(searchBar.value.toLowerCase()) !== -1) {	
-				let opt = document.createElement("button");
+				let col = document.createElement("a");
 				let image = document.createElement("img");
 				let col1 = document.createElement("div");
 				let col2 = document.createElement("div");
+				col.className = "mybutton";
 				col1.className = "col-sm-6 p-0 m-0 d-flex align-items-start flex-column";
 				col2.className = "col-sm-6 p-0 m-0 d-flex flex-row-reverse";
 				prodImage = productPressed[Object.keys(productPressed)[1]];
 				image.className = "image";
 				image.src = prodImage;
+				console.log(prodName);
 				image.style.width = "40px";
+				col1.innerHTML=prodName;
 				image.style.height = "50px";
-				opt.setAttribute("onclick","insertValue(this)");
-				opt.innerHTML = prodName;
-				col1.appendChild(opt);
+				col.setAttribute("onclick",`goToProduct(${productPressed.id})`);
 				col2.appendChild(image);
-				selector.appendChild(col1);
-				selector.appendChild(col2);
+				selector.appendChild(col);
+				col.appendChild(col1);
+				col.appendChild(col2);
 				empty = false;
 			}
 		});
@@ -94,6 +96,14 @@ function insertValue(elem) {
 	console.log(prodID);
 	window.location.href = "product.html?id="+prodID;
 }
+// Event for button if the dropdown when clicked.
+function goToProduct(prodID) {
+	setProductID(prodID);
+	window.search.classList.remove("dropdown");
+	console.log(prodID);
+	window.location.href = "product.html?id="+prodID;
+}
+
 
 function getIdFromSearchbarItem(productName) {
 	prod.forEach(e => {
