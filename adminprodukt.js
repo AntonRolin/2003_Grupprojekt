@@ -201,10 +201,3 @@ function getProducts() {
         });
     })
 }
-
-
-
-
-
-
-
