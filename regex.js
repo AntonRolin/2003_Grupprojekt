@@ -34,3 +34,15 @@ function addressRegex(input){
       let regex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
       return regex.test(input);
   }
+
+  function onlyNumbersRegex(input){
+    let regex = /^(?=.{1,30}$)[a-zåäö]+\s[0-9]*$/i;
+    return regex.test(input);
+  }
+
+  function onlyimageUrlRegex(input){
+  let regex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+  return regex.test(input);
+}
+
+

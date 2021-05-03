@@ -12,23 +12,15 @@ const saveProfile = document.getElementById('saveProfile');
 const errorText = document.getElementById('errorText');
 const successText = document.getElementById('successText');
 
-let or = document.getElementById("orderRow");
 let pr = document.getElementById("productRow");
-let cu = document.getElementById("customerRow");
-let ca = document.getElementById("categoryRow");
 let products = [];
-let customer = [];
-let orders = [];
 
-let user;
-user = JSON.parse(localStorage.getItem('user'));
+let customerid
+customerid = JSON.parse(localStorage.getItem('customerID'));
 
 checkIfLoggedIn();
-getUserInfo();
+getCustomerFromApi();
 getOrders();
-getCustomers();
-getProducts();
-getCategory();
 
 
 /**
@@ -41,14 +33,14 @@ function checkIfLoggedIn(){
 /**
  * Updates table with the logged in users info from localStorage
  */
-function getUserInfo(){
+function getUserInfo(user1){
 
-    firstName.innerHTML = `${user.firstname}`;
-    lastName.innerHTML = `${user.lastname}`;
-    email.innerHTML = `${user.email}`;
-    shipping.innerHTML = `${user.address}`;
-    city.innerHTML = `${user.city}`;
-    zipcode.innerHTML = `${user.zipcode}`;
+    firstName.innerHTML = `${user1.firstname}`;
+    lastName.innerHTML = `${user1.lastname}`;
+    email.innerHTML = `${user1.email}`;
+    shipping.innerHTML = `${user1.address}`;
+    city.innerHTML = `${user1.city}`;
+    zipcode.innerHTML = `${user1.zipcode}`;
 }
 /**
  * When you press change user info button
@@ -194,121 +186,65 @@ function saveUserInfo(){
 
 
 
-function getOrders() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/all'
+function getOrders(user) {
+    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/customerOrders/' + user.id
     fetch(url5)
     .then((response) => response.json())
     .then(function(data) {
-        orders = data;
-        orders.forEach(e => {
+        products = data;
+        products.forEach(e => {
             populateOrdersColumns(e);
         });
     })
 }
 
-function getCategory() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/category/all'
-    fetch(url5)
-    .then((response) => response.json())
-    .then(function(data) {
-        orders = data;
-        orders.forEach(e => {
-            populateCategoryColumns(e);
-        });
-    })
-}
 
-function addProduct(){
-    window.location.href = "adminaddproduct.html";
-
-}
-
-function addCategory(){
-    window.location.href = "adminaddcategory.html";
-
-}
 
 
 function populateOrdersColumns(item) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-4 pb-5";
     divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
-    or.appendChild(divElement);
-}
-
-function populateCategoryColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendCategoryDetails(${item.id})">${item.name}</button></p><hr></div>`;
-    ca.appendChild(divElement);
+    pr.appendChild(divElement);
 }
 
 function sendOrderDetails(id) {
 
     localStorage.setItem('orderID', JSON.stringify(id));
-    window.location.href = "orderdetails.html";
-
-}
-
-function sendCategoryDetails(id){
-
-    localStorage.setItem('categoryID', JSON.stringify(id));
-    window.location.href = "admincategory.html?id="+id;
-}
-
-function sendCustomerDetails(id) {
-
-    localStorage.setItem('customerID', JSON.stringify(id));
-    window.location.href = "admincustomer.html";
-
-}
-
-function sendProductDetails(id) {
-
-    window.location.href = "adminprodukt.html?id="+id;
+    window.location.href = "orderdetailsadmin.html";
 
 }
 
 
-function getCustomers() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/customer/all'
-    fetch(url5)
-    .then((response) => response.json())
-    .then(function(data) {
-        customer = data;
-        customer.forEach(e => {
-            populateCustomerColumns(e);
-        });
+function getCustomerFromApi() {
+    fetch("https://hakimlivsdb.herokuapp.com/customer/get/" + customerid)
+      .then((res) => res.json())
+      .then((apiJsonData) => {
+        getUserInfo(apiJsonData);
+        getOrders(apiJsonData);
+        user = apiJsonData;
+      });
+  }
+
+  function deleteCustomer(){
+    let url = 'https://hakimlivsdb.herokuapp.com/customer/' + user.id;
+
+    axios.delete(url)
+    .then(function (response) {
+        console.log(response);
     })
-}
+    .catch(function (error) {
+        console.log(error);
+    });
 
-function populateCustomerColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendCustomerDetails(${item.id})">${item.id} ${item.firstname} ${item.lastname} </button></p><hr></div>`;
-    cu.appendChild(divElement);
-}
+    setTimeout(function(){
+        alert("Du har raderderat kund ")
+        window.location.href = "admin_profile.html";
+    
+    }, 500); 
 
+  }
 
-function getProducts() {
-    let url5 = 'https://hakimlivsdb.herokuapp.com/product/all'
-    fetch(url5)
-    .then((response) => response.json())
-    .then(function(data) {
-        product = data;
-        product.forEach(e => {
-            populateProductColumns(e);
-        });
-    })
-}
-
-
-function populateProductColumns(item) {
-    let divElement = document.createElement("div");
-    divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendProductDetails(${item.id})">${item.id} ${item.name}</button></p><hr></div>`;
-    pr.appendChild(divElement);
-}
 
 
 
