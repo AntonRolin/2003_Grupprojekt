@@ -33,7 +33,7 @@ function searchDB(searchBar) {
 		prod.forEach(e => {
 			let productPressed = {
 				name: e.name,
-				image: e.image,
+				image: e.imageURL,
 				id: e.id
 			}
 			prodName = productPressed[Object.keys(productPressed)[0]];
@@ -114,7 +114,7 @@ function getIdFromSearchbarItem(productName) {
 }
 
 function getProducts() {
-    fetch('productAPI.json')
+    fetch('https://hakimlivsdb.herokuapp.com/product/all')
     .then((response) => response.json())
     .then(function(data) {
         prod = data;
