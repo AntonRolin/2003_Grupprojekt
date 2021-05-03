@@ -42,35 +42,38 @@
     <div class="d-grid col-1 ms-5" style="margin-top: 20px; margin-bottom: 20px;">
         <a href="admin_profile.html" type="button" class="btn btn btn-outline-dark"><i class="bi bi-arrow-left"></i></a>
     </div>
-    
         <!-- Body -->
     <div class="container bg-white py-5" >
-        
         <div class="text-center text-danger" id="errorText"></div>
         <div class="text-center text-success" id="successText"></div>
+        <h1>Kundens profil</h1>
         <div class="row">
         <div class="col-6">
             <table class="table">
                 <tbody class="">
                     <tr class="">
-                        <td class="lead fw-bold">Produktnamn</td>
-                        <td class="lead" id="productNameCell"></td>
+                        <td class="lead fw-bold">Förnamn</td>
+                        <td class="lead" id="firstNameCell"></td>
                     </tr>
                     <tr class="">
-                        <td class="lead fw-bold">Pris</td>
-                        <td class="lead" id="priceCell"></td>
+                        <td class="lead fw-bold">Efternamn</td>
+                        <td class="lead" id="lastNameCell"></td>
                     </tr>
                     <tr class="">
-                        <td class="lead fw-bold">Beskrivning</td>
-                        <td class="lead" id="descriptionCell"></td>
+                        <td class="lead fw-bold">E-mail</td>
+                        <td class="lead" id="emailCell"></td>
                     </tr>
                     <tr class="">
-                        <td class="lead fw-bold">ImageURL</td>
-                        <td class="lead" id="imageURLCell"></td>
+                        <td class="lead fw-bold">Leveransadress</td>
+                        <td class="lead" id="shippingCell"></td>
                     </tr>
                     <tr class="">
-                        <td class="lead fw-bold">Kvantitet</td>
-                        <td class="lead" id="quantityCell"></td>
+                        <td class="lead fw-bold">Stad</td>
+                        <td class="lead" id="cityCell"></td>
+                    </tr>
+                    <tr class="">
+                        <td class="lead fw-bold">Postnummer</td>
+                        <td class="lead" id="zipcodeCell"></td>
                     </tr>
                 </tbody>
             </table>
@@ -78,11 +81,30 @@
                 
             </div>
         </div>
+            <div class="col-4" id="passwordForm">
+                
+            </div>
         </div>
         <div id="profileButtons" style="margin-bottom: 60px;">
         <button class="btn btn-outline-primary mt-3 me-2" onclick="changeUserInfo()">Redigera uppgifter</button>
-        <button class="btn btn-danger mt-3 me-2" onclick="removeProduct()">RADERA produkt</button>
+        <button class="btn btn-outline-secondary mt-3 me-2" onclick="changePassword()">Ändra lösenord</button>
+        <button class="btn btn-outline-danger mt-3 me-2" onclick="deleteCustomer()">RADERA kund</button>
     </div>
+ 
+        <h1>Beställningar</h1>
+
+        <div class="container d-flex py-4" >
+            
+    
+            
+    
+            
+            <div class="row" id="productRow">
+    
+            </div>
+        
+        
+        </div>
         
         
     </div>
@@ -126,6 +148,6 @@
     <script src="regex.js"></script>
     <script src="settings.js"></script>
     <script src="template.js"></script>
-    <script src="adminprodukt.js"></script>
+    <script src="admincustomer.js"></script>
 </body>
 </html>
