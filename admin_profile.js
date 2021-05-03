@@ -232,14 +232,14 @@ function addCategory(){
 function populateOrdersColumns(item) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success btn-lg" onclick="sendOrderDetails(${item.id})">${item.id}</button></p><hr></div>`;
     or.appendChild(divElement);
 }
 
 function populateCategoryColumns(item) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendCategoryDetails(${item.id})">${item.name}</button></p><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success btn-lg" onclick="sendCategoryDetails(${item.id})">${item.name}</button></p><hr></div>`;
     ca.appendChild(divElement);
 }
 
@@ -285,7 +285,7 @@ function getCustomers() {
 function populateCustomerColumns(item) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendCustomerDetails(${item.id})">${item.id} ${item.firstname} ${item.lastname} </button></p><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success btn-lg" onclick="sendCustomerDetails(${item.id})">${item.id} ${item.firstname} ${item.lastname} </button></p><hr></div>`;
     cu.appendChild(divElement);
 }
 
@@ -306,7 +306,7 @@ function getProducts() {
 function populateProductColumns(item) {
     let divElement = document.createElement("div");
     divElement.className = "col-md-4 pb-5";
-    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success" onclick="sendProductDetails(${item.id})">${item.id} ${item.name}</button></p><hr></div>`;
+    divElement.innerHTML = `<div class="my-3 ms-2 text-center"><p class="lead text-danger fs-2 fw-bold"><button type="button" id="${item.id}" class="buyButton btn btn-outline-success btn-lg" onclick="sendProductDetails(${item.id})">${item.id} ${item.name}</button></p><hr></div>`;
     pr.appendChild(divElement);
 }
 
