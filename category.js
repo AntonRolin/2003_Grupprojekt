@@ -73,7 +73,7 @@ let url = 'https://hakimlivsdb.herokuapp.com/product/get/productWcategory/' + fi
 
 function populateProductColumns(product) {
     let divElement = document.createElement("div");
-    divElement.className = "col-md-3 pb-5";
+    divElement.className = "col-3";
     divElement.innerHTML = `<div class="my-3 ms-2 text-center"><image class="productImage" src="${product.imageURL}" alt="Produktbild"> <p class="lead text-danger fs-2 fw-bold">${product.price}kr</p> <p class="fw-bold">${product.name}</p><button type="button" id="${product.name}" class="buyButton btn btn-outline-success" onclick="addToCart(${product.id})">Lägg i varukorg</button><hr></div>`;
     pr.appendChild(divElement);
 }
