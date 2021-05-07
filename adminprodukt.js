@@ -93,7 +93,7 @@ function saveProductInfo(){
    
 
      let url = 'https://hakimlivsdb.herokuapp.com/product/update/' + productClicked.id + '/' + productClicked.name + '/' + productClicked.price + '/' + productClicked.description + '/' + productClicked.quantity;
-     let url2 = 'https://hakimlivsdb.herokuapp.com/product/9/imageURL?value=' + productClicked.imageURL;
+     let url2 = 'https://hakimlivsdb.herokuapp.com/product/' + productClicked.id + '/imageURL?value=' + productClicked.imageURL;
 
      axios.patch(url)
      .then(function (response) {
