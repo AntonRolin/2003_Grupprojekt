@@ -1,7 +1,7 @@
 const loginBtn = document.getElementById('loginBtn');
 const responseMsg = document.getElementById('responseMessage');
 const url = 'https://hakimlivsdb.herokuapp.com/customer/all';
-const url1 = 'https://hadb2v2.herokuapp.com//login';
+const url1 = 'https://hadb2v2.herokuapp.com/login';
 let customers;
 let loggedInUser;
 
