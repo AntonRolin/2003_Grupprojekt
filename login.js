@@ -1,6 +1,7 @@
 const loginBtn = document.getElementById('loginBtn');
 const responseMsg = document.getElementById('responseMessage');
 const url = 'https://hakimlivsdb.herokuapp.com/customer/all';
+const url1 = 'https://hadb2v2.herokuapp.com//login';
 let customers;
 let loggedInUser;
 
@@ -19,33 +20,27 @@ function login(){
     let usernameBool = checkFieldIsEmpty(username);
     let passwordBool = checkFieldIsEmpty(password);
 
-    if(usernameBool){
-        if(passwordBool){
-            if(checkUserInfo(username.value, password.value)){
-                localStorage.setItem('user', JSON.stringify(loggedInUser));
-                responseMsg.className = "text-center text-success";
-                responseMsg.innerHTML = `Du är nu inloggad som ${loggedInUser.firstname} ${loggedInUser.lastname}`;
-            }
-            else{
-                responseMsg.className = "text-center text-danger";
-                responseMsg.innerHTML = "Kontot finns inte registrerat, försök igen";
-            }
-        }
-    }
+    basiclogin(username.value, password.value);
 }
 /**
  * Checks if the user is in the database
  */
-function checkUserInfo(username, password){
-    let isInDatabase = false;
-    customers.forEach(customer => {
-        if(customer.email == username && customer.password == password){
-            isInDatabase = true;
-            loggedInUser = customer;
-        }
-    });
-    return isInDatabase;
-}
+
+
+ async function basiclogin (username, password) {
+    response = await zlFetch.post(url1, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: {            
+        username: username,
+        password: password}
+      })
+      
+      const { token } = response.body
+  
+      localStorage.setItem('token', token)
+  
+      
+  }
 
 function checkFieldIsEmpty(field){
     if(field.value.length > 0){
