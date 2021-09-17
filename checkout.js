@@ -126,6 +126,26 @@ function addNewOrdertoDB(){
 }
 
 function addCartProductToDB(order12){
+    
+        var config = {
+        method: 'post',
+        url: 'https://localhost:8080/payment',
+        headers: { 
+          'amount': getTotalPrice(), 
+          'reference': order12,
+          'Content-Type': 'application/json', 
+          'accept': 'application/json'
+        }
+      };
+
+    axios(config)
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+    
     productsInCart.forEach(product => {
         let url2 = 'https://hakimlivsdb.herokuapp.com/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
 
