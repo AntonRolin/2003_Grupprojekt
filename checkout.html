@@ -15,6 +15,10 @@
               width: 4rem;
               height: 4rem;
           }
+          .error{
+            color: #D8000C;
+            background-color: #FFBABA;
+         }
       </style>
     <title>Kassa</title>
 </head>
@@ -94,9 +98,7 @@
         </form>
                 <div class="col mt-4">
                   <button class="btn btn-success btn-lg float-end" id="orderbtn" onclick="order()">Betala</button>
-                  <label for="PayError" class="form-label"></label>
-                  <input type="text" class="form-control" id="OrderError" aria-describedby2="paymentError">
-                  <div id="paymentError" class="form-text"></div>
+                  <span class="error" id="errorname"></span></p>
                 </div>
                 </div>
 
