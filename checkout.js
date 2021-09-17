@@ -11,6 +11,7 @@ const nameLabel = document.getElementById('accountName');
 const addressField = document.getElementById('inputAddress');
 const emptyCartMessage = document.getElementById('emptyCartMessage');
 const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
+const button = document.querySelector('orderbtn')
 
 //getLocalStorage();
 loadProducts();
@@ -85,10 +86,36 @@ function order(){
         addNewOrdertoDB();
         getOrderIdData();
 
-        setTimeout(function(){
-            window.location.href = 'success.html';
+        var config = {
+            method: 'post',
+            url: 'https://localhost:8080/payment',
+            headers: { 
+              'amount': getTotalPrice(), 
+              'reference': order12,
+              'Content-Type': 'application/json', 
+              'accept': 'application/json'
+            }
+          };
+    
+        axios(config)
+        .then(function (response) {
+            console.log(response);
+            setTimeout(function(){
+                window.location.href = 'success.html';
+    
+            }, 4500);
+        })
+        .catch(function (error) {
+        console.log(error);
 
-        }, 4500); 
+        button.disabled = false;
+
+        field.style.borderColor = "red";
+        document.getElementById(field.getAttribute('aria-describedby2')).innerHTML = "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
+        return false;
+        });
+
+ 
         
     }
 }
@@ -112,6 +139,8 @@ function getOrderIdData(){
      }, 100)
 }
 
+
+
 function addNewOrdertoDB(){
 
         let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id  + '/' + getTotalPrice();
@@ -126,26 +155,9 @@ function addNewOrdertoDB(){
 }
 
 function addCartProductToDB(order12){
-    
-        var config = {
-        method: 'post',
-        url: 'https://localhost:8080/payment',
-        headers: { 
-          'amount': getTotalPrice(), 
-          'reference': order12,
-          'Content-Type': 'application/json', 
-          'accept': 'application/json'
-        }
-      };
 
-    axios(config)
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    });
-    
+     
+
     productsInCart.forEach(product => {
         let url2 = 'https://hakimlivsdb.herokuapp.com/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
 
