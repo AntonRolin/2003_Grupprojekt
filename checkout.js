@@ -102,6 +102,7 @@ function order(){
             console.log(response);
             setTimeout(function(){
                 window.location.href = 'success.html';
+                document.getElementById('errorname').innerHTML="";
     
             }, 4500);
         })
@@ -111,7 +112,7 @@ function order(){
         button.disabled = false;
 
         field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby2')).innerHTML = "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
+        document.getElementById('errorname').innerHTML= "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
         return false;
         });
 
