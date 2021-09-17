@@ -1,6 +1,7 @@
 let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
 let userInCart = JSON.parse(localStorage.getItem('user'));
 let user;
+let orderIDtoPayment;
 
 
 
@@ -85,38 +86,7 @@ function order(){
     if(addressHasValue && userLoggedIn && !emptyCart){
         addNewOrdertoDB();
         getOrderIdData();
-
-        var config = {
-            method: 'post',
-            url: 'https://localhost:8080/payment',
-            headers: { 
-              'amount': getTotalPrice(), 
-              'reference': order12,
-              'Content-Type': 'application/json', 
-              'accept': 'application/json'
-            }
-          };
-    
-        axios(config)
-        .then(function (response) {
-            console.log(response);
-            setTimeout(function(){
-                window.location.href = 'success.html';
-                document.getElementById('errorname').innerHTML="";
-    
-            }, 4500);
-        })
-        .catch(function (error) {
-        console.log(error);
-
-        button.disabled = false;
-
-        field.style.borderColor = "red";
-        document.getElementById('errorname').innerHTML= "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
-        return false;
-        });
-
- 
+        sendPayment();
         
     }
 }
@@ -134,10 +104,43 @@ function getOrderIdData(){
               console.log("found: ", item)
               console.log("found id: ", item.id)
               this.addCartProductToDB(item.id);
+              orderIDtoPayment = item.id;
               
             })
           });
      }, 100)
+}
+
+function sendPayment(){
+    var config = {
+        method: 'post',
+        url: 'https://localhost:8080/payment',
+        headers: { 
+          'amount': getTotalPrice(), 
+          'reference': orderIDtoPayment,
+          'Content-Type': 'application/json', 
+          'accept': 'application/json'
+        }
+      };
+
+    axios(config)
+    .then(function (response) {
+        console.log(response);
+        setTimeout(function(){
+            window.location.href = 'success.html';
+            document.getElementById('errorname').innerHTML="";
+
+        }, 4500);
+    })
+    .catch(function (error) {
+    console.log(error);
+    button.disabled = false;
+
+    field.style.borderColor = "red";
+    document.getElementById('errorname').innerHTML= "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
+    return false;
+    });
+
 }
 
 
