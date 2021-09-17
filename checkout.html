@@ -1,198 +1,145 @@
-let productsInCart = JSON.parse(localStorage.getItem('cartProducts'));
-let userInCart = JSON.parse(localStorage.getItem('user'));
-let user;
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+      <style>
+          #checkoutTable img {
+              width: 4rem;
+              height: 4rem;
+          }
+      </style>
+    <title>Kassa</title>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <div>
+        <nav class="navbar border-bottom border-dark">
+            <div class="container px-5 mb-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="./index.html"><img src="images/LogoV3.png" class="img-rounded" alt="Cinque Terre" width="100%" height="100%"></a>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <div class="col-sm-12 bg-white">
+                                <p class="nav-info text-center" id="openTimes"></p>
+                                <p class="nav-info text-center" id="contactNumber"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-12" id="profileOrLogin"></div>
+                            <div class="col-sm-12"><Button type="button" class="btn-lg btn-danger ms-2" id="cartButton" onclick="cartButtonEvent()"><i class="bi bi-cart"></i> Varukorg</Button></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <br>
+                    </div>        
+                </div>  
+            </div>
+        </nav>
+    </div>
 
 
+    <div class="container">
+        <div class="row text-center my-4">
+            <h1 class="display-5">Kassa</h1>
+        </div>
+
+        <!-- table -->
+        <table class="table shadow">
+            <thead class="table">
+                <tr>
+                    <th scope="col">Produkt</th>
+                    <th scope="col"></th>
+                    <th scope="col">Pris</th>
+                    <th scope="col">Antal</th>
+                </tr>
+            </thead>
+            <tbody id="checkoutTable">
+            </tbody>
+            <tfoot class="table-danger">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><p class="float-end display-6 me-5" id="totalPrice"></p></td>
+            </tfoot>
+        </table>
+
+        <!-- user info -->
+        <div class="row mt-2">
+            <p id="emptyCartMessage" class="text-center text-danger"></p>
+            <div class="row">
+            <p id="userNotLoggedInMessage" class="text-center text-danger"></p>
+        </div>
+            <p class="">Inloggad som: <span class="text-uppercase ms-4 fs-5" id="accountName"><a type="button" class="btn btn-primary" href="login.html">Logga in</a></span></p>
+
+            <div class="row mb-5">
+                <hr>
+              <div class="col">
+                  
+        <form>    
+                <label for="inputAddress" class="form-label">Adress</label>
+                    <input type="text" class="form-control" id="inputAddress" aria-describedby="addressHelp">
+                <div id="addressHelp" class="form-text"></div>
+              </div> 
+        </form>
+                <div class="col mt-4">
+                  <button class="btn btn-success btn-lg float-end" id="orderbtn" onclick="order()">Betala</button>
+                  <label for="PayError" class="form-label"></label>
+                  <input type="text" class="form-control" id="OrderError" aria-describedby2="paymentError">
+                  <div id="paymentError" class="form-text"></div>
+                </div>
+                </div>
 
 
-const tbody = document.getElementById('checkoutTable');
-const totPriceLabel = document.getElementById('totalPrice');
-const nameLabel = document.getElementById('accountName');
-const addressField = document.getElementById('inputAddress');
-const emptyCartMessage = document.getElementById('emptyCartMessage');
-const userNotLoggedInMessage = document.getElementById('userNotLoggedInMessage');
-const button = document.querySelector('orderbtn')
+    </div>
+</div>
+<footer class="footer text-center mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="container px-5">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase pt-3">Om oss</h5>
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="aboutus.html" class="text-dark">Vår historia</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-dark">Medlemsvillkor</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-dark">Integritetspolicy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-1">
+        <hr>
+    © 2021 Copyright:
+        <p class="text-dark">Java X Kvalit</p>
+    </div>
+</footer>
 
-//getLocalStorage();
-loadProducts();
-
-getUser();
-loadUserInfo();
-
-
-
-
-function loadProducts(){
-
-    productsInCart.forEach(product => {
-          let tr =  createNode('tr');
-          let td1 =  createNode('td');
-          let td2 =  createNode('td');
-          let td3 =  createNode('td');
-          let td4 =  createNode('td');
-
-          //innerHTML
-            td1.innerHTML = product.name;
-            td1.setAttribute("class", "d-flex justify-content-center pt-5");
-            td2.innerHTML = `<img src="${product.imageURL}" alt="Produktbild" ">`;
-            td2.setAttribute("class", "justify-content-center");
-            td3.innerHTML = `<strong>${product.price}kr</strong>`;
-            td3.setAttribute("class", "justify-content-center pt-5");
-            td4.innerHTML = product.quantity;
-            td4.setAttribute("class", "justify-content-center pt-5");
-
-          append(tr, td1);
-          append(tr, td2);
-          append(tr, td3);
-          append(tr, td4);
-          append(tbody, tr);
-    });
-    totPriceLabel.innerHTML = `Totalt: ${getTotalPrice()}kr`;
-}
-
-function loadUserInfo(){
-    if(user.firstname != undefined){
-        nameLabel.innerHTML = `<strong>${user.firstname} ${user.lastname}</strong>`;
-        addressField.value = user.address;
-    }
-    else{
-        console.log('not logged in');
-    }
-}
-
-function getTotalPrice(){
-    let sum = 0;
-        for(let i = 0; i < productsInCart.length; i++){
-            sum += (productsInCart[i].price)*(productsInCart[i].quantity);
-        }
-    return Math.round(sum);
-}
-
-function order(){
-    let addressHasValue = checkInputEmptyField(addressField);
-    let emptyCart = false;
-    let userLoggedIn = true;
-    if(productsInCart.length == 0){
-        emptyCartMessage.innerHTML = 'Du kan inte beställa utan produkter';
-        emptyCart = true;
-    }
-    if(user.firstname == undefined){
-        userNotLoggedInMessage.innerHTML = 'Du måste vara inloggad för att beställa';
-        console.log('user = null')
-        userLoggedIn = false;
-    }
-
-    if(addressHasValue && userLoggedIn && !emptyCart){
-        addNewOrdertoDB();
-        getOrderIdData();
-
-        var config = {
-            method: 'post',
-            url: 'https://localhost:8080/payment',
-            headers: { 
-              'amount': getTotalPrice(), 
-              'reference': order12,
-              'Content-Type': 'application/json', 
-              'accept': 'application/json'
-            }
-          };
-    
-        axios(config)
-        .then(function (response) {
-            console.log(response);
-            setTimeout(function(){
-                window.location.href = 'success.html';
-    
-            }, 4500);
-        })
-        .catch(function (error) {
-        console.log(error);
-
-        button.disabled = false;
-
-        field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby2')).innerHTML = "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
-        return false;
-        });
-
- 
-        
-    }
-}
-
-
-function getOrderIdData(){
-
-    let url5 = 'https://hakimlivsdb.herokuapp.com/orders/get/OrderID/' + user.id
-    
-    setTimeout(() => {
-        axios.get(url5)
-        .then(response => {
-            this.data = response.data;
-            this.data.forEach((item) => {
-              console.log("found: ", item)
-              console.log("found id: ", item.id)
-              this.addCartProductToDB(item.id);
-              
-            })
-          });
-     }, 100)
-}
-
-
-
-function addNewOrdertoDB(){
-
-        let url2 = 'https://hakimlivsdb.herokuapp.com/orders/add/' + user.address + '/' + user.id  + '/' + getTotalPrice();
-
-        axios.get(url2)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
-function addCartProductToDB(order12){
-
-     
-
-    productsInCart.forEach(product => {
-        let url2 = 'https://hakimlivsdb.herokuapp.com/order/row/add/' + order12 + '/' + product.id + '/' + product.quantity;
-
-        axios.get(url2)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    
-    });
-            localStorage.setItem('cartProducts', JSON.stringify([]));
-            
-
-            
-}
-
-function checkInputEmptyField(field){
-    if(addressRegex(field.value)){
-        field.style.borderColor = "green";
-        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "";
-        return true;
-    }
-    else{
-        field.style.borderColor = "red";
-        document.getElementById(field.getAttribute('aria-describedby')).innerHTML = "Ogiltigt format på adress";
-        return false;
-    }
-}
-
-function getUser(){
-    //TESTKOD
-    //let testUser = { firstName: "Hakim", lastName: "Livs", address: "Nackademin 100"}
-    //localStorage.setItem('user', JSON.stringify(testUser));
-
-    user = JSON.parse(localStorage.getItem('user'));
-} 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="regex.js"></script>
+    <script src="settings.js"></script>
+    <script src="helpfunctions.js"></script>
+    <script src="template.js"></script>
+    <script src="ProduktAPI.json" type="application/JSON"></script>
+    <script src="checkout.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
