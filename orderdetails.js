@@ -83,7 +83,7 @@ function populateOrderSum(sum) {
 
      fetch(url)
         .then(response => response.text())
-            .then(data => this.populatePaymentStatus(data);
+            .then(data => this.populatePaymentStatus(data));
           
        
  }
