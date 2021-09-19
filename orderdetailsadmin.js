@@ -45,6 +45,7 @@ function populateCategoryColumns() {
     cr.appendChild(divElement);
 
     getOrderSum(categoryLocal);
+    getPaymentStatus(categoryLocal);
 }
 
 function getOrderSum(ordersID){
@@ -75,3 +76,26 @@ function populateOrderSum(sum) {
      sr.appendChild(divElement);
  
  }
+
+function getPaymentStatus(ordersID){
+
+    let url = 'https://hakimlivsdb.herokuapp.com/payment/get/status/' + ordersID
+
+    axios.get(url)
+        .then(response => {
+            this.data = response.data;
+            this.data.forEach((item) => {
+                console.log("found: ", item)
+                this.populatePaymentStatus(item);
+
+            })
+        });
+}
+
+function populatePaymentStatus(status){
+    var divElement = document.createElement("div");
+    divElement.className = "col-sm-12 text-center";
+    divElement.innerHTML = '<h1 style = "color:#0B3C49; background: white; padding: 25px; font-size: 45px; font-weight: bold;">Status: '+status+'</h1>';
+
+    sr.appendChild(divElement);
+}
