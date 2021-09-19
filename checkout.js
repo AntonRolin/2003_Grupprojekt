@@ -86,13 +86,9 @@ function order(){
     if(addressHasValue && userLoggedIn && !emptyCart){
         addNewOrdertoDB();
         getOrderIdData();
-        sendPayment();
+        
 
-        setTimeout(function(){
-            //window.location.href = 'success.html';
-            document.getElementById('errorname').innerHTML="";
-
-        }, 4500);
+  
         
     }
 }
@@ -110,32 +106,46 @@ function getOrderIdData(){
               console.log("found: ", item)
               console.log("found id: ", item.id)
               this.addCartProductToDB(item.id);
-              orderIDtoPayment = item.id;
-              
+              sendPayment(item.id);
             })
           });
      }, 100)
 }
 
-function sendPayment(){
-    var config = {
-        method: 'post',
-        url: 'https://payment-gatewaay.herokuapp.com/payment',
-        headers: { 
-          'amount': getTotalPrice(), 
-          'reference': orderIDtoPayment,
-          'Content-Type': 'application/json', 
-          'accept': '/'
-        }
-      };
+function sendPayment(orderIDtoPayment){
+    
+    var url = "https://payment-gatewaay.herokuapp.com/payment";
 
-    axios(config)
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    });
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url);
+    
+    xhr.setRequestHeader("accept", "*/*");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    
+    var status = xhr.status;
+
+    xhr.onreadystatechange = function () {
+       if (status === 0 || (status >= 200 && status < 400)) {
+          console.log(xhr.status);
+          console.log(xhr.responseText);
+       }
+    else {
+        document.getElementById('errorname').innerHTML="Betalningen kunde inte genomföras. Kontakta kortutgivare eller bank för fler alternativ!";
+    }};
+    
+       document.getElementById("orderbtn").disabled = true;
+       var data = JSON.stringify({"amount": getTotalPrice(), "reference": orderIDtoPayment});
+      
+
+       
+    xhr.send(data);
+
+    setTimeout(function(){
+        window.location.href = 'success.html';
+        document.getElementById('errorname').innerHTML="";
+
+    }, 4500);
+    
 
 }
 
