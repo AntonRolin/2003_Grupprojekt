@@ -89,7 +89,7 @@ function order(){
         sendPayment();
 
         setTimeout(function(){
-            window.location.href = 'success.html';
+            //window.location.href = 'success.html';
             document.getElementById('errorname').innerHTML="";
 
         }, 4500);
