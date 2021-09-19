@@ -83,7 +83,7 @@ function populateOrderSum(sum) {
 
      axios.get(url)
          .then(response => {               
-             this.populatePaymentStatus(response);
+             this.populatePaymentStatus(response.toString());
 
          });
  }
