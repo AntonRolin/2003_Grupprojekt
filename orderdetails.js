@@ -82,7 +82,7 @@ function populateOrderSum(sum) {
     let url = 'https://hakimlivsdb.herokuapp.com/payment/get/status/' + ordersID
 
      fetch(url)
-        .then((response) => this.populatePaymentStatus(response));
+        .then((response) => this.populatePaymentStatus(response.body));
           
        
  }
