@@ -87,7 +87,7 @@ function populateOrderSum(sum) {
              console.log("Response:"+response);
              console.log("Body:"+response.body);
              console.log("toString:"+response.toString());
-             console.log("Value:"+response.value);
+             console.log("Text:"+response.text);
          });
  }
 
