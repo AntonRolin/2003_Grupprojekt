@@ -87,6 +87,12 @@ function order(){
         addNewOrdertoDB();
         getOrderIdData();
         sendPayment();
+
+        setTimeout(function(){
+            window.location.href = 'success.html';
+            document.getElementById('errorname').innerHTML="";
+
+        }, 4500);
         
     }
 }
@@ -114,31 +120,21 @@ function getOrderIdData(){
 function sendPayment(){
     var config = {
         method: 'post',
-        url: 'https://localhost:8080/payment',
+        url: 'https://payment-gatewaay.herokuapp.com/payment',
         headers: { 
           'amount': getTotalPrice(), 
           'reference': orderIDtoPayment,
           'Content-Type': 'application/json', 
-          'accept': 'application/json'
+          'accept': '/'
         }
       };
 
     axios(config)
     .then(function (response) {
         console.log(response);
-        setTimeout(function(){
-            window.location.href = 'success.html';
-            document.getElementById('errorname').innerHTML="";
-
-        }, 4500);
     })
     .catch(function (error) {
     console.log(error);
-    button.disabled = false;
-
-    field.style.borderColor = "red";
-    document.getElementById('errorname').innerHTML= "Betalningen kunde inte genomföras, vänligen uppdatera hemsidan och prova igen!";
-    return false;
     });
 
 }
