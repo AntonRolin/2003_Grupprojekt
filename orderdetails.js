@@ -82,13 +82,9 @@ function populateOrderSum(sum) {
     let url = 'https://hakimlivsdb.herokuapp.com/payment/get/status/' + ordersID
 
      axios.get(url)
-         .then(response => {
-             this.data = response.data;
-             this.data.forEach((item) => {
-                 console.log("found: ", item)
-                 this.populatePaymentStatus(item);
+         .then(response => {               
+             this.populatePaymentStatus(response);
 
-             })
          });
  }
 
