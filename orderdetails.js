@@ -83,15 +83,15 @@ function populateOrderSum(sum) {
 
      axios.get(url)
          .then(response => {               
-             this.populatePaymentStatus(response.status);
+             this.populatePaymentStatus(response.body);
 
          });
  }
 
- function populatePaymentStatus(status){
+ function populatePaymentStatus(paymentStatus){
      var divElement = document.createElement("div");
      divElement.className = "col-sm-12 text-center";
-     divElement.innerHTML = '<h1 style = "color:#0B3C49; background: white; padding: 25px; font-size: 45px; font-weight: bold;">Status: '+status+'</h1>';
+     divElement.innerHTML = '<h1 style = "color:#0B3C49; background: white; padding: 25px; font-size: 45px; font-weight: bold;">Status: '+paymentStatus+'</h1>';
 
      sr.appendChild(divElement);
  }
