@@ -86,6 +86,8 @@ function populateOrderSum(sum) {
              this.populatePaymentStatus(response.body);
              console.log("Response:"+response);
              console.log("Body:"+response.body);
+             console.log("toString:"+response.toString());
+             console.log("Value:"+response.value);
          });
  }
 
